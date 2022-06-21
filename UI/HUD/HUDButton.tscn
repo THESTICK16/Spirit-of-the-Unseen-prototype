@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Assets/circle.png" type="Texture" id=1]
 [ext_resource path="res://UI/HUD/HUDButton.gd" type="Script" id=2]
-[ext_resource path="res://Assets/haxorville-main/regular/haxorville.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://Assets/Fonts/haxorville-main/regular/haxorville.ttf" type="DynamicFontData" id=3]
 
 [sub_resource type="DynamicFont" id=1]
 size = 12

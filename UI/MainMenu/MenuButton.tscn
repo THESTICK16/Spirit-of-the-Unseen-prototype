@@ -1,0 +1,19 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Assets/Fonts/Inconsolata/Inscolata_50_(Menu_Button).tres" type="DynamicFont" id=1]
+
+[node name="MenuButton" type="Button"]
+margin_right = 307.0
+margin_bottom = 300.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_colors/font_color_focus = Color( 0.85098, 0.839216, 0.0705882, 1 )
+custom_colors/font_color = Color( 0.815686, 0.537255, 0.0470588, 1 )
+custom_colors/font_color_hover = Color( 0.85098, 0.839216, 0.0705882, 1 )
+custom_colors/font_color_pressed = Color( 1, 1, 1, 1 )
+custom_fonts/font = ExtResource( 1 )
+text = "Menu Option"
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
