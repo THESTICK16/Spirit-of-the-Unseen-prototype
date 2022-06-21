@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Assets/key.png" type="Texture" id=1]
+[ext_resource path="res://Refills/StatRefill.tscn" type="PackedScene" id=2]
+
+[node name="KeyStatRefill" instance=ExtResource( 2 )]
+refill_stat_name = "dungeon_keys"
+
+[node name="Sprite" parent="." index="1"]
+texture = ExtResource( 1 )

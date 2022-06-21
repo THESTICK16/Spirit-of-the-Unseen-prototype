@@ -1,0 +1,26 @@
+{
+    "Arrow": {
+      "0": {
+        "speaker_name": "",
+        "text": "You found a Bow and Arrows! Perfect for striking far away objects! Hold the button down to aim and release it to fire"
+      }
+    },
+    "Boomerang": {
+      "0": {
+        "speaker_name": "",
+        "text": "You found a boomerang! Use its curve and stunning power to your advantage!"
+      }
+    },
+    "Sword": {
+      "0": {
+        "speaker_name": "",
+        "text": "You got a sword! It may be basic, but its effective at close range. Equip it to the face buttons and swing away!"
+      }
+    },
+    "SpiritBomb": {
+      "0": {
+        "speaker_name": "",
+        "text": "You acquired a new Spirit Ability, the Spirit Bomb! This powerful explosive can ignore physical barriers! Hold the button down to extend its distance"
+      }
+    }
+}

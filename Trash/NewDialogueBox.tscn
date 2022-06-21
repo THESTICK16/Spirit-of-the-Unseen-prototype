@@ -1,0 +1,148 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://UI/Dialogue+/DialogueBox.gd" type="Script" id=1]
+[ext_resource path="res://UI/Dialogue+/TextBox.tscn" type="PackedScene" id=2]
+
+[sub_resource type="Animation" id=1]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 976, 37.3159 ) ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "idle"
+length = 0.7
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 976, 36.28 ), Vector2( 976, 37.3159 ) ]
+}
+
+[node name="DialogueBox" type="CanvasLayer"]
+pause_mode = 2
+script = ExtResource( 1 )
+
+[node name="OuterMargin" type="MarginContainer" parent="."]
+pause_mode = 2
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -512.0
+margin_top = -322.0
+margin_right = 512.0
+margin_bottom = -268.0
+rect_min_size = Vector2( 1024, 44 )
+rect_scale = Vector2( 1, 5.92 )
+custom_constants/margin_right = 12
+custom_constants/margin_top = 2
+custom_constants/margin_left = 12
+custom_constants/margin_bottom = 2
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="OuterMargin"]
+margin_left = 12.0
+margin_top = 2.0
+margin_right = 1012.0
+margin_bottom = 52.0
+rect_min_size = Vector2( 0, 40 )
+custom_constants/separation = 0
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NameTextBox" type="Label" parent="OuterMargin/VBoxContainer"]
+margin_right = 1000.0
+margin_bottom = 14.0
+rect_min_size = Vector2( 1000, 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="OuterMargin/VBoxContainer/NameTextBox"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_min_size = Vector2( 0, 5 )
+color = Color( 0.266667, 0.207843, 0.607843, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DialogueTextBox" type="Label" parent="OuterMargin/VBoxContainer"]
+margin_top = 14.0
+margin_right = 1000.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 1000, 26 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect2" type="ColorRect" parent="OuterMargin/VBoxContainer/DialogueTextBox"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color( 0.247059, 0.184314, 0.45098, 0.666667 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ContinueIndicator" type="Polygon2D" parent="OuterMargin/VBoxContainer/DialogueTextBox/ColorRect2"]
+position = Vector2( 976, 33 )
+scale = Vector2( 1.35714, 1.75 )
+color = Color( 0.00392157, 0.0941176, 0.054902, 0.392157 )
+polygon = PoolVector2Array( 0, 0, 1, -0.168915, 13, -0.168915, 14, 0, 11, 0.844597, 7, 1.18243, 3, 0.844597 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="OuterMargin/VBoxContainer/DialogueTextBox/ColorRect2/ContinueIndicator"]
+autoplay = "idle"
+anims/RESET = SubResource( 1 )
+anims/idle = SubResource( 2 )
+
+[node name="Tween" type="Tween" parent="OuterMargin"]
+
+[node name="NameTextBox" parent="." instance=ExtResource( 2 )]
+visible = false
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 12.0
+margin_top = 350.84
+margin_right = 1012.0
+margin_bottom = 356.84
+rect_min_size = Vector2( 1000, 6 )
+text = "
+"
+
+[node name="DialogueTextBox" parent="." instance=ExtResource( 2 )]
+visible = false
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 12.0
+margin_top = 350.84
+margin_right = 1012.0
+margin_bottom = 385.84
+rect_min_size = Vector2( 1000, 35 )
+size_flags_horizontal = 2
+size_flags_vertical = 2

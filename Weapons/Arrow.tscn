@@ -1,0 +1,59 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://CollisionBoxes/HitBox.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Weapons/Arrow.gd" type="Script" id=3]
+[ext_resource path="res://Assets/arrow.png" type="Texture" id=4]
+
+[sub_resource type="SpriteFrames" id=3]
+animations = [ {
+"frames": [ ExtResource( 4 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 4 ), ExtResource( 4 ), ExtResource( 4 ), ExtResource( 4 ), ExtResource( 4 ) ],
+"loop": false,
+"name": "stuck",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 2, 30.5 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 2, 11.5 )
+
+[node name="Arrow" type="KinematicBody2D"]
+z_index = -1
+collision_layer = 0
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_group_": true
+}
+weapon_name = "Arrow"
+weapon_class = "Ranged"
+damage = 25.0
+speed = 500
+knockback = 100
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+scale = Vector2( 0.5, 0.5 )
+frames = SubResource( 3 )
+flip_v = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( -1, 1.5 )
+shape = SubResource( 1 )
+
+[node name="HitBox" parent="." instance=ExtResource( 1 )]
+collision_mask = 12
+damage = 25
+knockback = 50
+
+[node name="CollisionShape2D" parent="HitBox" index="0"]
+position = Vector2( -1, 20.5 )
+shape = SubResource( 2 )
+
+[connection signal="animation_finished" from="AnimatedSprite" to="." method="_on_AnimatedSprite_animation_finished"]
+
+[editable path="HitBox"]

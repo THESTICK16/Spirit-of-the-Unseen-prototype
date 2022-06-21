@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Trash/PathFollowBoomerang.tscn" type="PackedScene" id=1]
+
+[sub_resource type="Curve2D" id=2]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 0, 1, -144.645, -0.463374, 144.645, 0.463374, 250, -93.7938, 0, 0, 0, 0, 499, 20.9691 )
+}
+
+[node name="BoomerangPath" type="Path2D"]
+position = Vector2( 400, 200 )
+scale = Vector2( 1, 1.05435 )
+curve = SubResource( 2 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="PathFollow2D" type="PathFollow2D" parent="."]
+position = Vector2( 0, 1 )
+rotate = false
+cubic_interp = false
+
+[node name="PathFollowBoomerang" parent="PathFollow2D" instance=ExtResource( 1 )]

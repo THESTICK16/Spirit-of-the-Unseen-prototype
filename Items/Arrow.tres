@@ -1,0 +1,15 @@
+[gd_resource type="Resource" load_steps=4 format=2]
+
+[ext_resource path="res://Items/ConsumableItem.gd" type="Script" id=1]
+[ext_resource path="res://Assets/BowIcon.png" type="Texture" id=2]
+[ext_resource path="res://Weapons/Arrow.tscn" type="PackedScene" id=3]
+
+[resource]
+script = ExtResource( 1 )
+name = "Arrow"
+filepath = "res://Weapons/Arrow.tscn"
+scene = ExtResource( 3 )
+texture = ExtResource( 2 )
+player_has_item = true
+acquisition_message = ""
+max_storage = 25

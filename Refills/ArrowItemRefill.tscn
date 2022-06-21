@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Refills/ConsumableItemRefill.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Assets/arrow.png" type="Texture" id=2]
+[ext_resource path="res://Items/Arrow.tres" type="Resource" id=3]
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 2.0
+height = 28.0
+
+[node name="ArrowItemRefill" instance=ExtResource( 1 )]
+item_resource = ExtResource( 3 )
+refill_amount = 5
+
+[node name="CollisionShape2D" parent="." index="0"]
+shape = SubResource( 1 )
+
+[node name="Sprite" parent="." index="1"]
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 2 )

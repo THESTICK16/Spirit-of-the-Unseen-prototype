@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://CollisionBoxes/HurtBox.tscn" type="PackedScene" id=1]
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 10.0499
+
+[node name="ItemContainer" type="KinematicBody2D"]
+collision_mask = 0
+
+[node name="Sprite" type="Sprite" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 2 )
+
+[node name="HurtBox" parent="." instance=ExtResource( 1 )]
+collision_layer = 512
+
+[editable path="HurtBox"]

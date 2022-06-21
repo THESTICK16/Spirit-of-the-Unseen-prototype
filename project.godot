@@ -1,0 +1,273 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=4
+
+_global_script_classes=[ {
+"base": "Node",
+"class": "Calculations",
+"language": "GDScript",
+"path": "res://StaticScripts/Calculations.gd"
+}, {
+"base": "Item",
+"class": "ConsumableItem",
+"language": "GDScript",
+"path": "res://Items/ConsumableItem.gd"
+}, {
+"base": "Node",
+"class": "ControllerButtons",
+"language": "GDScript",
+"path": "res://StaticScripts/ControllerButtons.gd"
+}, {
+"base": "KinematicBody2D",
+"class": "Creature",
+"language": "GDScript",
+"path": "res://Creatures/Creature.gd"
+}, {
+"base": "Creature",
+"class": "Enemy",
+"language": "GDScript",
+"path": "res://Creatures/Enemies/Enemy.gd"
+}, {
+"base": "Panel",
+"class": "HUDButton",
+"language": "GDScript",
+"path": "res://UI/HUD/HUDButton.gd"
+}, {
+"base": "Node",
+"class": "Interactables",
+"language": "GDScript",
+"path": "res://StaticScripts/Interactables.gd"
+}, {
+"base": "CanvasLayer",
+"class": "Inventory",
+"language": "GDScript",
+"path": "res://UI/Inventory/Inventory.gd"
+}, {
+"base": "Panel",
+"class": "InventoryItem",
+"language": "GDScript",
+"path": "res://UI/Inventory/InventoryItem.gd"
+}, {
+"base": "Resource",
+"class": "Item",
+"language": "GDScript",
+"path": "res://Items/Item.gd"
+}, {
+"base": "Node",
+"class": "JSONFilePaths",
+"language": "GDScript",
+"path": "res://Dialogue JSONs/JSONFilePaths.gd"
+}, {
+"base": "KinematicBody2D",
+"class": "KinematicWeapon",
+"language": "GDScript",
+"path": "res://Weapons/KinematicWeapon.gd"
+}, {
+"base": "Creature",
+"class": "NPC",
+"language": "GDScript",
+"path": "res://Creatures/NPCs/NPC.gd"
+}, {
+"base": "Node2D",
+"class": "Node2DWeapon",
+"language": "GDScript",
+"path": "res://Weapons/Node2DWeapon.gd"
+}, {
+"base": "Creature",
+"class": "Player",
+"language": "GDScript",
+"path": "res://TestResources/State Machine Test Player/StateMchnTestPlayer.gd"
+}, {
+"base": "State",
+"class": "PlayerState",
+"language": "GDScript",
+"path": "res://StateMachine Abstracts + Interfaces/PlayerState.gd"
+}, {
+"base": "RigidBody2D",
+"class": "RigidWeapon",
+"language": "GDScript",
+"path": "res://Weapons/RigidWeapon.gd"
+}, {
+"base": "Item",
+"class": "SpiritItem",
+"language": "GDScript",
+"path": "res://Items/SpiritItem.gd"
+}, {
+"base": "Node",
+"class": "State",
+"language": "GDScript",
+"path": "res://StateMachine Abstracts + Interfaces/State.gd"
+}, {
+"base": "Node",
+"class": "StateMachine",
+"language": "GDScript",
+"path": "res://StateMachine Abstracts + Interfaces/StateMachine.gd"
+}, {
+"base": "Resource",
+"class": "Weapon",
+"language": "GDScript",
+"path": "res://Weapons/Weapon.gd"
+} ]
+_global_script_class_icons={
+"Calculations": "",
+"ConsumableItem": "",
+"ControllerButtons": "",
+"Creature": "",
+"Enemy": "",
+"HUDButton": "",
+"Interactables": "",
+"Inventory": "",
+"InventoryItem": "",
+"Item": "",
+"JSONFilePaths": "",
+"KinematicWeapon": "",
+"NPC": "",
+"Node2DWeapon": "",
+"Player": "",
+"PlayerState": "",
+"RigidWeapon": "",
+"SpiritItem": "",
+"State": "",
+"StateMachine": "",
+"Weapon": ""
+}
+
+[application]
+
+config/name="Spirit of the Unseen Prototype"
+run/main_scene="res://TestResources/TestRoom.tscn"
+config/icon="res://icon.png"
+
+[autoload]
+
+PlayerStats="*res://Globals/PlayerStats.gd"
+Equipment="*res://Globals/Equipment.gd"
+EquippedItems="*res://Globals/EquippedItems.gd"
+PauseController="*res://Globals/PauseController.gd"
+DialogueLoader="*res://Globals/DialogueLoader.gd"
+
+[global]
+
+2d=false
+
+[importer_defaults]
+
+texture={
+"compress/bptc_ldr": 0,
+"compress/hdr_mode": 0,
+"compress/lossy_quality": 0.7,
+"compress/mode": 0,
+"compress/normal_map": 0,
+"detect_3d": false,
+"flags/anisotropic": false,
+"flags/filter": false,
+"flags/mipmaps": false,
+"flags/repeat": 0,
+"flags/srgb": 2,
+"process/HDR_as_SRGB": false,
+"process/fix_alpha_border": true,
+"process/invert_color": false,
+"process/normal_map_invert_y": false,
+"process/premult_alpha": false,
+"size_limit": 0,
+"stream": false,
+"svg/scale": 1.0
+}
+
+[input]
+
+ui_left={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777231,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+, Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":0,"button_index":14,"pressure":0.0,"pressed":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":65,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+ui_right={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777233,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+, Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":0,"button_index":15,"pressure":0.0,"pressed":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":68,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+ui_up={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777232,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+, Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":0,"button_index":12,"pressure":0.0,"pressed":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":87,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+ui_down={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777234,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+, Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":0,"button_index":13,"pressure":0.0,"pressed":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":83,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+a={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":76,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+b={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":75,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+x={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":80,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+y={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":79,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+toggle_eyes={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777237,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+pause={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777217,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+face_button={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":76,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":75,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":80,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":79,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+
+[layer_names]
+
+2d_physics/layer_1="World"
+2d_physics/layer_2="Player"
+2d_physics/layer_3="PlayerHurtbox"
+2d_physics/layer_4="EnemyHurtbox"
+2d_physics/layer_5="Enemy"
+2d_physics/layer_6="ExplosionHurtbox"
+2d_physics/layer_7="SoftCollisionBox"
+2d_physics/layer_8="Interactable"
+2d_physics/layer_9="NPC"
+2d_physics/layer_10="Breakable"
+2d_physics/layer_11="Refill"
+2d_physics/layer_12="WeaponHurtbox"
+
+[physics]
+
+common/enable_pause_aware_picking=true
+
+[rendering]
+
+environment/default_environment="res://default_env.tres"

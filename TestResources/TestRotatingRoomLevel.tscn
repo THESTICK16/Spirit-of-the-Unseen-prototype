@@ -1,0 +1,42 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://WorldObjects/RotatingRoom.tscn" type="PackedScene" id=1]
+[ext_resource path="res://WorldObjects/Switches/RotatingRoomSwitch.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Creatures/Player/SingletonPlayer.tscn" type="PackedScene" id=3]
+[ext_resource path="res://ItemContainers/Chest.tscn" type="PackedScene" id=4]
+[ext_resource path="res://WorldObjects/Door.tscn" type="PackedScene" id=5]
+
+[node name="TestRotatingRoomLevel" type="Node2D"]
+
+[node name="RotatingRoom" parent="." instance=ExtResource( 1 )]
+position = Vector2( 320, 320 )
+tile_data = PoolIntArray( -262149, 0, 0, -262148, 0, 0, -262147, 0, 0, -262146, 0, 0, -327680, 0, 0, -327679, 0, 0, -327677, 0, 0, -327676, 0, 0, -196613, 0, 0, -196611, 0, 0, -262141, 0, 0, -262140, 0, 0, -131077, 0, 0, -131076, 0, 0, -131075, 0, 0, -131068, 0, 0, -5, 0, 0, -4, 0, 0, -3, 0, 0, -2, 0, 0, -1, 0, 0, -65536, 0, 0, -65535, 0, 0, -65534, 0, 0, 4, 0, 0, 131070, 0, 0, 196603, 0, 0, 196605, 0, 0, 196606, 0, 0, 131074, 0, 0, 131076, 0, 0, 262139, 0, 0, 262141, 0, 0, 196610, 0, 0, 327675, 0, 0, 327677, 0, 0, 327678, 0, 0, 327679, 0, 0, 262145, 0, 0, 262146, 0, 0, 262147, 0, 0, 262148, 0, 0 )
+
+[node name="Chest" parent="RotatingRoom" instance=ExtResource( 4 )]
+position = Vector2( 97, -232 )
+
+[node name="RotatingRoomSwitch" parent="." instance=ExtResource( 2 )]
+position = Vector2( 808, 143 )
+
+[node name="SingletonPlayer" parent="." instance=ExtResource( 3 )]
+position = Vector2( 843, 365 )
+
+[node name="Door" parent="." instance=ExtResource( 5 )]
+position = Vector2( 283, 33 )
+change_position_door = true
+next_position = Vector2( -10, -10 )
+
+[node name="Door2" parent="." instance=ExtResource( 5 )]
+position = Vector2( 31, 348 )
+change_position_door = true
+next_position = Vector2( -25, 300 )
+
+[node name="Door3" parent="." instance=ExtResource( 5 )]
+position = Vector2( 356, 612 )
+change_position_door = true
+next_position = Vector2( 400, 700 )
+
+[node name="Door4" parent="." instance=ExtResource( 5 )]
+position = Vector2( 609, 289 )
+change_position_door = true
+next_position = Vector2( 700, 300 )

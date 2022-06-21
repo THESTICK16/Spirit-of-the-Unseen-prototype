@@ -1,0 +1,65 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://WorldObjects/Switches/Switch.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Assets/RotatingSwitch.png" type="Texture" id=2]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 32.0156
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 36.0
+
+[sub_resource type="Animation" id=3]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "rotate"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1, 1.5, 2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 90.0, 180.0, 270.0, 360.0 ]
+}
+
+[node name="RotatingRoomSwitch" instance=ExtResource( 1 )]
+group_to_call = "RotatingRooms"
+
+[node name="Sprite" parent="." index="0"]
+position = Vector2( 4, 2 )
+scale = Vector2( 0.4, 0.4 )
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" parent="." index="1"]
+visible = false
+shape = SubResource( 1 )
+
+[node name="HurtBox" parent="." index="2"]
+visible = false
+
+[node name="CollisionShape2D" parent="HurtBox" index="0"]
+shape = SubResource( 2 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="3"]
+anims/RESET = SubResource( 3 )
+anims/rotate = SubResource( 4 )
+
+[editable path="HurtBox"]

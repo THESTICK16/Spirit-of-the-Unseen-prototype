@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Interface + Abstract Nodes/UnseenEffect.gd" type="Script" id=1]
+
+[node name="UnseenEffect" type="Node" groups=["Unseen"]]
+script = ExtResource( 1 )

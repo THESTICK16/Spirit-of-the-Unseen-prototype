@@ -1,0 +1,135 @@
+[gd_scene load_steps=17 format=2]
+
+[ext_resource path="res://Creatures/Player/SingletonPlayer.tscn" type="PackedScene" id=1]
+[ext_resource path="res://TestResources/TestMap.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Creatures/Enemies/TestEnemy.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Creatures/UnseenCreature.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Creatures/Enemies/SpiderWanderingEnemy.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Creatures/Enemies/SkeletonChargingEnemy.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Creatures/Enemies/ArcherDogProjectileEnemy.tscn" type="PackedScene" id=7]
+[ext_resource path="res://WorldObjects/Door.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Creatures/NPCs/TestNPC.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Refills/ArrowItemRefill.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Refills/HealthStatRefill.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Refills/SpiritEnergyRefill.tscn" type="PackedScene" id=12]
+[ext_resource path="res://ItemContainers/PotRefillItemContainer.tscn" type="PackedScene" id=13]
+[ext_resource path="res://ItemContainers/Chest.tscn" type="PackedScene" id=14]
+[ext_resource path="res://WorldObjects/LockedDoor.tscn" type="PackedScene" id=15]
+[ext_resource path="res://Refills/KeyStatRefill.tscn" type="PackedScene" id=16]
+
+[node name="TestRoom" type="Node2D"]
+
+[node name="TestMap" parent="." instance=ExtResource( 2 )]
+tile_data = PoolIntArray( 65537, 0, 0, 65538, 0, 0, 131073, 0, 0, 196621, 0, 0, 196622, 0, 0, 262157, 0, 0, 327693, 0, 0, 393229, 0, 0, 458765, 0, 0 )
+
+[node name="YSort" type="YSort" parent="."]
+
+[node name="TestEnemy" parent="YSort" instance=ExtResource( 3 )]
+position = Vector2( 113, 21 )
+
+[node name="SingletonPlayer" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( 596, 292 )
+
+[node name="UnseenCreature" parent="YSort" instance=ExtResource( 4 )]
+position = Vector2( 764, 64 )
+rotation = -0.90059
+
+[node name="SpiderWanderingEnemy" parent="YSort" instance=ExtResource( 5 )]
+position = Vector2( 264, 156 )
+
+[node name="SpiderWanderingEnemy2" parent="YSort" instance=ExtResource( 5 )]
+position = Vector2( 153, 174 )
+
+[node name="SkeletonChargingEnemy" parent="YSort" instance=ExtResource( 6 )]
+position = Vector2( 1073, 12 )
+max_wander_distance = 250
+
+[node name="SkeletonChargingEnemy2" parent="YSort" instance=ExtResource( 6 )]
+position = Vector2( 1079, 543 )
+max_wander_distance = 250
+facing_direction = Vector2( -1, 0 )
+
+[node name="ArcherDogProjectileEnemy" parent="YSort" instance=ExtResource( 7 )]
+position = Vector2( 410, 541 )
+
+[node name="ChangeSceneDoor" parent="YSort" instance=ExtResource( 8 )]
+position = Vector2( 675, 16 )
+change_scene_door = true
+next_scene = ExtResource( 1 )
+
+[node name="ChangeSceneDoor2" parent="YSort" instance=ExtResource( 8 )]
+position = Vector2( 552, 19 )
+change_position_door = true
+next_position = Vector2( 500, 500 )
+
+[node name="TestNPC" parent="YSort" instance=ExtResource( 9 )]
+position = Vector2( 731, 411 )
+dialogue_json_filepath = "/Users/ryorke16/Documents/Godot Projects/Spirit of the Unseen Prototype/Dialogue JSONs/Test Dialogue Sheet - test_conversation.json"
+
+[node name="ArrowItemRefill" parent="YSort" instance=ExtResource( 10 )]
+position = Vector2( 472, 372 )
+
+[node name="ArrowItemRefill2" parent="YSort" instance=ExtResource( 10 )]
+position = Vector2( 601, 484 )
+
+[node name="ArrowItemRefill3" parent="YSort" instance=ExtResource( 10 )]
+position = Vector2( 523, 489 )
+
+[node name="ArrowItemRefill4" parent="YSort" instance=ExtResource( 10 )]
+position = Vector2( 564, 412 )
+
+[node name="HealthStatRefill" parent="YSort" instance=ExtResource( 11 )]
+position = Vector2( 627, 453 )
+
+[node name="HealthStatRefill2" parent="YSort" instance=ExtResource( 11 )]
+position = Vector2( 560, 473 )
+
+[node name="HealthStatRefill3" parent="YSort" instance=ExtResource( 11 )]
+position = Vector2( 496, 435 )
+
+[node name="HealthStatRefill4" parent="YSort" instance=ExtResource( 11 )]
+position = Vector2( 610, 396 )
+
+[node name="SpiritEnergyRefill" parent="YSort" instance=ExtResource( 12 )]
+position = Vector2( 683, 500 )
+
+[node name="SpiritEnergyRefill2" parent="YSort" instance=ExtResource( 12 )]
+position = Vector2( 537, 434 )
+
+[node name="SpiritEnergyRefill3" parent="YSort" instance=ExtResource( 12 )]
+position = Vector2( 645, 480 )
+
+[node name="SpiritEnergyRefill4" parent="YSort" instance=ExtResource( 12 )]
+position = Vector2( 568, 518 )
+
+[node name="PotRefillItemContainer" parent="YSort" instance=ExtResource( 13 )]
+position = Vector2( 121, 422 )
+
+[node name="PotRefillItemContainer2" parent="YSort" instance=ExtResource( 13 )]
+position = Vector2( 154, 465 )
+
+[node name="PotRefillItemContainer3" parent="YSort" instance=ExtResource( 13 )]
+position = Vector2( 140, 530 )
+
+[node name="PotRefillItemContainer4" parent="YSort" instance=ExtResource( 13 )]
+position = Vector2( 201, 439 )
+
+[node name="PotRefillItemContainer5" parent="YSort" instance=ExtResource( 13 )]
+position = Vector2( 194, 502 )
+
+[node name="PotRefillItemContainer6" parent="YSort" instance=ExtResource( 13 )]
+position = Vector2( 107, 486 )
+
+[node name="Chest" parent="YSort" instance=ExtResource( 14 )]
+position = Vector2( 888, 26 )
+contained_item_name = "Sword"
+
+[node name="LockedDoor" parent="YSort" instance=ExtResource( 15 )]
+position = Vector2( 616, 4 )
+
+[node name="KeyStatRefill" parent="YSort" instance=ExtResource( 16 )]
+position = Vector2( 785, 213 )
+
+[node name="KeyPotRefillItemContainer7" parent="YSort" instance=ExtResource( 13 )]
+position = Vector2( 710, 109 )
+possible_item_refills = [ ExtResource( 16 ) ]

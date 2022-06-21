@@ -1,0 +1,28 @@
+0.5
+- Renamed PNG images.
+- Deleted images that will not be used.
+- Created kobold archer with bow.
+- Created kobold barmaid.
+- Exported more styles of each kobold with alt. eyes & ears.
+
+0.4
+- Added axe to kobold soldier.
+
+0.3
+- Scaled kobold-005 up to 96x128 with scale2x filter for Stendhal "giant kobold".
+- Created kobold soldier sprite with alternate outfit & helmet.
+- Created kobold leader with shield & helmet.
+- Created kobold veteran with beret.
+
+0.2
+- Reworked Cabbit style body.
+- Created outfit.
+- Created alternate eyes.
+
+0.1
+- Created prototype kobold sprites from yolkati's Dog Soldier.
+  - Made side-facing head slightly smaller.
+  - Created short kobold.
+  - Created tall kobold.
+  - Created kobold with Cabbit style bodies.
+  - Created alternate ears.

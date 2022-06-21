@@ -1,0 +1,10 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://UI/Meters/Meter.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Assets/Health and Mana Redist + edits/yellow_bar_background.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Health and Mana Redist + edits/yellow_bar_fill.png" type="Texture" id=3]
+
+[node name="SpiritMeter" instance=ExtResource( 1 )]
+rect_scale = Vector2( 0.75, 0.75 )
+texture_under = ExtResource( 2 )
+texture_progress = ExtResource( 3 )

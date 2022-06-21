@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Creatures/Enemies/WanderingEnemy.gd" type="Script" id=1]
+[ext_resource path="res://Creatures/Enemies/Enemy.tscn" type="PackedScene" id=2]
+
+[node name="WanderingEnemy" instance=ExtResource( 2 )]
+script = ExtResource( 1 )
+
+[node name="WanderTimer" type="Timer" parent="." index="5"]
+wait_time = 3.0
+autostart = true
+__meta__ = {
+"_editor_description_": ""
+}
+
+[editable path="DetectionArea"]
+[editable path="HitBox"]
+[editable path="HurtBox"]
+[editable path="SoftCollisionBox"]
