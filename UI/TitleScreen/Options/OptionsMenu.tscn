@@ -2,7 +2,7 @@
 
 [ext_resource path="res://UI/TitleScreen/Options/OptionsMenu.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Fonts/Inconsolata/Inscoloata_Title_Theme.tres" type="DynamicFont" id=2]
-[ext_resource path="res://Trash/ControlMapOptionScreen.tscn" type="PackedScene" id=3]
+[ext_resource path="res://UI/TitleScreen/Options/ControlOptionsMenu.tscn" type="PackedScene" id=3]
 
 [node name="OptionsMenu" type="Control"]
 anchor_right = 1.0
@@ -38,7 +38,7 @@ margin_bottom = 600.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Controls" parent="VBoxContainer/Tabs" instance=ExtResource( 3 )]
+[node name="ControlOptionsMenu" parent="VBoxContainer/Tabs" instance=ExtResource( 3 )]
 margin_left = 4.0
 margin_top = 32.0
 margin_right = -4.0

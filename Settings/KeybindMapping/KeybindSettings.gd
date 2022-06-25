@@ -2,7 +2,8 @@
 ## From tutorial, Godot - How to make a Keybinds Settings Menu, found at: https://www.youtube.com/watch?v=I_Kzb-d-SvM&t=535s
 extends Node
 
-var keybinds_filepath =  "res://Settings/KeybindMapping/Keybinds.ini" #/Users/ryorke16/Documents/Godot Projects/Reproduceables/KeybindMapping/test_keybinds.ini"
+var keybinds_filepath = "/Users/ryorke16/Documents/Godot Projects/Spirit of the Unseen Prototype/Settings/KeybindMapping/SOTUKeybinds.ini" #"/Users/ryorke16/Documents/Godot Projects/Spirit of the Unseen Prototype/Settings/KeybindMapping/Keybinds.ini" #"res://Settings/KeybindMapping/Keybinds.ini"
+#var keybinds_filepath =  "/Users/ryorke16/Documents/Godot Projects/Reproduceables/KeybindMapping/test_keybinds.ini"
 var configfile
 
 var keybinds = {} setget set_keybinds
@@ -13,8 +14,8 @@ func _ready():
 func load_config_file():
 	configfile = ConfigFile.new()
 	if configfile.load(keybinds_filepath) == OK:
-		for key in configfile.get_section_keys("keybinds"):
-			var key_value = configfile.get_value("keybinds", key)
+		for key in configfile.get_section_keys("customizable_keybinds"):
+			var key_value = configfile.get_value("customizable_keybinds", key)
 			
 #			keybinds[key] = key_value
 			if str(key_value) != "":
@@ -55,5 +56,5 @@ func save_keybinds():
 		var key_value = keybinds.get(key)
 		if key_value == null:
 			key_value = ""
-		configfile.set_value("keybinds", key, key_value)
+		configfile.set_value("customizable_keybinds", key, key_value)
 	configfile.save(keybinds_filepath)

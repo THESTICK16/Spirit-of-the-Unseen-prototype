@@ -14,14 +14,16 @@ __meta__ = {
 [node name="ControlOptions" type="VBoxContainer" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="SaveButton" type="Button" parent="."]
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = -117.0
-margin_top = -125.0
+[node name="SaveButton" type="Button" parent="ControlOptions"]
+margin_right = 1024.0
+margin_bottom = 20.0
 text = "Save"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="KeybindSettings" parent="." instance=ExtResource( 2 )]
