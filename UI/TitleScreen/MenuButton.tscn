@@ -1,15 +1,9 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://Assets/Fonts/Inconsolata/Inscolata_50_(Menu_Button).tres" type="DynamicFont" id=1]
-[ext_resource path="res://UI/MainMenu/MenuButton.gd" type="Script" id=2]
+[ext_resource path="res://UI/TitleScreen/MenuButton.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Fonts/Inconsolata/Inscolata_50_(Menu_Button).tres" type="DynamicFont" id=2]
 
 [sub_resource type="StyleBoxEmpty" id=3]
-
-[sub_resource type="InputEventAction" id=1]
-action = "a"
-
-[sub_resource type="ShortCut" id=2]
-shortcut = SubResource( 1 )
 
 [node name="MenuButton" type="Button"]
 margin_right = 307.0
@@ -20,12 +14,11 @@ custom_colors/font_color_focus = Color( 0.85098, 0.839216, 0.0705882, 1 )
 custom_colors/font_color = Color( 0.815686, 0.537255, 0.0470588, 1 )
 custom_colors/font_color_hover = Color( 0.85098, 0.839216, 0.0705882, 1 )
 custom_colors/font_color_pressed = Color( 1, 1, 1, 1 )
-custom_fonts/font = ExtResource( 1 )
+custom_fonts/font = ExtResource( 2 )
 custom_styles/focus = SubResource( 3 )
-shortcut = SubResource( 2 )
 text = "Menu Option"
 flat = true
-script = ExtResource( 2 )
+script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
