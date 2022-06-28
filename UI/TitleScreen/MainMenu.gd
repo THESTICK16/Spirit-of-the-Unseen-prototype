@@ -11,7 +11,8 @@ func _ready():
 
 func button_pressed(next_scene_path : String):
 	if next_scene_path.ends_with("tscn"):
-		get_tree().change_scene(next_scene_path) #FIXME implement the pseudo code below with a transition scene
+#		get_tree().change_scene(next_scene_path) #FIXME implement the pseudo code below with a transition scene
+		TransitionController.change_to_new_scene(next_scene_path)
 	else:
 		set_new_displayed_menu(next_scene_path)
 #	var next_scene = load(next_scene_path)
