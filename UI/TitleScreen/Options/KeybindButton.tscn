@@ -33,7 +33,7 @@ func _unhandled_input(event):
 #			text = OS.get_scancode_string(value)
 #			pressed = false
 #			waiting_input = false
-		if event is InputEventMouseButton:
+		else:#if event is InputEventMouseButton:
 			text = OS.get_scancode_string(value)
 			pressed = false
 			waiting_input = false

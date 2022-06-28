@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Creatures/Player/SingletonPlayer.tscn" type="PackedScene" id=1]
 [ext_resource path="res://TestResources/TestMap.tscn" type="PackedScene" id=2]
@@ -16,6 +16,7 @@
 [ext_resource path="res://ItemContainers/Chest.tscn" type="PackedScene" id=14]
 [ext_resource path="res://WorldObjects/LockedDoor.tscn" type="PackedScene" id=15]
 [ext_resource path="res://Refills/KeyStatRefill.tscn" type="PackedScene" id=16]
+[ext_resource path="res://LevelCreation/DarkenRoomEffect.tscn" type="PackedScene" id=17]
 
 [node name="TestRoom" type="Node2D"]
 
@@ -133,3 +134,12 @@ position = Vector2( 785, 213 )
 [node name="KeyPotRefillItemContainer7" parent="YSort" instance=ExtResource( 13 )]
 position = Vector2( 710, 109 )
 possible_item_refills = [ ExtResource( 16 ) ]
+
+[node name="DarkenRoomEffect" parent="." instance=ExtResource( 17 )]
+
+[node name="ColorRect" parent="DarkenRoomEffect" index="0"]
+margin_right = 1112.0
+margin_bottom = 586.0
+
+[editable path="DarkenRoomEffect"]
+[editable path="DarkenRoomEffect/DetectionArea"]

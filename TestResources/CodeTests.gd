@@ -8,7 +8,8 @@ func _ready():
 #	print(ceil(sqrt(24)))
 #	print(Equipment.get_item_field("Arrow", ConsumableItem.CURRENT_STOCK))
 #	DialogueLoader.create_dialogue_box("/Users/ryorke16/Documents/Godot Projects/Spirit of the Unseen Prototype/Dialogue JSONs/TestDialogue.json")
-	print(equipment.get_item_field("Arrow", Item.ACQUISITION_MESSAGE))
+#	print(equipment.get_item_field("Arrow", Item.ACQUISITION_MESSAGE))
+	test_input_map_stuff()
 
 func test_get_item_field():
 	var texture_rect : TextureRect = TextureRect.new()
@@ -21,3 +22,28 @@ func test_get_item_field():
 	test_scene = test_scene.instance()
 	test_scene.global_position = Vector2(150,150)
 	get_tree().root.call_deferred("add_child",test_scene)
+
+func test_input_map_stuff():
+	print(InputMap.has_action("a"))
+	var new_key = InputEventKey.new()
+	new_key.set_scancode(32)
+	if InputMap.action_has_event("ui_accept", new_key):
+		print("Input Map has " + str(OS.get_scancode_string(new_key.scancode)))
+		InputMap.action_erase_event("ui_accept", new_key)
+	else:
+		print("does not have the event")
+	
+	var action_list = InputMap.get_action_list("ui_accept")
+	print(action_list)
+	for i in action_list:
+		if i is InputEventKey:
+			print(i.scancode)
+	
+	var new_key2 = InputEventKey.new()
+	new_key2.set_scancode(32)
+	print(new_key.scancode == new_key2.scancode)
+#	print(InputMap.get_action_list("ui_accept"))
+#	if InputMap.action_has_event():
+#		pass
+#	InputMap.action_erase_event("ui_accept", 32)
+#	print(InputMap.get_action_list("ui_accept"))
