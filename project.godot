@@ -157,6 +157,7 @@ Equipment="*res://Globals/Equipment.gd"
 EquippedItems="*res://Globals/EquippedItems.gd"
 PauseController="*res://Globals/PauseController.gd"
 DialogueLoader="*res://Globals/DialogueLoader.gd"
+TransitionController="*res://Globals/TransitionController.gd"
 
 [global]
 

@@ -20,6 +20,7 @@ func _ready():
 func change_room(body):
 	if body is Player:
 		if change_scene_door:
-				get_tree().change_scene_to(next_scene)
+			TransitionController.change_to_new_scene(next_scene)
+#			get_tree().change_scene_to(next_scene)
 		elif change_position_door:
 			body.global_position = next_position

@@ -81,27 +81,43 @@ position = Vector2( 564, 412 )
 
 [node name="HealthStatRefill" parent="YSort" instance=ExtResource( 11 )]
 position = Vector2( 627, 453 )
+collision_layer = 1024
+collision_mask = 0
 
 [node name="HealthStatRefill2" parent="YSort" instance=ExtResource( 11 )]
 position = Vector2( 560, 473 )
+collision_layer = 1024
+collision_mask = 0
 
 [node name="HealthStatRefill3" parent="YSort" instance=ExtResource( 11 )]
 position = Vector2( 496, 435 )
+collision_layer = 1024
+collision_mask = 0
 
 [node name="HealthStatRefill4" parent="YSort" instance=ExtResource( 11 )]
 position = Vector2( 610, 396 )
+collision_layer = 1024
+collision_mask = 0
 
 [node name="SpiritEnergyRefill" parent="YSort" instance=ExtResource( 12 )]
 position = Vector2( 683, 500 )
+collision_layer = 1024
+collision_mask = 0
 
 [node name="SpiritEnergyRefill2" parent="YSort" instance=ExtResource( 12 )]
 position = Vector2( 537, 434 )
+collision_layer = 1024
+collision_mask = 0
 
 [node name="SpiritEnergyRefill3" parent="YSort" instance=ExtResource( 12 )]
 position = Vector2( 645, 480 )
+collision_layer = 1024
+collision_mask = 0
 
 [node name="SpiritEnergyRefill4" parent="YSort" instance=ExtResource( 12 )]
 position = Vector2( 568, 518 )
+collision_layer = 1024
+collision_mask = 0
 
 [node name="PotRefillItemContainer" parent="YSort" instance=ExtResource( 13 )]
 position = Vector2( 121, 422 )
@@ -130,12 +146,15 @@ position = Vector2( 616, 4 )
 
 [node name="KeyStatRefill" parent="YSort" instance=ExtResource( 16 )]
 position = Vector2( 785, 213 )
+collision_layer = 1024
+collision_mask = 0
 
 [node name="KeyPotRefillItemContainer7" parent="YSort" instance=ExtResource( 13 )]
 position = Vector2( 710, 109 )
 possible_item_refills = [ ExtResource( 16 ) ]
 
 [node name="DarkenRoomEffect" parent="." instance=ExtResource( 17 )]
+visible = false
 
 [node name="ColorRect" parent="DarkenRoomEffect" index="0"]
 margin_right = 1112.0
