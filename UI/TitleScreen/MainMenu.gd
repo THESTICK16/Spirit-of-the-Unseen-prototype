@@ -1,8 +1,9 @@
 extends TitleScreenMenu
 
-onready var new_game_button = $VBoxContainer/HBoxContainer/Buttons/NewGameMenuButton
-onready var top_button = $VBoxContainer/HBoxContainer/Buttons.get_children()[0]
+#onready var new_game_button = $VBoxContainer/HBoxContainer/Buttons/NewGameMenuButton
+#onready var top_button = $VBoxContainer/HBoxContainer/Buttons.get_children()[0]
 onready var buttons = $VBoxContainer/HBoxContainer/Buttons.get_children()
+onready var top_button = buttons[0]
 
 func _ready():
 #	new_game_button.grab_focus()
@@ -16,9 +17,9 @@ func button_pressed(next_scene_path : String):
 	if next_scene_path.ends_with("tscn"):
 #		get_tree().change_scene(next_scene_path) #FIXME implement the pseudo code below with a transition scene
 		TransitionController.change_to_new_scene(next_scene_path)
-	else:
-		if has_method("set_new_displayed_menu"):
-			set_new_displayed_menu(next_scene_path)
-#	var next_scene = load(next_scene_path)
-# while loading this scene, play the transition effect
-# Better yet, load the new scene in the transition scene
+	elif next_scene_path.to_lower() == "quit":
+		get_tree().quit()
+	elif has_method("set_new_displayed_menu"):
+		set_new_displayed_menu(next_scene_path)
+	elif PlayerStats.get("respawn_at") != null:
+		TransitionController.change_to_new_scene(PlayerStats.get("respawn_at"))

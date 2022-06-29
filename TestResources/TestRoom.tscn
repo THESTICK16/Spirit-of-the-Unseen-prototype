@@ -105,21 +105,27 @@ position = Vector2( 568, 518 )
 
 [node name="PotRefillItemContainer" parent="YSort" instance=ExtResource( 13 )]
 position = Vector2( 121, 422 )
+collision_mask = 0
 
 [node name="PotRefillItemContainer2" parent="YSort" instance=ExtResource( 13 )]
 position = Vector2( 154, 465 )
+collision_mask = 0
 
 [node name="PotRefillItemContainer3" parent="YSort" instance=ExtResource( 13 )]
 position = Vector2( 140, 530 )
+collision_mask = 0
 
 [node name="PotRefillItemContainer4" parent="YSort" instance=ExtResource( 13 )]
 position = Vector2( 201, 439 )
+collision_mask = 0
 
 [node name="PotRefillItemContainer5" parent="YSort" instance=ExtResource( 13 )]
 position = Vector2( 194, 502 )
+collision_mask = 0
 
 [node name="PotRefillItemContainer6" parent="YSort" instance=ExtResource( 13 )]
 position = Vector2( 107, 486 )
+collision_mask = 0
 
 [node name="Chest" parent="YSort" instance=ExtResource( 14 )]
 position = Vector2( 888, 26 )
@@ -133,7 +139,9 @@ position = Vector2( 785, 213 )
 
 [node name="KeyPotRefillItemContainer7" parent="YSort" instance=ExtResource( 13 )]
 position = Vector2( 710, 109 )
-possible_item_refills = [ ExtResource( 16 ) ]
+collision_mask = 0
+possible_item_refills = [  ]
+specific_refill = ExtResource( 16 )
 
 [node name="DarkenRoomEffect" parent="." instance=ExtResource( 17 )]
 visible = false

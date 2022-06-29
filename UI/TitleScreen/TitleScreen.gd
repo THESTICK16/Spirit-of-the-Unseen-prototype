@@ -16,9 +16,10 @@ var display_position : Vector2 = Vector2.ZERO
 func _ready():
 	for menu in menus.get_children():
 		menu.connect("new_displayed_menu", self, "swap_menus_from_string")
+		menu.set_global_position(off_screen_position)
 	
-	continue_menu.set_global_position(off_screen_position)
-	options_menu.set_global_position(off_screen_position)
+#	continue_menu.set_global_position(off_screen_position)
+#	options_menu.set_global_position(off_screen_position)
 	self.displayed_menu = main_menu
 	
 func _unhandled_input(event):

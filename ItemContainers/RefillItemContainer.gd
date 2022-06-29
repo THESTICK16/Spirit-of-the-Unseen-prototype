@@ -4,6 +4,8 @@ extends KinematicBody2D
 ## This should be saved and loaded as more items can be added
 export (Array, PackedScene) var possible_item_refills := []
 
+export var specific_refill : PackedScene
+
 onready var hurtbox = $HurtBox
 
 func _ready():
@@ -18,10 +20,21 @@ func add(new_refill : PackedScene):
 		possible_item_refills.append(new_refill) 
 		
 func open(_area):
-	var refill_selector = randi() % possible_item_refills.size()
+	if specific_refill == null and possible_item_refills.size() <= 0:
+		queue_free()
+		return
+		
+	var new_refill
+	if specific_refill != null:
+		new_refill = specific_refill.instance()
+		
 	
-	if possible_item_refills.size() == 1 or randi() % 10 > 0: #refill_selector != possible_item_refills.size():
-		var new_refill = possible_item_refills[refill_selector].instance()
+	
+	if new_refill == null and (possible_item_refills.size() == 1 or randi() % 10 > 0):
+		var refill_selector = randi() % possible_item_refills.size()
+		new_refill = possible_item_refills[refill_selector].instance()
+		
+	if new_refill != null:
 		new_refill.global_position = global_position
 		get_tree().root.add_child(new_refill)
 		

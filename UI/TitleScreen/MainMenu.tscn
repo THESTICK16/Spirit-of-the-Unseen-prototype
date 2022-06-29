@@ -62,22 +62,24 @@ size_flags_vertical = 3
 
 [node name="NewGameMenuButton" parent="VBoxContainer/HBoxContainer/Buttons" instance=ExtResource( 2 )]
 margin_right = 1024.0
-margin_bottom = 97.0
+margin_bottom = 72.0
+focus_neighbour_top = NodePath("../QuitMenuButton")
 custom_styles/focus = SubResource( 3 )
 text = "New Game"
 path_to_scene_to_load = "res://TestResources/TestRoom.tscn"
 
 [node name="ContinueMenuButton" parent="VBoxContainer/HBoxContainer/Buttons" instance=ExtResource( 2 )]
-margin_top = 101.0
+margin_top = 76.0
 margin_right = 1024.0
-margin_bottom = 198.0
+margin_bottom = 148.0
 custom_styles/focus = SubResource( 3 )
 text = "Continue"
 path_to_scene_to_load = "ContinuePlaceHolder"
 
 [node name="OptionsMenuButton" parent="VBoxContainer/HBoxContainer/Buttons" instance=ExtResource( 2 )]
-margin_top = 202.0
+margin_top = 152.0
 margin_right = 1024.0
+margin_bottom = 224.0
 custom_styles/focus = SubResource( 3 )
 text = "Options"
 path_to_scene_to_load = "OptionsMenu"
@@ -88,6 +90,13 @@ margin_top = 228.0
 margin_right = 1024.0
 text = "Credits"
 path_to_scene_to_load = "CreditsMenu"
+
+[node name="QuitMenuButton" parent="VBoxContainer/HBoxContainer/Buttons" instance=ExtResource( 2 )]
+margin_top = 228.0
+margin_right = 1024.0
+focus_neighbour_bottom = NodePath("../NewGameMenuButton")
+text = "Quit"
+path_to_scene_to_load = "QUIT"
 
 [node name="VersionLabel" type="Label" parent="VBoxContainer"]
 margin_top = 495.0

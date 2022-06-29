@@ -34,3 +34,4 @@ __meta__ = {
 [node name="OptionsMenu" parent="Menus" instance=ExtResource( 3 )]
 
 [node name="CreditsMenu" parent="Menus" instance=ExtResource( 5 )]
+pause_mode = 2

@@ -18,7 +18,8 @@ func update(_delta: float) -> void:
 ##@override
 func physics_update(_delta: float) -> void:
 	player.velocity = player.velocity.move_toward(Vector2.ZERO, player.stats.friction * _delta)
-	player.velocity = player.move_and_slide(player.velocity)
+	if player.velocity != Vector2.ZERO:
+		player.velocity = player.move_and_slide(player.velocity)
 
 
 ## Virtual function. Called by the state machine upon changing the active state. The `msg` parameter
@@ -29,11 +30,15 @@ func enter(_msg := {}) -> void:
 	player.is_dead = true
 	player.animation_state.travel("die")
 	player.hurtbox.set_deferred("monitorable", false)
+	player.hurtbox.set_deferred("monitoring", false)
 	player.get_node("CollisionShape2D").set_deferred("monitorable", false)
 	var camera = player.camera
 	camera.position = camera.global_position
 	player.remove_child(camera)
 	get_tree().root.add_child(camera)
+	yield(get_tree().create_timer(3), "timeout")
+	TransitionController.change_to_new_scene("res://UI/GameOverScreen.tscn")
+
 
 ## Virtual function. Called by the state machine before changing the active state. Use this function
 ## to clean up the state.
