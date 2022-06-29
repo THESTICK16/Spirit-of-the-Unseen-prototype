@@ -82,6 +82,13 @@ custom_styles/focus = SubResource( 3 )
 text = "Options"
 path_to_scene_to_load = "OptionsMenu"
 
+[node name="CreditsMenuButton" parent="VBoxContainer/HBoxContainer/Buttons" instance=ExtResource( 2 )]
+visible = false
+margin_top = 228.0
+margin_right = 1024.0
+text = "Credits"
+path_to_scene_to_load = "CreditsMenu"
+
 [node name="VersionLabel" type="Label" parent="VBoxContainer"]
 margin_top = 495.0
 margin_right = 1024.0
