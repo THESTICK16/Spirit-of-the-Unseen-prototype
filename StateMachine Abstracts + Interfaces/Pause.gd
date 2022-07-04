@@ -1,12 +1,19 @@
 extends PlayerState
 
 onready var Inventory_Menu = preload("res://UI/Inventory/Inventory.tscn")
+onready var Pause_Screen = preload("res://UI/Menus/PauseMenu/PauseScreen.tscn")
+
+## The instance of PauseScreen that is currently displayed while paused. Should be null if not paused
+var pause_screen
 
 ## Virtual function. Receives events from the `_unhandled_input()` callback.
 ##@param _event the InputEvent to be handled
 ##@override
 func handle_input(_event: InputEvent) -> void:
-	pass
+	if Input.is_action_just_pressed("pause"):
+#		state_machine.transition_to("Idle")
+		PauseController.unpause()
+		back_to_idle()
 	
 ## Virtual function. Corresponds to the `_process()` callback.
 ##@param _delta Delta
@@ -30,24 +37,21 @@ func physics_update(_delta: float) -> void:
 ##@param _msg an optional dictionary option used for states that need initialization
 ##@override
 func enter(_msg := {}) -> void:
-	print("entered paused") #FIXME
-#	get_tree().paused = true
-	PauseController.pause()
-	inventory()
-#	player.inventory_menu.show()
-#	if not player.inventory_menu.is_connected("close_inventory", self, "back_to_idle"):
-#		player.inventory_menu.connect("close_inventory", self, "back_to_idle")
-	
+	pause_screen = Pause_Screen.instance()
+	pause_screen.connect("menu_closed", self, "back_to_idle")
+	PauseController.pause_with_pause_screen(pause_screen)
 
 
 ## Virtual function. Called by the state machine before changing the active state. Use this function
 ## to clean up the state.
 ##@override
 func exit() -> void:
-	print("exited paused") #FIXME
-#	player.inventory_menu.hide()
-#	get_tree().paused = false
 	PauseController.unpause()
+	
+func pause_menu():
+	self.pause_screen = Pause_Screen.instance()
+	player.add_child(pause_screen)
+	
 	
 func inventory():
 	var inventory_menu = Inventory_Menu.instance()

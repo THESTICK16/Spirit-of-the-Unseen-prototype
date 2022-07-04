@@ -2,11 +2,16 @@
 
 [ext_resource path="res://UI/Inventory/Inventory.gd" type="Script" id=1]
 
-[node name="Inventory" type="CanvasLayer"]
+[node name="Inventory" type="Control"]
 pause_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
 script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="Inventory" type="CenterContainer" parent="."]
+[node name="CenterContainer" type="CenterContainer" parent="."]
 pause_mode = 2
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -14,7 +19,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ItemSlots" type="GridContainer" parent="Inventory"]
+[node name="ItemSlots" type="GridContainer" parent="CenterContainer"]
 margin_left = 512.0
 margin_top = 300.0
 margin_right = 512.0

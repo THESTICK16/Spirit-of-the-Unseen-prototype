@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://Assets/Fonts/Inconsolata/Inscolata_50_(Menu_Button).tres" type="DynamicFont" id=1]
-[ext_resource path="res://UI/TitleScreen/TitleScreenMenu.gd" type="Script" id=2]
+[ext_resource path="res://UI/Menus/TitleScreenMenu.gd" type="Script" id=2]
 
 [node name="ContinuePlaceHolder" type="Control"]
 anchor_right = 1.0

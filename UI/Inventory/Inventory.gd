@@ -1,7 +1,7 @@
 class_name Inventory
-extends CanvasLayer
+extends TitleScreenMenu
 
-signal close_inventory
+#signal close_inventory
 
 onready var equipment = Equipment
 onready var item_slots = $CenterContainer/ItemSlots
@@ -61,8 +61,8 @@ func _unhandled_input(_event):
 	elif Input.is_action_just_pressed("y"):
 		currently_selected_item.equipped('y')
 		
-	if Input.is_action_just_pressed("pause"):
-		close_inventory()
+#	if Input.is_action_just_pressed("pause"):
+#		close_inventory()
 #		emit_signal("close_inventory")
 	
 
@@ -175,9 +175,9 @@ func hide():
 func show():
 	center_container.show()
 	
-func close_inventory():
-	call_deferred("emit_signal", "close_inventory") #emit_signal("close_inventory")
-	queue_free()
+#func close_inventory():
+#	call_deferred("emit_signal", "close_inventory") #emit_signal("close_inventory")
+#	queue_free()
 	
 func load_inventory_items():
 	for item in equipment.all_items:

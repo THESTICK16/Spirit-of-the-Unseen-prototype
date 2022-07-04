@@ -37,7 +37,7 @@ func enter(_msg := {}) -> void:
 	player.remove_child(camera)
 	get_tree().root.add_child(camera)
 	yield(get_tree().create_timer(3), "timeout")
-	TransitionController.change_to_new_scene("res://UI/GameOverScreen.tscn")
+	TransitionController.change_to_new_scene("res://UI/Menus/GameOver/GameOverScreen.tscn")
 
 
 ## Virtual function. Called by the state machine before changing the active state. Use this function

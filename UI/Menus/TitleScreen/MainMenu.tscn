@@ -1,0 +1,69 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Assets/Fonts/Inconsolata/static/Inconsolata/Inconsolata-Regular.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://UI/Menus/MenuButton.tscn" type="PackedScene" id=2]
+[ext_resource path="res://UI/Menus/BaseMenu.tscn" type="PackedScene" id=3]
+
+[sub_resource type="StyleBoxEmpty" id=1]
+
+[sub_resource type="DynamicFont" id=2]
+size = 18
+font_data = ExtResource( 1 )
+
+[node name="MainMenu" instance=ExtResource( 3 )]
+
+[node name="TitleLabel" parent="VBoxContainer" index="0"]
+margin_top = 55.0
+margin_bottom = 187.0
+text = "Spirit of the Unseen
+Demo"
+
+[node name="HBoxContainer" parent="VBoxContainer" index="1"]
+margin_top = 191.0
+margin_bottom = 491.0
+
+[node name="NewGameMenuButton" parent="VBoxContainer/HBoxContainer/Buttons" index="0" instance=ExtResource( 2 )]
+margin_right = 1024.0
+margin_bottom = 72.0
+custom_styles/focus = SubResource( 1 )
+text = "New Game"
+path_to_scene_to_load = "res://TestResources/TestRoom.tscn"
+
+[node name="ContinueMenuButton" parent="VBoxContainer/HBoxContainer/Buttons" index="1" instance=ExtResource( 2 )]
+margin_top = 76.0
+margin_right = 1024.0
+margin_bottom = 148.0
+custom_styles/focus = SubResource( 1 )
+text = "Continue"
+path_to_scene_to_load = "ContinuePlaceHolder"
+
+[node name="OptionsMenuButton" parent="VBoxContainer/HBoxContainer/Buttons" index="2" instance=ExtResource( 2 )]
+margin_top = 152.0
+margin_right = 1024.0
+margin_bottom = 224.0
+custom_styles/focus = SubResource( 1 )
+text = "Options"
+path_to_scene_to_load = "OptionsMenu"
+
+[node name="CreditsMenuButton" parent="VBoxContainer/HBoxContainer/Buttons" index="3" instance=ExtResource( 2 )]
+visible = false
+margin_top = 228.0
+margin_right = 1024.0
+text = "Credits"
+path_to_scene_to_load = "CreditsMenu"
+
+[node name="QuitMenuButton" parent="VBoxContainer/HBoxContainer/Buttons" index="4" instance=ExtResource( 2 )]
+margin_top = 228.0
+margin_right = 1024.0
+text = "Quit"
+path_to_scene_to_load = "QUIT"
+
+[node name="VersionLabel" type="Label" parent="VBoxContainer" index="2"]
+margin_top = 495.0
+margin_right = 1024.0
+margin_bottom = 545.0
+rect_min_size = Vector2( 300, 50 )
+custom_fonts/font = SubResource( 2 )
+text = "Version: 0.1 (Alpha)"
+align = 1
+valign = 1

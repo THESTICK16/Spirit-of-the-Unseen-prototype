@@ -44,7 +44,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://StaticScripts/Interactables.gd"
 }, {
-"base": "CanvasLayer",
+"base": "TitleScreenMenu",
 "class": "Inventory",
 "language": "GDScript",
 "path": "res://UI/Inventory/Inventory.gd"
@@ -112,7 +112,7 @@ _global_script_classes=[ {
 "base": "Control",
 "class": "TitleScreenMenu",
 "language": "GDScript",
-"path": "res://UI/TitleScreen/TitleScreenMenu.gd"
+"path": "res://UI/Menus/TitleScreenMenu.gd"
 }, {
 "base": "Resource",
 "class": "Weapon",

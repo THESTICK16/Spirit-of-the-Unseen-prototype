@@ -3,11 +3,11 @@ extends Control
 onready var control_options = $ControlOptions
 onready var save_button = $ControlOptions/SaveButton
 onready var keybind_settings = $KeybindSettings
-onready var keybind_option = preload("res://UI/TitleScreen/Options/KeybindOption.tscn")
+onready var keybind_option = preload("res://UI/Menus/Options/KeybindOption.tscn")
 
 onready var keybinds = keybind_settings.keybinds.duplicate()
 
-const keybind_button_script_path := preload("res://UI/TitleScreen/Options/KeybindButton.gd")
+#const keybind_button_script_path := preload("res://UI/TitleScreen/Options/KeybindButton.gd")
 
 ## A dictionary that is to contain a list of all the buttons in the control options menu
 var buttons = {}

@@ -13,6 +13,9 @@ func _ready():
 		button.connect("pressed", self, "button_pressed", [button.path_to_scene_to_load])
 #		button.connect("pressed", self, "button_been_pressed_yo", [button.path_to_scene_to_load])
 	connect("focus_entered", self, "regain_focus")
+	var bottom_button = buttons[buttons.size() - 1]
+	top_button.set_focus_neighbour(MARGIN_TOP, bottom_button.get_path())
+	bottom_button.set_focus_neighbour(MARGIN_BOTTOM, top_button.get_path())
 
 func button_pressed(next_scene_path : String):
 	if next_scene_path.ends_with("tscn"):
