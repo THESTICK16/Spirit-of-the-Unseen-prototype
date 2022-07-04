@@ -159,6 +159,10 @@ PauseController="*res://Globals/PauseController.gd"
 DialogueLoader="*res://Globals/DialogueLoader.gd"
 TransitionController="*res://Globals/TransitionController.gd"
 
+[display]
+
+window/stretch/mode="2d"
+
 [global]
 
 2d=false

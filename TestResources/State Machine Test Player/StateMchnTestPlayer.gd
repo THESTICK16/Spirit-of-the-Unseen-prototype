@@ -64,8 +64,9 @@ func _unhandled_input(_event):
 		stats.eyes_active = !stats.eyes_active
 
 func _physics_process(_delta):
-	input_vector.x = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
-	input_vector.y = Input.get_action_strength("ui_down") - Input.get_action_strength("ui_up")
+#	input_vector.x = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
+#	input_vector.y = Input.get_action_strength("ui_down") - Input.get_action_strength("ui_up")
+	input_vector = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down", 0.5)
 	input_vector = input_vector.round()
 
 #func get_equipped_button(item: PackedScene):

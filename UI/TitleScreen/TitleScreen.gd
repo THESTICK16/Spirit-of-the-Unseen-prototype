@@ -2,8 +2,8 @@ extends CanvasLayer
 
 onready var menus = $Menus
 onready var main_menu = $Menus/MainMenu
-onready var continue_menu = $Menus/ContinuePlaceHolder
-onready var options_menu = $Menus/OptionsMenu
+#onready var continue_menu = $Menus/ContinuePlaceHolder
+#onready var options_menu = $Menus/OptionsMenu
 onready var off_screen_position : Vector2 = $OffScreenSetPosition2D.global_position
 
 ## The menu that is displayed and being interacted with
@@ -17,6 +17,7 @@ func _ready():
 	for menu in menus.get_children():
 		menu.connect("new_displayed_menu", self, "swap_menus_from_string")
 		menu.set_global_position(off_screen_position)
+		menu.focus_mode = Control.FOCUS_NONE
 	
 #	continue_menu.set_global_position(off_screen_position)
 #	options_menu.set_global_position(off_screen_position)
@@ -33,9 +34,11 @@ func set_displayed_menu(set_to : TitleScreenMenu):
 	if displayed_menu != null:
 		previous_menu = displayed_menu
 		previous_menu.set_global_position(off_screen_position)
+		previous_menu.focus_mode = Control.FOCUS_NONE
 	
 	displayed_menu = set_to
 	displayed_menu.set_global_position(display_position)
+	displayed_menu.focus_mode = Control.FOCUS_ALL
 	displayed_menu.grab_focus() #Apparently this can't grab focus? Make sure everything works properly
 	
 func swap_menus_from_string(swap_to : String):

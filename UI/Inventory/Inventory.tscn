@@ -6,7 +6,7 @@
 pause_mode = 2
 script = ExtResource( 1 )
 
-[node name="CenterContainer" type="CenterContainer" parent="."]
+[node name="Inventory" type="CenterContainer" parent="."]
 pause_mode = 2
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -14,7 +14,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ItemSlots" type="GridContainer" parent="CenterContainer"]
+[node name="ItemSlots" type="GridContainer" parent="Inventory"]
 margin_left = 512.0
 margin_top = 300.0
 margin_right = 512.0

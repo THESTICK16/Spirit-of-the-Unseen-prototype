@@ -10,7 +10,31 @@ func _ready():
 #	DialogueLoader.create_dialogue_box("/Users/ryorke16/Documents/Godot Projects/Spirit of the Unseen Prototype/Dialogue JSONs/TestDialogue.json")
 #	print(equipment.get_item_field("Arrow", Item.ACQUISITION_MESSAGE))
 	test_input_map_stuff()
-
+	Input.connect("joy_connection_changed", self, "controller_changed")
+	if Input.is_joy_known(0):
+			print("Recognized " + str(Input.get_joy_name(0)))
+	
+#func _unhandled_input(event):
+##	if event.device != 0:
+#	if Input.is_joy_button_pressed(0, JOY_DPAD_UP):
+#		print("UP")
+#	if Input.is_joy_button_pressed(0, JOY_DPAD_DOWN):
+#		print("Down")
+#
+#	if not event is InputEventMouseMotion:
+#		print(event)
+#
+#		print("Controller connected " + str(Input.get_connected_joypads()))
+	
+func controller_changed(device_id, is_connected):
+	if is_connected:
+		print("controller " + str(device_id) + " connected")
+		if Input.is_joy_known(0):
+			print("Recognized " + str(Input.get_joy_name(0)))
+	else:
+		 print("controller disconnected")
+		
+		
 func test_get_item_field():
 	var texture_rect : TextureRect = TextureRect.new()
 	var test_texture : Texture  = (equipment.get_item_field("SpiritBomb", Item.TEXTURE))

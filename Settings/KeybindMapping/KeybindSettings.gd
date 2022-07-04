@@ -1,8 +1,11 @@
 ## Remaps the InputMap based on a customization menu and a ini file
 ## From tutorial, Godot - How to make a Keybinds Settings Menu, found at: https://www.youtube.com/watch?v=I_Kzb-d-SvM&t=535s
 extends Node
-
-var keybinds_filepath = "/Users/ryorke16/Documents/Godot Projects/Spirit of the Unseen Prototype/Settings/KeybindMapping/SOTUKeybinds.ini" #"/Users/ryorke16/Documents/Godot Projects/Spirit of the Unseen Prototype/Settings/KeybindMapping/Keybinds.ini" #"res://Settings/KeybindMapping/Keybinds.ini"
+## The filepath for the keybinds file that is stored in the project
+## To be read from to initialize only. Otherwise read from and write to user_keybinds_filepath
+var keybinds_filepath = "res://Settings/KeybindMapping/SOTUKeybinds.ini" # "/Users/ryorke16/Documents/Godot Projects/Spirit of the Unseen Prototype/Settings/KeybindMapping/SOTUKeybinds.ini" #"/Users/ryorke16/Documents/Godot Projects/Spirit of the Unseen Prototype/Settings/KeybindMapping/Keybinds.ini" #"res://Settings/KeybindMapping/Keybinds.ini"
+## The filepath for the user's individual settings. To be used in all but the first instance
+var user_keybinds_filepath = "user://SOTUKeybinds.ini" #
 #var keybinds_filepath =  "/Users/ryorke16/Documents/Godot Projects/Reproduceables/KeybindMapping/test_keybinds.ini"
 var configfile
 
@@ -18,8 +21,18 @@ func _ready():
 	load_config_file()
 
 func load_config_file():
+#	if not File.new().file_exists(keybinds_filepath):
+		
 	configfile = ConfigFile.new()
-	if configfile.load(keybinds_filepath) == OK:
+	
+	if configfile.load(user_keybinds_filepath) == OK:
+		print("User File Exists. Loading User Keybinds...")
+		initial_setup() # Set it up so it will load from the users configfile in all instances except the initial instance when the player does not have a configfile and the local one that exists in the project must be loaded
+	
+	elif configfile.load(keybinds_filepath) == OK:
+		print("No User File Exists. Loading Initial Keybinds...")
+		initial_setup()
+		
 #		for key in configfile.get_section_keys("customizable_keybinds"):
 #			var key_value = configfile.get_value("customizable_keybinds", key)
 #
@@ -30,12 +43,12 @@ func load_config_file():
 #				keybinds[key] = null
 		
 		
-		default_keybinds = load_keybinds(configfile, "defaults")
-#		set_keybinds(default_keybinds.duplicate())
-		keybinds = default_keybinds.duplicate()
-		
-		var temp_keybinds = load_keybinds(configfile, "customizable_keybinds")
-		set_keybinds(temp_keybinds)
+#		default_keybinds = load_keybinds(configfile, "defaults")
+##		set_keybinds(default_keybinds.duplicate())
+#		keybinds = default_keybinds.duplicate()
+#
+#		var temp_keybinds = load_keybinds(configfile, "customizable_keybinds")
+#		set_keybinds(temp_keybinds)
 			
 #			print(key, " : ", key_value, " : ", OS.get_scancode_string(key_value)) #FIXME
 	else:
@@ -65,6 +78,13 @@ func load_config_file():
 #
 #	print("KEYBINDING CHANGED") #FIXME
 			
+func initial_setup():
+	default_keybinds = load_keybinds(configfile, "defaults")
+	keybinds = default_keybinds.duplicate()
+		
+	var temp_keybinds = load_keybinds(configfile, "customizable_keybinds")
+	set_keybinds(temp_keybinds)
+
 func set_keybinds(new_keybinds : Dictionary):
 	if new_keybinds == null:
 		return
@@ -96,7 +116,9 @@ func save_keybinds():
 		if key_value == null:
 			key_value = ""
 		configfile.set_value("customizable_keybinds", key, key_value)
-	configfile.save(keybinds_filepath)
+#	configfile.save(keybinds_filepath)
+	configfile.save(user_keybinds_filepath)
+	print("Keybinds saved to " + user_keybinds_filepath)
 	
 ## Adds a new keybind to the InputMap so that pressing that button will trigger the input event
 ## @param action the name of the action (ex: 'ui_accept') to map the input to
@@ -125,4 +147,4 @@ func load_keybinds(configfile: ConfigFile, file_section := "customizable_keybind
 		else:
 			keybind_dictionary[key] = null
 			
-	return keybind_dictionary	
+	return keybind_dictionary

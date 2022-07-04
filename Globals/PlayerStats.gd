@@ -4,8 +4,8 @@ extends Node
 signal health_changed(new_hp)
 ##Emitted when 'spirit energy' changes with the new value
 signal spirit_energy_changed(new_se)
-## Emitted when the equipped items change
-#signal equipped_items_changed
+## Emitted when the number of dungeon keys changes
+signal dungeon_keys_changed(new_key_count)
 
 ## The current instance of the player in the current scene. 
 ## To be set by the player's _ready function
@@ -20,7 +20,7 @@ var max_spirit_energy := 100
 onready var spirit_energy = max_spirit_energy setget set_spirit_energy
 ## The umber of keys the player has acquired
 ## In the final game, make this a dictionary where each dungeon has its own key count so they can't be transferred
-var dungeon_keys := 0
+var dungeon_keys := 0 setget set_dungeon_keys
 ## The maximum the player can move during normal movement
 const MAX_SPEED := 250
 ## The rate at which the player will move toward their maximum speed using the move_toward function
@@ -82,7 +82,7 @@ var player_has_eyes_of_the_spirit := true #fix. set to false for final product
 	
 
 func set_health(new_health):
-	if  not player.is_dead:
+	if (is_instance_valid(player) and not player.is_dead) or not is_instance_valid(player):
 		health = new_health
 		if health < 0:
 			health = 0
@@ -91,10 +91,11 @@ func set_health(new_health):
 			
 		emit_signal("health_changed", health)
 		if health <= 0:
-			player.state_machine.transition_to("Dead")
+			if is_instance_valid(player):
+				player.state_machine.transition_to("Dead")
 			
 func set_spirit_energy(new_spirit_energy):
-	if not player.is_dead:
+	if (is_instance_valid(player) and not player.is_dead) or not is_instance_valid(player):
 		spirit_energy = new_spirit_energy
 		if spirit_energy < 0:
 			spirit_energy = 0
@@ -111,9 +112,24 @@ func has_spirit_energy() -> bool:
 	return true
 	
 func set_eyes_active(are_active : bool):
+	if is_instance_valid(player) and player.is_dead:
+		return
 	eyes_active = are_active
 	if get_tree().has_group("Unseen"):
 		get_tree().call_group("Unseen", "set_visible", not eyes_active)
+		
+func set_dungeon_keys(new_key_count):
+	if new_key_count >= 0:
+		dungeon_keys = new_key_count
+	emit_signal("dungeon_keys_changed", dungeon_keys)
+	DialogueLoader.create_dialogue_box(JSONFilePaths.ITEM_ACQUISITION_TEXT_JSON_FILEPATH, "Key")
+	
+func respawn():
+	self.health = max_health
+	self.spirit_energy = max_spirit_energy
+	self.eyes_active = false
+	if is_instance_valid(player):
+		player.is_dead = false
 
 #func get_equipped_item(button : String):
 #	if button != 'a' and button != 'b' and button != 'x' and button != 'y':

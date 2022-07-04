@@ -22,5 +22,11 @@
         "speaker_name": "",
         "text": "You acquired a new Spirit Ability, the Spirit Bomb! This powerful explosive can ignore physical barriers! Hold the button down to extend its distance"
       }
+    },
+    "Key": {
+      "0": {
+        "speaker_name": "",
+        "text": "You found a key! Locked doors can't stop you now! Only works in the dungeon it was found."
+      }
     }
 }

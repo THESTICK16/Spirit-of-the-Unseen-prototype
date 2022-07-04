@@ -10,16 +10,18 @@ onready var buttons = {ControllerButtons.A : a_button, ControllerButtons.B : b_b
 #onready var hp_gauge = $HpGauge
 onready var hp_meter = $HUDStatMeters/HealthMeter
 onready var spirit_meter = $HUDStatMeters/SpiritMeter
-#Make the health bar and buttons part of their own separate scenes with images instead of text
+onready var key_count_label = $KeyCountTextrueRect/KeyCountLabel
 
 func _ready():
 	player_stats.connect("health_changed", self, "set_hp_meter")
 	player_stats.connect("spirit_energy_changed", self, "set_spirit_meter")
+	player_stats.connect("dungeon_keys_changed", self, "set_key_count")
 #	equipped_items.connect("equipped_items_changed", self, "update_equipped_icons")
 	equipped_items.connect("button_equipped_changed", self, "set_button")
 #	hp_gauge.bbcode_text = "Health: " + str(player_stats.health)
 	set_hp_meter(player_stats.health)
 	set_spirit_meter(player_stats.spirit_energy)
+	set_key_count(player_stats.dungeon_keys)
 	set_buttons_to_equipped_items()
 	
 	yield()
@@ -72,11 +74,15 @@ func set_hp_meter(change_to : int):
 	
 func set_spirit_meter(change_to : int):
 	spirit_meter.value = change_to
+
 	
 func set_buttons_to_equipped_items():
 	var equipped_items_copy: Dictionary = equipped_items.get_equipped_items_copy()
 	for button in equipped_items_copy:
 		set_button(button, equipped_items_copy.get(button))
+		
+func set_key_count(change_to : int):
+	key_count_label.text = str(change_to)
 	
 #func update_equipped_icons(): #FIXME change to properly update icons to images
 #	set_a_button(equipped_items.get_equipped_item_field("a", Item.TEXTURE)) #equipped_items.get_equipped_item("a").get_item_field(Item.TEXTURE))

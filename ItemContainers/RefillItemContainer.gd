@@ -4,7 +4,7 @@ extends KinematicBody2D
 ## This should be saved and loaded as more items can be added
 export (Array, PackedScene) var possible_item_refills := []
 
-export var specific_refill : PackedScene
+export var specific_refill : PackedScene setget set_specific_refill
 
 onready var hurtbox = $HurtBox
 
@@ -18,6 +18,9 @@ func _ready():
 func add(new_refill : PackedScene):
 	if not possible_item_refills.has(new_refill):
 		possible_item_refills.append(new_refill) 
+		
+func set_specific_refill(new_specific_refill: PackedScene):
+	specific_refill = new_specific_refill
 		
 func open(_area):
 	if specific_refill == null and possible_item_refills.size() <= 0:

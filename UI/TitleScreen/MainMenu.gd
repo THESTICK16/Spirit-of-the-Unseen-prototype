@@ -12,6 +12,7 @@ func _ready():
 	for button in buttons:
 		button.connect("pressed", self, "button_pressed", [button.path_to_scene_to_load])
 #		button.connect("pressed", self, "button_been_pressed_yo", [button.path_to_scene_to_load])
+	connect("focus_entered", self, "regain_focus")
 
 func button_pressed(next_scene_path : String):
 	if next_scene_path.ends_with("tscn"):
@@ -23,3 +24,7 @@ func button_pressed(next_scene_path : String):
 		set_new_displayed_menu(next_scene_path)
 	elif PlayerStats.get("respawn_at") != null:
 		TransitionController.change_to_new_scene(PlayerStats.get("respawn_at"))
+
+
+func regain_focus():
+	top_button.grab_focus()
