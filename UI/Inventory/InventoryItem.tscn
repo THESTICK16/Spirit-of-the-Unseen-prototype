@@ -72,3 +72,5 @@ custom_fonts/font = SubResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]

@@ -8,6 +8,7 @@ onready var default_background = $DefaultBackgroundColorRect
 onready var selected_background = $SelectedBackgroundColorRect
 onready var reference_rect = $ReferenceRect
 onready var stock_label = $StockLabel
+onready var visibility_notifier = $VisibilityNotifier2D
 
 ### Emitted when the player gets or loses the item
 #signal item_acquisition_changed(has_item)
@@ -96,10 +97,10 @@ func unselected():
 ## @param button a single character containing 'a', 'b', 'x', or 'y' representing the button to which this item should be assigned
 func equipped(button : String):
 #	if button != 'a' and button != 'b' and button != 'x' and button != 'y':
-	if not equipped_items.equippable_buttons.has(button):
+	if not equipped_items.equippable_buttons.has(button) or not visibility_notifier.is_on_screen() or not player_has_item:
 		return
-	if not player_has_item:
-		return
+#	if not player_has_item:
+#		return
 	
 	var new_equipped_item: Item = equipment.get_item_resource(item_name)
 #	emit_signal("item_equipped", item, button) #This returns he PackedScene of the item, which cannot be used to update icons, etc.
