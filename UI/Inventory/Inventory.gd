@@ -33,7 +33,7 @@ func _ready():
 			break
 	
 func _unhandled_input(_event):
-#	var current_index = items.find(currently_selected_item)
+#	var current_index = items.find(currently_selected_item) 
 	var input = Vector2.ZERO
 	input.x = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
 	input.y = Input.get_action_strength("ui_down") - Input.get_action_strength("ui_up")

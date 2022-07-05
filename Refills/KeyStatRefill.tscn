@@ -7,4 +7,5 @@
 refill_stat_name = "dungeon_keys"
 
 [node name="Sprite" parent="." index="1"]
+scale = Vector2( 0.75, 0.75 )
 texture = ExtResource( 1 )

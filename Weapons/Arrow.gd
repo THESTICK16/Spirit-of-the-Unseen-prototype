@@ -9,6 +9,7 @@ func _ready():
 	start_direction = fix_direction()
 	rotate(set_rotation_direction())
 	
+	
 func _physics_process(delta):
 	if !hit:
 		velocity = start_direction * speed
@@ -17,10 +18,11 @@ func _physics_process(delta):
 	if collision != null:
 		hit = true
 		velocity = Vector2.ZERO
+		animated_sprite.stop()
 #		get_parent().remove_child(self)
 #		collision.collider.add_child(self)
 #		queue_free()
-		$AnimatedSprite.play("stuck")
+#		$AnimatedSprite.play("stuck")
 
 	if global_position.distance_to(start_position) > max_distance:
 		queue_free()
@@ -61,5 +63,5 @@ func _physics_process(delta):
 #
 
 
-func _on_AnimatedSprite_animation_finished():
-	queue_free()
+#func _on_AnimatedSprite_animation_finished():
+#	queue_free()
