@@ -128,12 +128,18 @@ func chase(_delta):
 	if is_instance_valid(player):
 #		direction = target_aim_position.global_position.direction_to(player.global_position)
 		var distance_to_player = global_position.distance_to(player.global_position)
-		var aim_position_distance_to_player = target_aim_position.global_position.distance_to(player.global_position)
+		var 	aim_position_distance_to_player = target_aim_position.global_position.distance_to(player.global_position)
 		
-		if distance_to_player < aim_position_distance_to_player:
-			direction = global_position.direction_to(player.global_position)
+		var player_center : Vector2
+		if player.has_node("SpriteCenterPosition2D"):
+			player_center = player.get_node("SpriteCenterPosition2D").global_position
 		else:
-			direction = target_aim_position.global_position.direction_to(player.global_position)
+			player_center = player.global_position
+			
+		if distance_to_player < aim_position_distance_to_player:
+			direction = global_position.direction_to(player_center)
+		else:
+			direction = target_aim_position.global_position.direction_to(player_center)
 			
 		_update_facing_position(global_position.direction_to(player.global_position))
 #	velocity = velocity.move_toward(global_position.direction_to(player.global_position) * chase_max_speed, acceleration * _delta)
