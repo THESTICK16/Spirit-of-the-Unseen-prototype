@@ -23,10 +23,10 @@ export var stuns := false
 export var speed := 0
 ##The amount by which the body struck by the weapon will be pushed back
 export var knockback := 0
-## If true, using this item will consume spirit gauge energy
-export var spirit_item := false
-## If this is a spirit item, the amount of spirit energy it will consume upon use
-export var spirit_energy_cost := 0
+### If true, using this item will consume spirit gauge energy
+#export var spirit_item := false
+### If this is a spirit item, the amount of spirit energy it will consume upon use
+#export var spirit_energy_cost := 0
 ##The node path of the creature that is using the weapon (should be set by the user)  (optional)
 var user
 ##The position at which the weapon starts

@@ -1,22 +1,22 @@
-extends KinematicBody2D
+extends KinematicWeapon
 #Make a new boomerang script that inherits from kinematicweapon and uses the user var instead of player
 
-var weapon_name = "Boomerang"
-var weapon_class := "Ranged"
-var damage := 0.0 #This weapon stuns and breaks items, not damages enemies
-var stuns := true
-var speed := 400
+#var weapon_name = "Boomerang"
+#var weapon_class := "Ranged"
+#var damage := 0.0 #This weapon stuns and breaks items, not damages enemies
+#var stuns := true
+#var speed := 400
 var rotation_speed := 25
 var player
 var return_location : Vector2
-onready var start_position = global_position
-var start_direction = Vector2.ZERO
+#onready var start_position = global_position
+#var start_direction = Vector2.ZERO
 var max_distance = 375
-var velocity : Vector2
+#var velocity : Vector2
 var returning := false
 onready var curve_intensity = get_curve(start_direction) * speed
 onready var curve = curve_intensity #get_curve(start_direction) * speed
-onready var hitbox = $HitBox
+#onready var hitbox = $HitBox
 var current_direction : Vector2
 
 
