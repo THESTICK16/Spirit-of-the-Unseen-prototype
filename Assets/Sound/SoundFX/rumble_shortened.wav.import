@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/rumble_shortened.wav-5ea745d0547628eaa93a4531aee9e2e3.sample"
+
+[deps]
+
+source_file="res://Assets/Sound/SoundFX/rumble_shortened.wav"
+dest_files=[ "res://.import/rumble_shortened.wav-5ea745d0547628eaa93a4531aee9e2e3.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

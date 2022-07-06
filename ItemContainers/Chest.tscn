@@ -1,9 +1,11 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://ItemContainers/ItemContainer.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Assets/chest2.png" type="Texture" id=2]
 [ext_resource path="res://CollisionBoxes/InteractableArea.tscn" type="PackedScene" id=3]
 [ext_resource path="res://ItemContainers/Chest.gd" type="Script" id=4]
+[ext_resource path="res://Assets/Sound/SoundFX/Chest Creak.wav" type="AudioStream" id=5]
+[ext_resource path="res://Assets/Sound/SoundFX/open chest.wav" type="AudioStream" id=6]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 23, 14.5 )
@@ -36,6 +38,14 @@ shape = SubResource( 2 )
 [node name="ItemSprite" type="Sprite" parent="." index="4"]
 position = Vector2( 0, -35 )
 scale = Vector2( 1.5, 1.5 )
+
+[node name="OpenAudioStreamPlayer" type="AudioStreamPlayer" parent="." index="5"]
+pause_mode = 2
+stream = ExtResource( 5 )
+
+[node name="GetItemAudioStreamPlayer" type="AudioStreamPlayer" parent="." index="6"]
+pause_mode = 2
+stream = ExtResource( 6 )
 
 [editable path="HurtBox"]
 [editable path="InteractableArea"]

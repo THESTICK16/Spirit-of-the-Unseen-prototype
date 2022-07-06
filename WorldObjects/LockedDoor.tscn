@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Assets/BlankImage.png" type="Texture" id=1]
 [ext_resource path="res://WorldObjects/LockedDoor.gd" type="Script" id=2]
 [ext_resource path="res://CollisionBoxes/InteractableArea.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Assets/Sound/SoundFX/qubodup-DoorClose01.wav" type="AudioStream" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 17, 27 )
@@ -26,5 +27,8 @@ shape = SubResource( 1 )
 [node name="CollisionShape2D" parent="InteractableArea" index="0"]
 position = Vector2( 0, 1 )
 shape = SubResource( 2 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
 
 [editable path="InteractableArea"]

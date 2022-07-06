@@ -2,6 +2,8 @@ extends KinematicBody2D
 
 onready var sprite = $Sprite
 onready var item_sprite = $ItemSprite
+onready var open_audio = $OpenAudioStreamPlayer
+onready var get_item_audio = $GetItemAudioStreamPlayer
 
 ## The item that the player will receive by opening the chest
 export var contained_item_name : String
@@ -17,6 +19,8 @@ func set_opened(is_opened : bool):
 	opened = is_opened
 	if opened:
 		sprite.frame = 1
+		open_audio.connect("finished", get_item_audio, "play")
+		open_audio.play()
 	elif not opened:
 		sprite.frame = 0
 		
@@ -44,3 +48,4 @@ func interact():
 	self.opened = true
 	show_item_sprite()
 	DialogueLoader.create_dialogue_box(JSONFilePaths.ITEM_ACQUISITION_TEXT_JSON_FILEPATH, contained_item_name)
+#	get_item_audio.play()

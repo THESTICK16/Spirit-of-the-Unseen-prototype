@@ -50,10 +50,11 @@ func physics_update(_delta: float) -> void:
 ##@override
 func enter(_msg := {}) -> void:
 	player.animation_state.travel("Move")
+	player.walking_audio.play()
 
 
 ## Virtual function. Called by the state machine before changing the active state. Use this function
 ## to clean up the state.
 ##@override
 func exit() -> void:
-	pass
+	player.walking_audio.stop()

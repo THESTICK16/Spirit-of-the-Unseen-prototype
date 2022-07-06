@@ -31,6 +31,7 @@ onready var camera = $Camera2D
 onready var sprite_center_position = $SpriteCenterPosition2D
 onready var interactable_detection_area = $InteractableDetectionArea
 onready var hud = $HUD
+onready var walking_audio = $WalkingAudioStreamPlayer
 #onready var inventory_menu = $Inventory
 #---------------------------------------------------------------------------------------
 
@@ -51,6 +52,11 @@ var can_fire_arrow := true
 var can_use_spirit_attack := true
 #---------------------------------------------------------------------------------------
 
+	#Misc.
+#---------------------------------------------------------------------------------------
+
+#---------------------------------------------------------------------------------------
+
 func _ready():
 	PlayerStats.player = self
 	if hurtbox != null:
@@ -58,6 +64,8 @@ func _ready():
 	if interactable_detection_area != null:
 		interactable_detection_area.connect("area_entered", self, "recognize_interactable")
 		interactable_detection_area.connect("area_exited", self, "remove_interactable")
+	if walking_audio != null:
+		walking_audio.connect("finished", self, "vary_walking_pitch")
 	
 func _unhandled_input(_event):
 	if Input.is_action_just_pressed("toggle_eyes"):
@@ -115,3 +123,6 @@ func get_equipped_item(button : String):
 #	if button != "a" and button != "b" and button != "x" and button != "y":
 #		return
 #	return stats.get_equipped_item(button)
+
+func vary_walking_pitch():
+	walking_audio.pitch_scale = rand_range(0.8, 1.2)

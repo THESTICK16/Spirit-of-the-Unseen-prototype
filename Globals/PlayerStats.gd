@@ -119,10 +119,13 @@ func set_eyes_active(are_active : bool):
 		get_tree().call_group("Unseen", "set_visible", not eyes_active)
 		
 func set_dungeon_keys(new_key_count):
-	if new_key_count >= 0:
-		dungeon_keys = new_key_count
+	if new_key_count < 0:
+		return
+	if new_key_count > dungeon_keys:
+		DialogueLoader.create_dialogue_box(JSONFilePaths.ITEM_ACQUISITION_TEXT_JSON_FILEPATH, "Key")
+	dungeon_keys = new_key_count
 	emit_signal("dungeon_keys_changed", dungeon_keys)
-	DialogueLoader.create_dialogue_box(JSONFilePaths.ITEM_ACQUISITION_TEXT_JSON_FILEPATH, "Key")
+#	DialogueLoader.create_dialogue_box(JSONFilePaths.ITEM_ACQUISITION_TEXT_JSON_FILEPATH, "Key")
 	
 func respawn():
 	self.health = max_health

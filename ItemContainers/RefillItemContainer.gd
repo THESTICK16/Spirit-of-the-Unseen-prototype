@@ -6,6 +6,8 @@ export (Array, PackedScene) var possible_item_refills := []
 
 export var specific_refill : PackedScene setget set_specific_refill
 
+export var breaking_sound : AudioStream
+
 onready var hurtbox = $HurtBox
 
 func _ready():
@@ -23,6 +25,9 @@ func set_specific_refill(new_specific_refill: PackedScene):
 	specific_refill = new_specific_refill
 		
 func open(_area):
+	if breaking_sound != null:
+		SFXController.play_sfx(breaking_sound)
+	
 	if specific_refill == null and possible_item_refills.size() <= 0:
 		queue_free()
 		return

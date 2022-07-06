@@ -1,7 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://UI/Menus/MenuButton.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Fonts/Inconsolata/Inscolata_50_(Menu_Button).tres" type="DynamicFont" id=2]
+[ext_resource path="res://Assets/Sound/SoundFX/beep-00.wav" type="AudioStream" id=3]
+[ext_resource path="res://Assets/Sound/SoundFX/Menu Selection Click.wav" type="AudioStream" id=4]
 
 [sub_resource type="StyleBoxEmpty" id=3]
 
@@ -22,3 +24,10 @@ script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="FocusedAudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+pitch_scale = 0.9
+
+[node name="SelectedAudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )

@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=2]
+[gd_scene load_steps=50 format=2]
 
 [ext_resource path="res://StateMachine Abstracts + Interfaces/PlayerStateMachine.tscn" type="PackedScene" id=1]
 [ext_resource path="res://CollisionBoxes/SoftCollisionBox.tscn" type="PackedScene" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://Assets/Solaria Demo Pack Update 01/48x48/Sprites/Hero 01 48.png" type="Texture" id=7]
 [ext_resource path="res://TestResources/State Machine Test Player/StateMchnTestPlayer.gd" type="Script" id=8]
 [ext_resource path="res://CollisionBoxes/HurtBox.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Assets/Sound/SoundFX/Footsteps/Footstep_Dirt_01.wav" type="AudioStream" id=10]
 
 [sub_resource type="CapsuleShape2D" id=36]
 radius = 5.00001
@@ -431,6 +432,11 @@ position = Vector2( 0, -5 )
 shape = SubResource( 73 )
 
 [node name="HUD" parent="." instance=ExtResource( 5 )]
+
+[node name="WalkingAudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 10 )
+volume_db = -20.0
+pitch_scale = 0.8
 
 [editable path="HurtBox"]
 [editable path="SoftCollisionBox"]

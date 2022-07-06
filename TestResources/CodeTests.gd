@@ -9,10 +9,14 @@ func _ready():
 #	print(Equipment.get_item_field("Arrow", ConsumableItem.CURRENT_STOCK))
 #	DialogueLoader.create_dialogue_box("/Users/ryorke16/Documents/Godot Projects/Spirit of the Unseen Prototype/Dialogue JSONs/TestDialogue.json")
 #	print(equipment.get_item_field("Arrow", Item.ACQUISITION_MESSAGE))
-	test_input_map_stuff()
-	Input.connect("joy_connection_changed", self, "controller_changed")
-	if Input.is_joy_known(0):
-			print("Recognized " + str(Input.get_joy_name(0)))
+#	test_input_map_stuff()
+#	Input.connect("joy_connection_changed", self, "controller_changed")
+#	if Input.is_joy_known(0):
+#			print("Recognized " + str(Input.get_joy_name(0)))
+	SFXController.play_sfx(load("res://Assets/Sound/SoundFX/IceShatter.wav"))
+	SFXController.play_sfx(load("res://Assets/Sound/SoundFX/open chest.wav"))
+	SFXController.play_sfx(load("res://Assets/Sound/SoundFX/rumble_shortened.wav"))
+	SFXController.play_sfx(load("res://Assets/Sound/SoundFX/qubodup-DoorClose01.wav"))
 	
 #func _unhandled_input(event):
 ##	if event.device != 0:

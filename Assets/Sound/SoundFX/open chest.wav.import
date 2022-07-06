@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/open chest.wav-a9c8d22bfc72652d650bda96fb2a25bc.sample"
+
+[deps]
+
+source_file="res://Assets/Sound/SoundFX/open chest.wav"
+dest_files=[ "res://.import/open chest.wav-a9c8d22bfc72652d650bda96fb2a25bc.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

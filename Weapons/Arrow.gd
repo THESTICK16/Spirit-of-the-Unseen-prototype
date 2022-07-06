@@ -3,11 +3,14 @@ extends KinematicWeapon
 var max_distance = 2000
 var hit := false
 
+onready var despawn_timer = $DespawnTimer
+
 func _ready():
 	start_position = global_position
 	hitbox.direction = start_direction
 	start_direction = fix_direction()
 	rotate(set_rotation_direction())
+	despawn_timer.connect("timeout", self, "queue_free")
 	
 	
 func _physics_process(delta):
@@ -19,6 +22,8 @@ func _physics_process(delta):
 		hit = true
 		velocity = Vector2.ZERO
 		animated_sprite.stop()
+		if despawn_timer.is_stopped():
+			despawn_timer.start()
 #		get_parent().remove_child(self)
 #		collision.collider.add_child(self)
 #		queue_free()

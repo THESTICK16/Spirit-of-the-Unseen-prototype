@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Refills/Refill.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Refills/StatRefill.gd" type="Script" id=2]
+[ext_resource path="res://Assets/Sound/SoundFX/coin.wav" type="AudioStream" id=3]
 
 [node name="StatRefill" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
+acquisition_sound = ExtResource( 3 )
