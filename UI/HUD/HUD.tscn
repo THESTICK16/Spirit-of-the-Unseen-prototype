@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://UI/HUD/HUD.gd" type="Script" id=1]
 [ext_resource path="res://Assets/key.png" type="Texture" id=2]
 [ext_resource path="res://UI/Meters/HUDStatMeters.tscn" type="PackedScene" id=3]
 [ext_resource path="res://UI/HUD/HUDButtonLayout.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Assets/Fonts/Inconsolata/static/Inconsolata/Inconsolata-Regular.ttf" type="DynamicFontData" id=5]
+[ext_resource path="res://UI/HUD/EyesOfTheUnseenHUDEffect.tscn" type="PackedScene" id=6]
 
 [sub_resource type="DynamicFont" id=1]
 size = 50
@@ -52,3 +53,7 @@ valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="EyesOfTheUnseenHUDEffect" parent="." instance=ExtResource( 6 )]
+margin_top = 60.0
+margin_bottom = 260.0

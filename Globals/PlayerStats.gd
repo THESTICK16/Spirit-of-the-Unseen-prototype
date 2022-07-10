@@ -106,8 +106,8 @@ func set_spirit_energy(new_spirit_energy):
 	#Add a rechargability function
 	#Add more detail for implementation once spirit energy is implemented further
 	
-func has_spirit_energy() -> bool:
-	if spirit_energy <= 0:
+func has_spirit_energy(amount := 1) -> bool:
+	if spirit_energy < amount:
 		return false
 	return true
 	

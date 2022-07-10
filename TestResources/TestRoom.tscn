@@ -150,7 +150,7 @@ possible_item_refills = [  ]
 specific_refill = ExtResource( 16 )
 
 [node name="DarkenRoomEffect" parent="." instance=ExtResource( 17 )]
-visible = false
+z_index = 2
 
 [node name="ColorRect" parent="DarkenRoomEffect" index="0"]
 margin_right = 1112.0

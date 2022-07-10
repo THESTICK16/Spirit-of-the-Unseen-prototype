@@ -119,6 +119,7 @@ func wander(_delta):
 	
 	_update_facing_position(direction)
 	
+	
 func chase(_delta):
 	if player == null:
 		change_state(IDLE)
@@ -200,6 +201,8 @@ func change_direction():
 				change_state(IDLE)
 			
 func check_for_player():
+	if player != null:
+		change_state(CHASE)
 	for i in raycasts:
 		if i.is_colliding():
 			player = i.get_collider()

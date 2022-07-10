@@ -8,6 +8,9 @@ signal unpaused
 
 onready var Pause_Screen = preload("res://UI/Menus/PauseMenu/PauseScreen.tscn")
 
+func _ready(): 
+	TransitionController.connect("scene_changed", self, "unpause")
+
 func pause():
 	emit_signal("paused")
 	get_tree().paused = true
@@ -32,5 +35,6 @@ func pause_with_pause_screen(pause_screen):
 	elif pause_screen is Node:
 		new_pause_screen = pause_screen
 #	connect("unpaused", new_pause_screen, "close_menu")
-	get_tree().root.add_child(new_pause_screen)
+#	get_tree().root.add_child(new_pause_screen)
+	get_tree().current_scene.add_child(new_pause_screen)
 	pause()

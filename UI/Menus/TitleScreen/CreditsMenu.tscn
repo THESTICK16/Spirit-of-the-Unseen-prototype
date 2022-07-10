@@ -1,6 +1,43 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://UI/Menus/TitleScreen/CreditsMenu.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Fonts/Inconsolata/static/Inconsolata/Inconsolata-Regular.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://Assets/Fonts/Inconsolata/Inscoloata_Title_Theme.tres" type="DynamicFont" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+font_data = ExtResource( 2 )
+
+[sub_resource type="Animation" id=2]
+resource_name = "AutoScroll"
+length = 6.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("ScrollContainer:scroll_vertical")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 4, 6 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0, 17, 17 ]
+}
+
+[sub_resource type="Animation" id=3]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("ScrollContainer:scroll_vertical")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0 ]
+}
 
 [node name="CreditsMenu" type="Control"]
 anchor_right = 1.0
@@ -9,3 +46,79 @@ script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+scroll_horizontal_enabled = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
+margin_top = -17.0
+margin_right = 896.0
+margin_bottom = 600.0
+custom_constants/separation = 16
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CreditsLabel" type="Label" parent="ScrollContainer/VBoxContainer"]
+margin_right = 896.0
+margin_bottom = 66.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_outline_modulate = Color( 0.968627, 1, 0, 1 )
+custom_fonts/font = ExtResource( 3 )
+text = "Credits"
+align = 1
+valign = 1
+
+[node name="ArtCredits" type="Label" parent="ScrollContainer/VBoxContainer"]
+margin_top = 82.0
+margin_right = 896.0
+margin_bottom = 373.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 1 )
+text = "ART:
+* Napoleon - https://opengameart.org/users/napoleon
+* AntumDeluge - https://opengameart.org/users/antumdeluge
+* JamieBrown Hill - https://www.jamiebrownhill.com/asset-license
+* Armando Montero - https://opengameart.org/users/armm1998
+* Elthen - https://elthen.itch.io
+* Tuomo Untinen - https://opengameart.org/users/reemax
+* Michael Williams - https://opengameart.org/users/bizmasterstudios
+* Caleb - https://opengameart.org/users/astraltempest
+* todaygirl - https://opengameart.org/users/todaygirl
+* Randalinski - https://opengameart.org/users/randalinski
+* Christian Rosenbauer - https://opengameart.org/users/chrisblue
+* WolfSleuth - https://opengameart.org/users/wolfsleuth
+* Skycore - https://opengameart.org/users/skycore"
+
+[node name="SoundCredits" type="Label" parent="ScrollContainer/VBoxContainer"]
+margin_top = 389.0
+margin_right = 896.0
+margin_bottom = 617.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 1 )
+text = "SOUND DESIGN:
+* James Garrett - https://opengameart.org/users/cinameng
+* Joseph - https://opengameart.org/users/spookymodem
+* qbodup - http://qubodup.net
+* Oiboo - http://Turtlearcade.games
+* IgnasD - http://www.crystalgames.space
+* Bart Kelsey - https://opengameart.org/users/bart
+* NenadSimic - https://opengameart.org/users/nenadsimic 
+* Fupi - https://fupicat.github.io
+* Morten Barfod Søegaard - http://ww25.littlerobotsoundfactory.com/?subid1=20220706-0602-30e0-b0c7-9aa9e9c9508e 
+* Devin Watson (dklon) - https://opengameart.org/users/dklon "
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "AutoScroll"
+anims/AutoScroll = SubResource( 2 )
+anims/RESET = SubResource( 3 )

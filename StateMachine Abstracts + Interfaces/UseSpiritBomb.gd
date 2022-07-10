@@ -26,7 +26,8 @@ func physics_update(_delta: float) -> void:
 	if spirit_bomb != null:
 		if Input.is_action_pressed(bomb_button) and spirit_bomb.global_position.distance_to(spirit_bomb.start_position) <= spirit_bomb.max_range:
 			if spirit_bomb != null:
-				spirit_bomb.global_position += spirit_bomb.start_direction * (spirit_bomb.weapon.speed * _delta)
+#				spirit_bomb.global_position += spirit_bomb.start_direction * (spirit_bomb.speed * _delta)
+				spirit_bomb.slide(_delta)
 			#make the bomb position move while the button is held!
 			else:
 				state_machine.transition_to("Idle")

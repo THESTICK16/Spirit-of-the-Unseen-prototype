@@ -7,6 +7,7 @@
 [ext_resource path="res://Assets/Fonts/Inconsolata/static/Inconsolata/Inconsolata-Regular.ttf" type="DynamicFontData" id=5]
 
 [sub_resource type="DynamicFont" id=1]
+outline_size = 3
 font_data = ExtResource( 5 )
 
 [node name="PauseScreen" instance=ExtResource( 1 )]
@@ -26,6 +27,7 @@ anchor_bottom = 0.083
 margin_top = 0.199997
 margin_right = 104.0
 margin_bottom = 39.2
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 1 )
 text = "Press 'Pause'
 to Exit"

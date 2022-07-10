@@ -1,6 +1,6 @@
-extends Node2DWeapon
+extends KinematicWeapon
 
-export (Resource) var weapon 
+#export (Resource) var weapon 
 onready var SpiritExplosion = preload("res://SpiritEffects/SpiritExplosion.tscn")
 onready var timer = $ExplosionTimer
 var effect : Particles2D
@@ -10,7 +10,7 @@ var spirit_explosion
 var max_range := 100
 
 func _ready():
-	timer.connect("timeout", self, "_on_ExplosionTimer_timeout")
+	timer.connect("timeout", self, "explode")
 	hitbox.connect("area_entered", self, "_on_HitBox_area_entered")
 	hitbox.connect("area_exited", self, "_on_HitBox_area_exited")
 #	timer.start()
@@ -32,17 +32,18 @@ func _process(_delta):
 			queue_free()
 	
 
-func _on_ExplosionTimer_timeout():
+func explode():
 	set_deferred("emitting", false)
 	effect.call_deferred("hide")
-	knockback_enemies()
+#	knockback_enemies()
 	hitbox.set_deferred("monitorable", true)
 	if is_instance_valid(user):
 		user.can_use_spirit_attack = true
 	spirit_explosion = SpiritExplosion.instance()
 #	spirit_explosion.global_position = self.global_position
 	spirit_explosion.set_deferred("emitting", true)
-	get_tree().root.add_child(spirit_explosion)
+#	get_tree().root.add_child(spirit_explosion)
+	add_child(spirit_explosion)
 	spirit_explosion.global_position = self.global_position
 #	queue_free()
 	#Spirit_expolsion's hitbox remains because the item doe not queue free. fix that
@@ -64,3 +65,7 @@ func knockback_enemies():
 func _on_HitBox_area_exited(area):
 	yield()
 	bodies_in_explosion.remove(area)
+	
+func slide(_delta):
+	velocity = start_direction * speed
+	move_and_collide(velocity * _delta)

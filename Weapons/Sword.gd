@@ -1,4 +1,4 @@
-extends Node2DWeapon
+extends KinematicWeapon
 
 #onready var animated_sprite = $AnimatedSprite
 

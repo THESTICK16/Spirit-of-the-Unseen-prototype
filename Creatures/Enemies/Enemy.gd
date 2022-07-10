@@ -28,6 +28,7 @@ onready var stun_timer = $StunTimer
 onready var wander_timer = $WanderTimer
 ## The starting position of the enemy, to be used in the wander state to ensure movement is not to far
 onready var start_position = global_position
+onready var Death_Effect = preload("res://SpecialEffects/DeathEffect.tscn")
 
 ## The maximum health the enemy can have
 export var max_health := 5
@@ -84,6 +85,7 @@ func _ready():
 		hitbox.knockback = knockback
 		hitbox.stuns = stuns
 	connect("state_changed", self, "state_changed")
+	connect("tree_exiting", self, "spawn_death_effect")
 	randomize()
 
 ## The logic for taking a hit
@@ -187,3 +189,11 @@ func add_state(state_name : String):
 		if states.get(i) > last_state:
 			last_state = states.get(i)
 	states[state_name] = last_state + 1
+	
+func spawn_death_effect(_death_effect : AnimatedSprite = Death_Effect):
+	var death_effect: AnimatedSprite = _death_effect.instance()
+	death_effect.global_position = global_position
+	death_effect.frame = 0
+	death_effect.play()
+	death_effect.connect("animation_finished", death_effect, "queue_free")
+	get_tree().current_scene.call_deferred("add_child", death_effect) #add_child(death_effect)

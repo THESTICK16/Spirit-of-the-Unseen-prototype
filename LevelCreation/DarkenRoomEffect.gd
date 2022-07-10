@@ -16,9 +16,9 @@ func _ready():
 #		color_rect.rect_size = collision_shape.shape = RectangleShape2D.new()
 		collision_shape.shape = rectangle_shape
 	if detection_area.get_overlapping_bodies().size() > 0:
-		brighten(false)
+		brighten(KinematicBody2D.new())
 	else:
-		darken(false)
+		darken(KinematicBody2D.new())
 
 func darken(_body):
 	color_rect.show()
