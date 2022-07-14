@@ -1,9 +1,11 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Weapons/BaseWeapon.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Assets/Arrow2.png" type="Texture" id=2]
 [ext_resource path="res://Weapons/Arrow.gd" type="Script" id=3]
 [ext_resource path="res://Assets/arrow.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Sound/SoundFX/shoot.wav" type="AudioStream" id=5]
+[ext_resource path="res://Assets/Sound/SoundFX/qubodup-wobble/qubodup-wobble2_shortened.wav" type="AudioStream" id=6]
 
 [sub_resource type="AtlasTexture" id=4]
 atlas = ExtResource( 2 )
@@ -23,6 +25,11 @@ region = Rect2( 32, 32, 32, 32 )
 
 [sub_resource type="SpriteFrames" id=3]
 animations = [ {
+"frames": [ ExtResource( 4 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+}, {
 "frames": [ SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ) ],
 "loop": true,
 "name": "animated_arrow",
@@ -31,11 +38,6 @@ animations = [ {
 "frames": [ ExtResource( 4 ), ExtResource( 4 ), ExtResource( 4 ), ExtResource( 4 ), ExtResource( 4 ) ],
 "loop": false,
 "name": "stuck",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 4 ) ],
-"loop": true,
-"name": "default",
 "speed": 5.0
 } ]
 
@@ -58,7 +60,7 @@ knockback = 100
 scale = Vector2( 2, 2 )
 frames = SubResource( 3 )
 animation = "animated_arrow"
-frame = 2
+frame = 1
 playing = true
 
 [node name="CollisionShape2D" parent="." index="1"]
@@ -76,5 +78,11 @@ shape = SubResource( 2 )
 
 [node name="DespawnTimer" type="Timer" parent="." index="3"]
 one_shot = true
+
+[node name="StuckAudioStreamPlayer" type="AudioStreamPlayer2D" parent="." index="4"]
+stream = ExtResource( 6 )
+
+[node name="ShootStreamPlayer2D" type="AudioStreamPlayer2D" parent="." index="5"]
+stream = ExtResource( 5 )
 
 [editable path="HitBox"]

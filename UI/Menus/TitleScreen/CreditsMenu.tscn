@@ -21,7 +21,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 4, 6 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
-"values": [ 0, 17, 17 ]
+"values": [ 0, 185, 185 ]
 }
 
 [sub_resource type="Animation" id=3]
@@ -56,9 +56,8 @@ __meta__ = {
 }
 
 [node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
-margin_top = -17.0
 margin_right = 896.0
-margin_bottom = 600.0
+margin_bottom = 832.0
 custom_constants/separation = 16
 __meta__ = {
 "_edit_use_anchors_": false
@@ -74,10 +73,17 @@ text = "Credits"
 align = 1
 valign = 1
 
-[node name="ArtCredits" type="Label" parent="ScrollContainer/VBoxContainer"]
+[node name="EngineCredits" type="Label" parent="ScrollContainer/VBoxContainer"]
 margin_top = 82.0
 margin_right = 896.0
-margin_bottom = 373.0
+margin_bottom = 113.0
+text = "ENGINE:
+Godot Engine : https://godotengine.org/license"
+
+[node name="ArtCredits" type="Label" parent="ScrollContainer/VBoxContainer"]
+margin_top = 129.0
+margin_right = 896.0
+margin_bottom = 420.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_fonts/font = SubResource( 1 )
@@ -97,9 +103,9 @@ text = "ART:
 * Skycore - https://opengameart.org/users/skycore"
 
 [node name="SoundCredits" type="Label" parent="ScrollContainer/VBoxContainer"]
-margin_top = 389.0
+margin_top = 436.0
 margin_right = 896.0
-margin_bottom = 617.0
+margin_bottom = 832.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_fonts/font = SubResource( 1 )
@@ -113,7 +119,15 @@ text = "SOUND DESIGN:
 * NenadSimic - https://opengameart.org/users/nenadsimic 
 * Fupi - https://fupicat.github.io
 * Morten Barfod Søegaard - http://ww25.littlerobotsoundfactory.com/?subid1=20220706-0602-30e0-b0c7-9aa9e9c9508e 
-* Devin Watson (dklon) - https://opengameart.org/users/dklon "
+* Devin Watson (dklon) - https://opengameart.org/users/dklon 
+* KASTLE Knight - https://opengameart.org/users/kastle-knight
+* Justin Jacobs - https://dorkster.github.io
+* Alexandr Zhelanov - https://opengameart.org/users/alexandr-zhelanov 
+* Fernando Rocha - https://opengameart.org/users/rocha57
+* Marian Pekár - https://opengameart.org/users/zeroisnotnull
+* Luke.RUSTLTD - https://opengameart.org/users/lukerustltd 
+Some of the sounds in this project were created by David McKee (ViRiX)
+soundcloud.com/virix"
 __meta__ = {
 "_editor_description_": ""
 }

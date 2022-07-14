@@ -3,6 +3,8 @@ extends KinematicWeapon
 #export (Resource) var weapon 
 onready var SpiritExplosion = preload("res://SpiritEffects/SpiritExplosion.tscn")
 onready var timer = $ExplosionTimer
+onready var energy_audio = $EnergyAudioStreamPlayer2D
+onready var explosion_audio = preload("res://Assets/Sound/SoundFX/8bit_bomb_explosion.wav") #$ExplosionAudioStreamPlayer2D
 var effect : Particles2D
 var bodies_in_explosion := []
 var exploded = false
@@ -33,6 +35,9 @@ func _process(_delta):
 	
 
 func explode():
+	energy_audio.stop()
+#	explosion_audio.play()
+	SFXController.play_sfx(explosion_audio, false, -2, true)
 	set_deferred("emitting", false)
 	effect.call_deferred("hide")
 #	knockback_enemies()

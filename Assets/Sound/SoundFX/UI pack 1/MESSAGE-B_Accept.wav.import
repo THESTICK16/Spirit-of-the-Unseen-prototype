@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/MESSAGE-B_Accept.wav-37ab20afb1c59a3aca3f77e81a208f05.sample"
+
+[deps]
+
+source_file="res://Assets/Sound/SoundFX/UI pack 1/MESSAGE-B_Accept.wav"
+dest_files=[ "res://.import/MESSAGE-B_Accept.wav-37ab20afb1c59a3aca3f77e81a208f05.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

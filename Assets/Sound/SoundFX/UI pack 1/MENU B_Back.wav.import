@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/MENU B_Back.wav-7a19db791f5df1dabdacb03187f78bdc.sample"
+
+[deps]
+
+source_file="res://Assets/Sound/SoundFX/UI pack 1/MENU B_Back.wav"
+dest_files=[ "res://.import/MENU B_Back.wav-7a19db791f5df1dabdacb03187f78bdc.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

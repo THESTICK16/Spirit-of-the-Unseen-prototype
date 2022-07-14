@@ -103,6 +103,11 @@ func set_keybinds(new_keybinds : Dictionary):
 		var new_event = InputEventKey.new()
 		new_event.set_scancode(new_value)
 		add_keybind(key, new_event)
+		if key == 'a':
+			add_keybind("ui_accept", new_event)
+			var old_ui_accept = InputEventKey.new()
+			old_ui_accept.set_scancode(old_value)
+			delete_keybind("ui_accept", old_ui_accept)
 	
 	
 	keybinds = new_keybinds

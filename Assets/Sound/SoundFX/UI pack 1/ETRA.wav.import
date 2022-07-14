@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/ETRA.wav-3952294f30a671b89b6e412067014819.sample"
+
+[deps]
+
+source_file="res://Assets/Sound/SoundFX/UI pack 1/ETRA.wav"
+dest_files=[ "res://.import/ETRA.wav-3952294f30a671b89b6e412067014819.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

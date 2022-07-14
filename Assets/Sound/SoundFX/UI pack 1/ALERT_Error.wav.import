@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/ALERT_Error.wav-6154762ec71da502778b531cb5b593f9.sample"
+
+[deps]
+
+source_file="res://Assets/Sound/SoundFX/UI pack 1/ALERT_Error.wav"
+dest_files=[ "res://.import/ALERT_Error.wav-6154762ec71da502778b531cb5b593f9.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

@@ -4,6 +4,8 @@ var max_distance = 2000
 var hit := false
 
 onready var despawn_timer = $DespawnTimer
+onready var shoot_audio = $ShootStreamPlayer2D #preload("res://Assets/Sound/SoundFX/shoot.wav")
+onready var stuck_audio = $StuckAudioStreamPlayer
 
 func _ready():
 	start_position = global_position
@@ -11,6 +13,9 @@ func _ready():
 	start_direction = fix_direction()
 	rotate(set_rotation_direction())
 	despawn_timer.connect("timeout", self, "queue_free")
+#	SFXController.play_sfx(shoot_audio, false)
+	if shoot_audio != null:
+		shoot_audio.play()
 	
 	
 func _physics_process(delta):
@@ -18,12 +23,17 @@ func _physics_process(delta):
 		velocity = start_direction * speed
 	var collision = move_and_collide(velocity * delta)
 	
-	if collision != null:
+	if collision != null and not hit:
+#		if not stuck_audio.playing and not hit:
+#		stuck_audio.play()
 		hit = true
 		velocity = Vector2.ZERO
 		animated_sprite.stop()
 		if despawn_timer.is_stopped():
 			despawn_timer.start()
+		hitbox.set_deferred("monitorable", false)
+		stuck_audio.play()
+		
 #		get_parent().remove_child(self)
 #		collision.collider.add_child(self)
 #		queue_free()

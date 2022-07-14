@@ -84,6 +84,7 @@ func _ready():
 		hitbox.damage = damage
 		hitbox.knockback = knockback
 		hitbox.stuns = stuns
+	
 	connect("state_changed", self, "state_changed")
 	connect("tree_exiting", self, "spawn_death_effect")
 	randomize()
@@ -97,7 +98,8 @@ func take_hit(area):
 		if takes_knockback:
 			velocity = area.direction * area.knockback
 	hurtbox.start_invincibility(invincibility_duration)
-	health -= area.damage
+	self.health -= area.damage
+#	take_damage_audio.play()
 	if health <= 0:
 		die()
 

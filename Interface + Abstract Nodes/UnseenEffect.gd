@@ -13,7 +13,7 @@ func _ready():
 	assert(parent != null)
 	if not is_in_group("Unseen"):
 		add_to_group("Unseen")
-	visible = not PlayerStats.eyes_active
+	visible = PlayerStats.eyes_active
 	toggle_visibility(visible)
 #	if PlayerStats.eyes_active:
 #		parent.call_deferred("hide")

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/ALERT_Dissappear.wav-2fd78a3461c2feba7bb8a854860cb526.sample"
+
+[deps]
+
+source_file="res://Assets/Sound/SoundFX/UI pack 1/ALERT_Dissappear.wav"
+dest_files=[ "res://.import/ALERT_Dissappear.wav-2fd78a3461c2feba7bb8a854860cb526.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

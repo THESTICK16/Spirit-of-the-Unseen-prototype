@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Open the gate.ogg-55db265fd6c098e8cbcfd399438abbed.oggstr"
+
+[deps]
+
+source_file="res://Assets/Sound/Music/Open the gate.ogg"
+dest_files=[ "res://.import/Open the gate.ogg-55db265fd6c098e8cbcfd399438abbed.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

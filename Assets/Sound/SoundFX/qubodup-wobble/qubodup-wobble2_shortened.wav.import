@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/qubodup-wobble2_shortened.wav-535bad19ba8eef88624d64a27eab9321.sample"
+
+[deps]
+
+source_file="res://Assets/Sound/SoundFX/qubodup-wobble/qubodup-wobble2_shortened.wav"
+dest_files=[ "res://.import/qubodup-wobble2_shortened.wav-535bad19ba8eef88624d64a27eab9321.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

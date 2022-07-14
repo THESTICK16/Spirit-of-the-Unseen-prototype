@@ -116,7 +116,11 @@ func set_eyes_active(are_active : bool):
 		return
 	eyes_active = are_active
 	if get_tree().has_group("Unseen"):
-		get_tree().call_group("Unseen", "set_visible", not eyes_active)
+		get_tree().call_group("Unseen", "set_visible", eyes_active)
+	if eyes_active:
+		SFXController.play_sfx(SFXController.eyes_enabled_sound, true, -10.0, true)
+	else: 
+		SFXController.play_sfx(SFXController.eyes_disabled_sound, true, -10.0, true)
 		
 func set_dungeon_keys(new_key_count):
 	if new_key_count < 0:

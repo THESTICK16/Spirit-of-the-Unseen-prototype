@@ -233,7 +233,7 @@ func fire_projectile():
 		projectile.user = self
 		projectile.start_direction = facing_direction
 		projectile.global_position = projectile_spawn_position.global_position
-		get_tree().root.add_child(projectile)
+		get_tree().current_scene.add_child(projectile)
 		can_fire = false
 		print(can_fire) #FIXME
 		projectile_recharge_timer.start()
