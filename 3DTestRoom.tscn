@@ -18,7 +18,7 @@
 [ext_resource path="res://Refills/KeyStatRefill.tscn" type="PackedScene" id=16]
 [ext_resource path="res://LevelCreation/DarkenRoomEffect.tscn" type="PackedScene" id=17]
 
-[node name="TestRoom" type="Node2D"]
+[node name="3DTestRoom" type="Spatial"]
 
 [node name="TestMap" parent="." instance=ExtResource( 2 )]
 tile_data = PoolIntArray( 65537, 0, 0, 65538, 0, 0, 131073, 0, 0, 196621, 0, 0, 196622, 0, 0, 262157, 0, 0, 327693, 0, 0, 393229, 0, 0, 458765, 0, 0 )

@@ -18,7 +18,7 @@ var player
 var return_location : Vector2
 #onready var start_position = global_position
 #var start_direction = Vector2.ZERO
-var max_distance = 375
+var max_distance = 250 #375
 #var velocity : Vector2
 var returning := false
 onready var curve_intensity = get_curve(start_direction) * speed
@@ -142,7 +142,7 @@ func move_straight(delta):
 		returning = true
 		
 func move_with_curve(delta):
-	if player != null:
+	if is_instance_valid(player) and player != null:
 		return_location = player.global_position
 	else:
 		return_location = start_position
@@ -163,7 +163,7 @@ func move_with_curve(delta):
 	if !returning:
 		velocity = start_direction * speed
 		velocity += curve
-		curve = curve.move_toward( curve_intensity * -1, (max_distance * 2) * delta)
+		curve = curve.move_toward( curve_intensity * -1, (max_distance * 4.5) * delta) # 4.5 used to be 2
 		current_direction = velocity.clamped(1)
 		
 	elif returning:
