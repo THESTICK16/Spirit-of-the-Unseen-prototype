@@ -9,14 +9,15 @@ radius = 2.0
 height = 16.0
 
 [node name="ArrowItemRefill" instance=ExtResource( 1 )]
+rotation = 0.523599
 item_resource = ExtResource( 3 )
 refill_amount = 5
 
-[node name="Sprite" parent="." index="0"]
+[node name="CollisionShape2D" parent="." index="0"]
+position = Vector2( 0, 4 )
+shape = SubResource( 1 )
+
+[node name="Sprite" parent="." index="1"]
 texture = ExtResource( 2 )
 hframes = 2
 vframes = 2
-
-[node name="CollisionShape2D" parent="." index="1"]
-position = Vector2( 0, 4 )
-shape = SubResource( 1 )

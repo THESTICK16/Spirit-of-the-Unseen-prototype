@@ -8,6 +8,7 @@ size = 8
 font_data = ExtResource( 1 )
 
 [node name="ResizableSpeechBubble" type="Node2D" groups=["Speech_Bubbles"]]
+visible = false
 script = ExtResource( 2 )
 bubble_color = Color( 1, 1, 1, 1 )
 

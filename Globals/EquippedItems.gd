@@ -81,7 +81,7 @@ func get_equipped_items_copy() -> Dictionary:
 	
 func load_initial_inventory(): #This function is meant for testing purposes only and is used to save me time. Do this from the "load" method that will be implemented later
 	equip_item(equipment.get_item_resource("Boomerang"), ControllerButtons.A)
-#	equip_item(equipment.get_item_resource("Sword"), ControllerButtons.B)
+	equip_item(equipment.get_item_resource("Sword"), ControllerButtons.B)
 	equip_item(equipment.get_item_resource("Arrow"), ControllerButtons.X)
 	equip_item(equipment.get_item_resource("SpiritBomb"), ControllerButtons.Y)
 	

@@ -1,31 +1,10 @@
-[gd_scene load_steps=28 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://Creatures/NPCs/NPC.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Assets/Zelda_like_tileset/character.png" type="Texture" id=2]
 [ext_resource path="res://CollisionBoxes/InteractableArea.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Creatures/NPCs/NPC.gd" type="Script" id=4]
 [ext_resource path="res://UI/Dialogue+/SpeechBubble.tscn" type="PackedScene" id=5]
 [ext_resource path="res://UI/Dialogue+/ResizableSpeechBubble.tscn" type="PackedScene" id=6]
-
-[sub_resource type="AtlasTexture" id=6]
-flags = 4
-atlas = ExtResource( 2 )
-region = Rect2( 0, 32, 16, 32 )
-
-[sub_resource type="AtlasTexture" id=7]
-flags = 4
-atlas = ExtResource( 2 )
-region = Rect2( 16, 32, 16, 32 )
-
-[sub_resource type="AtlasTexture" id=8]
-flags = 4
-atlas = ExtResource( 2 )
-region = Rect2( 32, 32, 16, 32 )
-
-[sub_resource type="AtlasTexture" id=9]
-flags = 4
-atlas = ExtResource( 2 )
-region = Rect2( 48, 32, 16, 32 )
 
 [sub_resource type="AtlasTexture" id=10]
 flags = 4
@@ -46,6 +25,26 @@ region = Rect2( 32, 64, 16, 32 )
 flags = 4
 atlas = ExtResource( 2 )
 region = Rect2( 48, 64, 16, 32 )
+
+[sub_resource type="AtlasTexture" id=6]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 0, 32, 16, 32 )
+
+[sub_resource type="AtlasTexture" id=7]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 16, 32, 16, 32 )
+
+[sub_resource type="AtlasTexture" id=8]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 32, 32, 16, 32 )
+
+[sub_resource type="AtlasTexture" id=9]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 48, 32, 16, 32 )
 
 [sub_resource type="AtlasTexture" id=2]
 flags = 4
@@ -89,14 +88,14 @@ region = Rect2( 48, 0, 16, 32 )
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ) ],
-"loop": true,
-"name": "Right",
-"speed": 5.0
-}, {
 "frames": [ SubResource( 10 ), SubResource( 11 ), SubResource( 12 ), SubResource( 13 ) ],
 "loop": true,
 "name": "Up",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ) ],
+"loop": true,
+"name": "Right",
 "speed": 5.0
 }, {
 "frames": [ SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ) ],
@@ -126,7 +125,6 @@ radius = 23.6136
 [node name="TestNPC" instance=ExtResource( 1 )]
 scale = Vector2( 2.5, 2.5 )
 collision_layer = 256
-script = ExtResource( 4 )
 dialogue_json_filepath = "/Users/ryorke16/Documents/Godot Projects/Spirit of the Unseen Prototype/Dialogue JSONs/TestDialogue.json"
 
 [node name="AnimatedSprite" parent="." index="0"]
@@ -165,7 +163,6 @@ margin_bottom = -4.0
 shape = SubResource( 21 )
 
 [node name="ResizableSpeechBubble" parent="." index="9" instance=ExtResource( 6 )]
-visible = false
 position = Vector2( 8.8, -12.4 )
 
 [editable path="SoftCollisionBox"]

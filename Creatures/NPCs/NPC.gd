@@ -52,7 +52,8 @@ func _physics_process(delta):
 			wander(delta)
 
 func idle(_delta):
-	animated_sprite.play(current_anim)
+	if animated_sprite.animation != "default":
+		animated_sprite.play(current_anim)
 	animated_sprite.stop()
 	animated_sprite.frame = 0
 	
