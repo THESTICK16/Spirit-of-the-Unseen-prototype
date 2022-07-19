@@ -67,6 +67,7 @@ next_position = Vector2( 500, 500 )
 [node name="TestNPC" parent="YSort" instance=ExtResource( 9 )]
 position = Vector2( 731, 411 )
 dialogue_json_filepath = "/Users/ryorke16/Documents/Godot Projects/Spirit of the Unseen Prototype/Dialogue JSONs/Test Dialogue Sheet - test_conversation.json"
+pop_up_text = "What's with all these monsters?"
 
 [node name="ArrowItemRefill" parent="YSort" instance=ExtResource( 10 )]
 position = Vector2( 472, 372 )
@@ -152,6 +153,7 @@ specific_refill = ExtResource( 16 )
 
 [node name="Sign" parent="YSort" instance=ExtResource( 18 )]
 position = Vector2( 552, 187 )
+pop_up_text = "Locked doors can be opened with a key"
 
 [node name="DarkenRoomEffect" parent="." instance=ExtResource( 17 )]
 visible = false

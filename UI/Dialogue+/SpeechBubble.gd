@@ -1,4 +1,4 @@
-extends Node2D
+extends Control
 
 onready var text_bubble = $ResizableSpeechBubble/RichTextLabel
 onready var text_margin = $ResizableSpeechBubble
@@ -20,8 +20,11 @@ func _ready():
 	set_box_color()
 	text_bubble.bbcode_text = speech
 #	text_bubble.text = speech
-	var string_size = font.get_wordwrap_string_size(speech, min(font.get_string_size(speech).x, 150)) #font.get_string_size(text_bubble.bbcode_text).x
-	text_margin.rect_size = Vector2(string_size.x, string_size.y * 1.25)
+
+#	var string_size = font.get_wordwrap_string_size(speech, min(font.get_string_size(speech).x, 150)) #font.get_string_size(text_bubble.bbcode_text).x
+#	text_margin.rect_size = Vector2(string_size.x * 2, string_size.y * 1.25)
+	
+#	text_margin.rect_position.y -= text_bubble.rect_size.y
 #	text_margin.rect_size = text_bubble.rect_size
 	left_line.points[1].y = text_margin.rect_position.y + (text_margin.rect_size.y / 2)
 	left_line.points[1].x = text_margin.rect_position.x
@@ -30,8 +33,19 @@ func _ready():
 	font.get_string_size(text_bubble.bbcode_text)
 #	font.get_string_size(text_bubble.text)
 	
+#	left_line.points[1].y = text_bubble.rect_position.y + (text_bubble.rect_size.y / 2)
+#	left_line.points[1].x = text_bubble.rect_position.x
+#	right_line.points[1].y = text_bubble.rect_position.y + text_bubble.rect_size.y
+#	right_line.points[1].x = text_bubble.rect_position.x + (text_bubble.rect_size.x / 2)
+	
 func set_box_color():
 	left_line.default_color = bubble_color
 	right_line.default_color = bubble_color
 	color_rect.color = Color(bubble_color.r, bubble_color.g, bubble_color.b, 0.1)
+	
+func set_text(new_text: String):
+	text_bubble.bbcode_text = new_text
+	
+func get_text() -> String:
+	return text_bubble.bbcode_text
 	

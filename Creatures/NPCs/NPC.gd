@@ -25,6 +25,9 @@ export var wandering := false
 export var player_detection_range := -1
 ## The filepath for the dialogue that this NPC will load when spoken to
 export var dialogue_json_filepath : String
+## The text that will be displayed in the pop-up speech bubble
+export var pop_up_text := ""
+
 ## The position at which the NPC starts
 onready var start_position = global_position
 
@@ -43,6 +46,8 @@ func _ready():
 			$DetectionArea/CollisionShape2D.shape.set_deferred("radius", player_detection_range)
 		detection_area.connect("body_entered", self, "player_detected")
 		detection_area.connect("body_exited", self, "player_undetected")
+	if speech_bubble != null:
+		speech_bubble.set_text(pop_up_text)
 	
 func _physics_process(delta):
 	match state:
@@ -86,7 +91,7 @@ func add_state(state_name : String):
 	states[state_name] = last_state + 1
 
 func player_detected(_body):
-	if speech_bubble != null:
+	if speech_bubble != null and speech_bubble.get_text() != "":
 		speech_bubble.show()
 	
 func player_undetected(_body):

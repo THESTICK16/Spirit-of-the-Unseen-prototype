@@ -33,7 +33,7 @@ position = Vector2( 0, -6 )
 shape = SubResource( 3 )
 
 [node name="ResizableSpeechBubble" parent="." index="7" instance=ExtResource( 3 )]
-position = Vector2( 8.8, -12.4 )
+speech = "There once was a ship that put to sea and the name of that ship was the billy o tea"
 
 [editable path="SoftCollisionBox"]
 [editable path="DetectionArea"]

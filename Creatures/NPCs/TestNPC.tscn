@@ -123,31 +123,37 @@ radius = 3.62215
 radius = 23.6136
 
 [node name="TestNPC" instance=ExtResource( 1 )]
-scale = Vector2( 2.5, 2.5 )
 collision_layer = 256
 dialogue_json_filepath = "/Users/ryorke16/Documents/Godot Projects/Spirit of the Unseen Prototype/Dialogue JSONs/TestDialogue.json"
 
 [node name="AnimatedSprite" parent="." index="0"]
+scale = Vector2( 2.5, 2.5 )
 frames = SubResource( 1 )
 animation = "Down"
 
 [node name="CollisionShape2D" parent="." index="1"]
 position = Vector2( 1.77636e-15, -0.4 )
 rotation = -1.5708
+scale = Vector2( 2.5, 2.5 )
 shape = SubResource( 19 )
 
 [node name="SoftCollisionBox" parent="." index="3"]
 position = Vector2( 0, -6.4 )
+scale = Vector2( 2.5, 2.5 )
 
 [node name="CollisionShape2D" parent="SoftCollisionBox" index="0"]
 position = Vector2( 9.53674e-08, 0 )
 shape = SubResource( 18 )
+
+[node name="SpriteCenterPosition2D" parent="." index="4"]
+scale = Vector2( 2.5, 2.5 )
 
 [node name="VisibilityEnabler2D" parent="." index="5"]
 visible = true
 
 [node name="InteractableArea" parent="." index="6" instance=ExtResource( 3 )]
 position = Vector2( 0, -0.8 )
+scale = Vector2( 2.5, 2.5 )
 
 [node name="CollisionShape2D" parent="InteractableArea" index="0"]
 shape = SubResource( 20 )
@@ -159,11 +165,13 @@ margin_top = -44.0
 margin_right = -14.4
 margin_bottom = -4.0
 
+[node name="DetectionArea" parent="." index="8"]
+scale = Vector2( 2.5, 2.5 )
+
 [node name="CollisionShape2D" parent="DetectionArea" index="0"]
 shape = SubResource( 21 )
 
 [node name="ResizableSpeechBubble" parent="." index="9" instance=ExtResource( 6 )]
-position = Vector2( 8.8, -12.4 )
 
 [editable path="SoftCollisionBox"]
 [editable path="InteractableArea"]
