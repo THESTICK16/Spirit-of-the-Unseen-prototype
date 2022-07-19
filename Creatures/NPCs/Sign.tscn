@@ -33,7 +33,7 @@ position = Vector2( 0, -6 )
 shape = SubResource( 3 )
 
 [node name="ResizableSpeechBubble" parent="." index="7" instance=ExtResource( 3 )]
-speech = "Use W/A/S/D and the Arrow Keys to move"
+position = Vector2( 8.8, -12.4 )
 
 [editable path="SoftCollisionBox"]
 [editable path="DetectionArea"]

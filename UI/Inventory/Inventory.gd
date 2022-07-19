@@ -55,12 +55,17 @@ func _input(_event):
 	
 	if Input.is_action_just_pressed("a"):
 		currently_selected_item.equipped('a')
+#		currently_selected_item.animate_to_hud(hud_button_locations.get('a'))
 	elif Input.is_action_just_pressed("b"):
 		currently_selected_item.equipped('b')
+#		currently_selected_item.animate_to_hud(hud_button_locations.get('a'))
 	elif Input.is_action_just_pressed("x"):
 		currently_selected_item.equipped('x')
+#		currently_selected_item.animate_to_hud(hud_button_locations.get('a'))
 	elif Input.is_action_just_pressed("y"):
 		currently_selected_item.equipped('y')
+#		currently_selected_item.animate_to_hud(hud_button_locations.get('a'))
+	
 		
 #	if Input.is_action_just_pressed("pause"):
 #		close_inventory()

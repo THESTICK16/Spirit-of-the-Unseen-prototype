@@ -9,6 +9,7 @@ onready var selected_background = $SelectedBackgroundColorRect
 onready var reference_rect = $ReferenceRect
 onready var stock_label = $StockLabel
 onready var visibility_notifier = $VisibilityNotifier2D
+onready var tween = $Tween
 
 ### Emitted when the player gets or loses the item
 #signal item_acquisition_changed(has_item)
@@ -47,6 +48,8 @@ var left : InventoryItem
 
 ## The number of the index of the inventory list that this item is stored at. top left = 0, bottom right = list size - 1
 var inventory_slot_number : int
+
+const hud_button_locations = {'a': Vector2(1004, 64), 'b': Vector2(960, 108), 'x': Vector2(960, 20), 'y': Vector2(916, 64)}
 
 func _ready():
 	if item_name != null and item_name != "":
@@ -104,8 +107,23 @@ func equipped(button : String):
 	
 	var new_equipped_item: Item = equipment.get_item_resource(item_name)
 #	emit_signal("item_equipped", item, button) #This returns he PackedScene of the item, which cannot be used to update icons, etc.
+	animate_to_hud(hud_button_locations.get(button))
+	if tween.is_active():
+		yield(tween, "tween_completed")
 	emit_signal("item_equipped", new_equipped_item, button)
 #	print(item) #FIXME
+
+func animate_to_hud(destination : Vector2):
+	var duplicate_texture = Sprite.new() #texture_rect.duplicate()
+	duplicate_texture.global_position = texture_rect.rect_global_position + (texture_rect.rect_size / 2)
+	duplicate_texture.texture = texture_rect.texture
+#	get_tree().current_scene.add_child(duplicate_texture)
+	add_child(duplicate_texture)
+	tween.interpolate_property(duplicate_texture, "global_position", duplicate_texture.position, destination, 0.25, Tween.TRANS_LINEAR, Tween.EASE_IN)
+	tween.interpolate_property(duplicate_texture, "scale", Vector2(3,3), Vector2(1,1), 0.25, Tween.TRANS_CUBIC, Tween.EASE_OUT)
+	tween.start()
+	yield(tween, "tween_completed")
+	duplicate_texture.queue_free()
 	
 		
 ## Called when the var player_has_item 's value is changed

@@ -104,10 +104,11 @@ func set_keybinds(new_keybinds : Dictionary):
 		new_event.set_scancode(new_value)
 		add_keybind(key, new_event)
 		if key == 'a':
-			add_keybind("ui_accept", new_event)
+#			add_keybind("ui_accept", new_event)
 			var old_ui_accept = InputEventKey.new()
 			old_ui_accept.set_scancode(old_value)
 			delete_keybind("ui_accept", old_ui_accept)
+			add_keybind("ui_accept", new_event)
 	
 	
 	keybinds = new_keybinds
@@ -140,9 +141,9 @@ func delete_keybind(action : String, input : InputEvent):
 	if InputMap.has_action(action) and InputMap.action_has_event(action, input):
 		InputMap.action_erase_event(action, input)
 		
-func load_keybinds(configfile: ConfigFile, file_section := "customizable_keybinds") -> Dictionary:
+func load_keybinds(_configfile: ConfigFile, file_section := "customizable_keybinds") -> Dictionary:
 	var keybind_dictionary = {}
-	if configfile == null or not configfile.has_section(file_section):
+	if _configfile == null or not _configfile.has_section(file_section):
 		return keybind_dictionary
 	
 	for key in configfile.get_section_keys(file_section):

@@ -26,7 +26,7 @@ func physics_update(_delta: float) -> void:
 ##@override
 func enter(_msg := {}) -> void:
 	sword()
-	state_machine.transition_to("Idle")
+#	state_machine.transition_to("Idle")
 
 
 ## Virtual function. Called by the state machine before changing the active state. Use this function
@@ -42,3 +42,8 @@ func sword():
 	
 #	get_tree().root.add_child(sword)
 	player.add_child(sword)
+	
+	var sword_anim = sword.get_node("AnimatedSprite")
+	if sword_anim != null and sword_anim.playing:
+		yield(sword_anim, "animation_finished")
+	state_machine.transition_to("Idle")

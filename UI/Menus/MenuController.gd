@@ -29,11 +29,14 @@ func _ready():
 	
 	emit_signal("menu_opened")
 	
-func _unhandled_input(event):
+func _unhandled_input(_event):
 	if PauseController.is_paused() and (Input.is_action_just_pressed("pause") or (Input.is_action_just_pressed("b") and displayed_menu == main_menu)):
 		call_deferred("close_menu") 
 	elif Input.is_action_just_pressed("b") and not PauseController.is_paused():
 		self.displayed_menu = main_menu #Fix this so it goes back one layer at a time (only if relevant)
+	
+	if Input.is_action_just_pressed("ui_accept"): #FIXME
+		print("mapped correctly")
 	
 
 func set_displayed_menu(set_to : TitleScreenMenu):

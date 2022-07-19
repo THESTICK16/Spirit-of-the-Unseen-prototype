@@ -74,3 +74,5 @@ __meta__ = {
 }
 
 [node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
+
+[node name="Tween" type="Tween" parent="."]
