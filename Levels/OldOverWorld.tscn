@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Creatures/Player/SingletonPlayer.tscn" type="PackedScene" id=1]
+[ext_resource path="res://LevelCreation/Tilemaps/OutdoorTilemaps.tscn" type="PackedScene" id=2]
+
+[node name="OverWorld" type="Node2D"]
+
+[node name="YSort" type="YSort" parent="."]
+
+[node name="OutdoorTilemaps" parent="YSort" instance=ExtResource( 2 )]
+
+[node name="WorldObjectsTileMap" parent="YSort/OutdoorTilemaps" index="2"]
+tile_data = PoolIntArray( 720923, 4, 0 )
+
+[node name="SingletonPlayer" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( 870, 290 )
+
+[editable path="YSort/OutdoorTilemaps"]

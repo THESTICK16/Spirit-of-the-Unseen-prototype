@@ -32,6 +32,7 @@ onready var sprite_center_position = $SpriteCenterPosition2D
 onready var interactable_detection_area = $InteractableDetectionArea
 onready var hud = $HUD
 onready var walking_audio = $WalkingAudioStreamPlayer
+onready var tilemap_detection_area = $TilemapDetectionBox
 #onready var inventory_menu = $Inventory
 #---------------------------------------------------------------------------------------
 
@@ -66,6 +67,8 @@ func _ready():
 		interactable_detection_area.connect("area_exited", self, "remove_interactable")
 	if walking_audio != null:
 		walking_audio.connect("finished", self, "vary_walking_pitch")
+	if tilemap_detection_area != null:
+		tilemap_detection_area.connect("area_entered", self, "scroll_camera")
 	
 func _unhandled_input(_event):
 	if Input.is_action_just_pressed("toggle_eyes"):
@@ -126,3 +129,7 @@ func get_equipped_item(button : String):
 
 func vary_walking_pitch():
 	walking_audio.pitch_scale = rand_range(0.8, 1.2)
+	
+func scroll_camera(_area):
+	print("NEW MAP!")
+	# Use a tween to scroll the camera to the new area and set new camera extents

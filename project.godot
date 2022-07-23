@@ -290,6 +290,7 @@ face_button={
 2d_physics/layer_10="Breakable"
 2d_physics/layer_11="Refill"
 2d_physics/layer_12="WeaponHurtbox"
+2d_physics/layer_13="Layer0Tilemap"
 
 [physics]
 

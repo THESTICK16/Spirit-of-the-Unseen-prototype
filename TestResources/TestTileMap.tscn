@@ -14,7 +14,7 @@
 [node name="YSort" type="YSort" parent="."]
 
 [node name="SingletonPlayer" parent="YSort" instance=ExtResource( 2 )]
-position = Vector2( 300, 83 )
+position = Vector2( 495, -45 )
 
 [node name="OutdoorLayer0TileMap" type="TileMap" parent="YSort"]
 z_index = -10
