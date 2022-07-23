@@ -4,7 +4,7 @@
 [ext_resource path="res://Assets/Solaria Demo Pack Update 01/32x32/Tilesets/Solaria Demo Update 01 32.png" type="Texture" id=2]
 [ext_resource path="res://LevelCreation/TileSets/Outdoor/WorldObjectsTileSet.tres" type="TileSet" id=3]
 [ext_resource path="res://Creatures/Player/SingletonPlayer.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Levels/Layer0TileMap.gd" type="Script" id=5]
+[ext_resource path="res://LevelCreation/Layer0TileMap.gd" type="Script" id=5]
 
 [sub_resource type="TileSet" id=45]
 0/name = "Grass"

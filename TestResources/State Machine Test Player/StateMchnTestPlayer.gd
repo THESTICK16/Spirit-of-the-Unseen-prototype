@@ -33,6 +33,7 @@ onready var interactable_detection_area = $InteractableDetectionArea
 onready var hud = $HUD
 onready var walking_audio = $WalkingAudioStreamPlayer
 onready var tilemap_detection_area = $TilemapDetectionBox
+onready var tween = $Tween
 #onready var inventory_menu = $Inventory
 #---------------------------------------------------------------------------------------
 
@@ -131,5 +132,25 @@ func vary_walking_pitch():
 	walking_audio.pitch_scale = rand_range(0.8, 1.2)
 	
 func scroll_camera(_area):
-	print("NEW MAP!")
+	if _area.get_parent() is TileMap:
+		var camera_size = get_viewport_rect().size
+#		match direction:
+#			Vector2.UP:
+#				camera.limit_top -= camera_size.y
+#			Vector2.DOWN:
+#				camera.limit_bottom += camera_size.y
+#			Vector2.LEFT:
+#				camera.limit_left -= camera_size.x
+#			Vector2.RIGHT:
+#				camera.limit_right += camera_size.x
+		
+		var new_limits : Dictionary = camera.get_new_extents(_area.get_parent())
+		for limit in new_limits:
+			tween.interpolate_property(camera, limit, camera.get(limit), new_limits.get(limit), 1, Tween.TRANS_SINE, Tween.EASE_IN)
+		
+#		tween.interpolate_property(camera, "position", camera.position, camera.position + direction * get_viewport_rect().size, 1, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
+		tween.start()
+		yield(tween, "tween_all_completed")
+#		camera.set_extents(_area.get_parent())
+#		camera.position = Vector2(0, 0)
 	# Use a tween to scroll the camera to the new area and set new camera extents

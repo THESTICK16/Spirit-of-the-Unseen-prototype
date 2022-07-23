@@ -453,6 +453,8 @@ pitch_scale = 0.8
 position = Vector2( 0, -8 )
 shape = SubResource( 74 )
 
+[node name="Tween" type="Tween" parent="."]
+
 [editable path="HurtBox"]
 [editable path="SoftCollisionBox"]
 [editable path="InteractableDetectionArea"]
