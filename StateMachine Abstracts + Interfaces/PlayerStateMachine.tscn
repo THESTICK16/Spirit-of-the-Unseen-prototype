@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://TestResources/State Machine Test Player/Idle.gd" type="Script" id=1]
 [ext_resource path="res://TestResources/State Machine Test Player/Move.gd" type="Script" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://StateMachine Abstracts + Interfaces/Pause.gd" type="Script" id=9]
 [ext_resource path="res://StateMachine Abstracts + Interfaces/UseSword.gd" type="Script" id=10]
 [ext_resource path="res://StateMachine Abstracts + Interfaces/UseBoomerang.gd" type="Script" id=11]
+[ext_resource path="res://StateMachine Abstracts + Interfaces/ScrollCamera.gd" type="Script" id=12]
 
 [node name="StateMachine" type="Node"]
 script = ExtResource( 3 )
@@ -45,3 +46,6 @@ script = ExtResource( 8 )
 
 [node name="Pause" type="Node" parent="."]
 script = ExtResource( 9 )
+
+[node name="ScrollCamera" type="Node" parent="."]
+script = ExtResource( 12 )

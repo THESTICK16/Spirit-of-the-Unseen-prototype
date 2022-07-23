@@ -51,6 +51,9 @@ func physics_update(_delta: float) -> void:
 func enter(_msg := {}) -> void:
 	player.animation_state.travel("Move")
 	player.walking_audio.play()
+	
+	if not player.tilemap_detection_area.is_connected("area_entered", self, "new_map_entered"):
+		player.tilemap_detection_area.connect("area_entered", self, "new_map_entered")
 
 
 ## Virtual function. Called by the state machine before changing the active state. Use this function
@@ -58,3 +61,8 @@ func enter(_msg := {}) -> void:
 ##@override
 func exit() -> void:
 	player.walking_audio.stop()
+	if player.tilemap_detection_area.is_connected("area_entered", self, "new_map_entered"):
+		player.tilemap_detection_area.disconnect("area_entered", self, "new_map_entered")
+	
+func new_map_entered(_area):
+	state_machine.transition_to("ScrollCamera", {"area": _area})

@@ -5,6 +5,7 @@ onready var collision_shape = $DetectionArea/CollisionShape2D
 onready var color_rect = $ColorRect
 
 func _ready():
+	brighten(KinematicBody2D.new())
 	if detection_area != null:
 		detection_area.connect("body_entered", self, "brighten")
 		detection_area.connect("body_exited", self, "darken")

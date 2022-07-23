@@ -17,9 +17,7 @@ func update(_delta: float) -> void:
 ##@param _delta Delta
 ##@override
 func physics_update(_delta: float) -> void:
-	player.velocity = player.velocity.move_toward(Vector2.ZERO, player.stats.friction * _delta)
-	if player.velocity != Vector2.ZERO:
-		player.velocity = player.move_and_slide(player.velocity)
+	pass
 
 
 ## Virtual function. Called by the state machine upon changing the active state. The `msg` parameter
@@ -27,17 +25,8 @@ func physics_update(_delta: float) -> void:
 ##@param _msg an optional dictionary option used for states that need initialization
 ##@override
 func enter(_msg := {}) -> void:
-	player.is_dead = true
-	player.animation_state.travel("die")
-	player.hurtbox.set_deferred("monitorable", false)
-	player.hurtbox.set_deferred("monitoring", false)
-	player.get_node("CollisionShape2D").set_deferred("monitorable", false)
-	var camera = player.camera
-	camera.position = camera.global_position
-	player.remove_child(camera)
-	get_tree().current_scene.add_child(camera)
-	yield(get_tree().create_timer(3), "timeout")
-	TransitionController.change_to_new_scene("res://UI/Menus/GameOver/GameOverScreen.tscn")
+	player.animation_state.travel("Idle")
+	scroll_camera(_msg.get("area"))
 
 
 ## Virtual function. Called by the state machine before changing the active state. Use this function
@@ -45,3 +34,16 @@ func enter(_msg := {}) -> void:
 ##@override
 func exit() -> void:
 	pass
+
+func scroll_camera(_area):
+	if _area.get_parent() is TileMap:
+		var camera = player.camera
+		
+		var new_limits : Dictionary = camera.get_new_extents(_area.get_parent())
+		for limit in new_limits:
+			player.tween.interpolate_property(camera, limit, camera.get(limit), new_limits.get(limit), 1, Tween.TRANS_LINEAR, Tween.EASE_OUT_IN)
+		
+		player.tween.start()
+		yield(player.tween, "tween_all_completed")
+		
+	state_machine.transition_to("Idle")
