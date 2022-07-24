@@ -88,6 +88,9 @@ func _ready():
 	connect("state_changed", self, "state_changed")
 	connect("tree_exiting", self, "spawn_death_effect")
 	randomize()
+	
+	set_collision_mask_bit(13, true)
+	print("Setting the enemy collison layer for map border manually through code...")
 
 ## The logic for taking a hit
 ## @Override

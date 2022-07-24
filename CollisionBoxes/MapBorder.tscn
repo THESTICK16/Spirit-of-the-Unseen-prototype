@@ -1,0 +1,5 @@
+[gd_scene format=2]
+
+[node name="MapBorder" type="StaticBody2D"]
+collision_layer = 8192
+collision_mask = 0

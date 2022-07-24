@@ -352,6 +352,7 @@ radius = 2.0
 
 [node name="SingletonPlayer" type="KinematicBody2D"]
 collision_layer = 2
+collision_mask = 8193
 script = ExtResource( 8 )
 __meta__ = {
 "_edit_group_": true
@@ -454,6 +455,8 @@ position = Vector2( 0, -8 )
 shape = SubResource( 74 )
 
 [node name="Tween" type="Tween" parent="."]
+
+[node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
 
 [editable path="HurtBox"]
 [editable path="SoftCollisionBox"]

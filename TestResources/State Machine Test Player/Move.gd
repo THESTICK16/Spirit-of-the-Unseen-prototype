@@ -24,6 +24,7 @@ func physics_update(_delta: float) -> void:
 		player.direction = player.input_vector.normalized()
 		player.ranged_weapon_spawn_position.position = player.direction * 32
 		player.interactable_detection_area.position = player.direction * 20
+		player.tilemap_detection_area.position = player.direction * 10
 		player.animation_tree.set("parameters/Idle/blend_position", player.direction)
 		player.animation_tree.set("parameters/Move/blend_position", player.direction)
 		player.animation_tree.set("parameters/Attack/blend_position", player.direction)
@@ -54,6 +55,12 @@ func enter(_msg := {}) -> void:
 	
 	if not player.tilemap_detection_area.is_connected("area_entered", self, "new_map_entered"):
 		player.tilemap_detection_area.connect("area_entered", self, "new_map_entered")
+	
+	player.set_collision_mask_bit(13, false)
+	
+	if not player.visibility_notifier.is_on_screen() and player.tilemap_detection_area.get_overlapping_areas().size() > 0:
+		var area = player.tilemap_detection_area.get_overlapping_areas()[0]
+		state_machine.transition_to("ScrollCamera", {"area": area})
 
 
 ## Virtual function. Called by the state machine before changing the active state. Use this function
@@ -63,6 +70,8 @@ func exit() -> void:
 	player.walking_audio.stop()
 	if player.tilemap_detection_area.is_connected("area_entered", self, "new_map_entered"):
 		player.tilemap_detection_area.disconnect("area_entered", self, "new_map_entered")
+		
+#	player.set_collision_mask_bit(13, true)
 	
 func new_map_entered(_area):
 	state_machine.transition_to("ScrollCamera", {"area": _area})

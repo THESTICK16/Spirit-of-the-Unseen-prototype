@@ -34,6 +34,8 @@ onready var hud = $HUD
 onready var walking_audio = $WalkingAudioStreamPlayer
 onready var tilemap_detection_area = $TilemapDetectionBox
 onready var tween = $Tween
+onready var visibility_notifier = $VisibilityNotifier2D
+
 
 #onready var inventory_menu = $Inventory
 #---------------------------------------------------------------------------------------

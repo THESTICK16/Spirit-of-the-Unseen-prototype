@@ -77,6 +77,8 @@ func _ready():
 #		hitbox.knockback = knockback
 #		hitbox.stuns = stuns
 	randomize()
+	
+	print(str(name) + ": " + str(get_collision_mask_bit(13)))
 
 func _physics_process(delta):
 	match state:

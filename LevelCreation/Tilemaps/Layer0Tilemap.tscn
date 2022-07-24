@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://LevelCreation/Layer0Tilemap.gd" type="Script" id=1]
+
+[node name="Layer0TileMap" type="TileMap"]
+z_index = -10
+cell_size = Vector2( 32, 32 )
+cell_clip_uv = true
+format = 1
+script = ExtResource( 1 )
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="VisibilityEnabler2D" type="VisibilityEnabler2D" parent="."]

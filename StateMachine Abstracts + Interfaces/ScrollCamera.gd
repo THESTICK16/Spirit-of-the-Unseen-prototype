@@ -17,7 +17,7 @@ func update(_delta: float) -> void:
 ##@param _delta Delta
 ##@override
 func physics_update(_delta: float) -> void:
-	pass
+	player.move_and_slide(25 * player.direction)
 
 
 ## Virtual function. Called by the state machine upon changing the active state. The `msg` parameter
@@ -45,5 +45,6 @@ func scroll_camera(_area):
 		
 		player.tween.start()
 		yield(player.tween, "tween_all_completed")
+		player.set_collision_mask_bit(13, true)
 		
 	state_machine.transition_to("Idle")

@@ -1,0 +1,11 @@
+[gd_scene format=2]
+
+[node name="Layer1TileMap" type="TileMap"]
+z_index = -9
+cell_size = Vector2( 32, 32 )
+format = 1
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="VisibilityEnabler2D" type="VisibilityEnabler2D" parent="."]
