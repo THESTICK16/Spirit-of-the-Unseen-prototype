@@ -32,11 +32,11 @@ func enter(_msg := {}) -> void:
 	player.hurtbox.set_deferred("monitorable", false)
 	player.hurtbox.set_deferred("monitoring", false)
 	player.get_node("CollisionShape2D").set_deferred("monitorable", false)
-	var camera = player.camera
-	camera.position = camera.global_position
-	player.remove_child(camera)
-	get_tree().current_scene.add_child(camera)
-	yield(get_tree().create_timer(0.25), "timeout")
+#	var camera = player.camera
+#	camera.position = camera.global_position
+#	player.remove_child(camera)
+#	get_tree().current_scene.add_child(camera)
+#	yield(get_tree().create_timer(0.25), "timeout")
 	TransitionController.change_to_new_scene("res://UI/Menus/GameOver/GameOverScreen.tscn")
 
 
