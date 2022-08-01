@@ -71,7 +71,7 @@ func exit() -> void:
 	if player.tilemap_detection_area.is_connected("area_entered", self, "new_map_entered"):
 		player.tilemap_detection_area.disconnect("area_entered", self, "new_map_entered")
 		
-#	player.set_collision_mask_bit(13, true)
+	player.set_collision_mask_bit(13, true)
 	
 func new_map_entered(_area):
 	state_machine.transition_to("ScrollCamera", {"area": _area})

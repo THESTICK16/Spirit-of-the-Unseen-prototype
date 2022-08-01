@@ -74,6 +74,7 @@ func _ready():
 #	if tilemap_detection_area != null:
 #		tilemap_detection_area.connect("area_entered", self, "scroll_camera")
 	
+	
 func _unhandled_input(_event):
 	if Input.is_action_just_pressed("toggle_eyes"):
 		stats.eyes_active = !stats.eyes_active

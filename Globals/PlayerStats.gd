@@ -22,7 +22,7 @@ onready var spirit_energy = max_spirit_energy setget set_spirit_energy
 ## In the final game, make this a dictionary where each dungeon has its own key count so they can't be transferred
 var dungeon_keys := 0 setget set_dungeon_keys
 ## The maximum the player can move during normal movement
-const MAX_SPEED := 250
+const MAX_SPEED := 225
 ## The rate at which the player will move toward their maximum speed using the move_toward function
 ## To be multiplied by delta, hence the high value
 export var acceleration := 1500

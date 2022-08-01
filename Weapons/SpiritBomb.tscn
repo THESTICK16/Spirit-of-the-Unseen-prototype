@@ -20,6 +20,7 @@ radius = 27.0
 radius = 73.0069
 
 [node name="SpiritBomb" instance=ExtResource( 1 )]
+scale = Vector2( 0.85, 0.85 )
 script = ExtResource( 2 )
 weapon_name = "SpiritBomb"
 weapon_class = "AREA_OF_EFFECT"

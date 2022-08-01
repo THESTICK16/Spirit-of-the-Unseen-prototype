@@ -351,6 +351,7 @@ height = 4.0
 radius = 2.0
 
 [node name="SingletonPlayer" type="KinematicBody2D"]
+scale = Vector2( 0.85, 0.85 )
 collision_layer = 2
 collision_mask = 8193
 script = ExtResource( 8 )

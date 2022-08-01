@@ -27,6 +27,7 @@ func physics_update(_delta: float) -> void:
 func enter(_msg := {}) -> void:
 	player.animation_state.travel("Idle")
 	scroll_camera(_msg.get("area"))
+	player.set_collision_mask_bit(13, false)
 
 
 ## Virtual function. Called by the state machine before changing the active state. Use this function

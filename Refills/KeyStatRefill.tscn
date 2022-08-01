@@ -1,15 +1,19 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://Assets/key.png" type="Texture" id=1]
+[ext_resource path="res://Assets/Solaria Demo Pack Update 01/32x32/Tilesets/Solaria Demo Update 01 32.png" type="Texture" id=1]
 [ext_resource path="res://Refills/StatRefill.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Assets/Sound/SoundFX/open chest.wav" type="AudioStream" id=3]
+
+[sub_resource type="AtlasTexture" id=1]
+atlas = ExtResource( 1 )
+region = Rect2( 768, 320, 32, 32 )
 
 [node name="KeyStatRefill" instance=ExtResource( 2 )]
 refill_stat_name = "dungeon_keys"
 
 [node name="Sprite" parent="." index="1"]
 scale = Vector2( 0.75, 0.75 )
-texture = ExtResource( 1 )
+texture = SubResource( 1 )
 
 [node name="AudioStreamPlayer" parent="." index="2"]
 stream = ExtResource( 3 )

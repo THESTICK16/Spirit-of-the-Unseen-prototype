@@ -15,6 +15,7 @@ extents = Vector2( 3, 3.5 )
 
 [node name="Chest" instance=ExtResource( 1 )]
 position = Vector2( 61, 46 )
+scale = Vector2( 0.75, 0.75 )
 script = ExtResource( 4 )
 
 [node name="Sprite" parent="." index="0"]

@@ -90,7 +90,7 @@ func _ready():
 	randomize()
 	
 	set_collision_mask_bit(13, true)
-	print("Setting the enemy collison layer for map border manually through code...")
+	print("Setting the " + str(name) + " collison layer for map border manually through code...")
 
 ## The logic for taking a hit
 ## @Override
