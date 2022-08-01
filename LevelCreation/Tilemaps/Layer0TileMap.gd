@@ -34,7 +34,7 @@ func setup_map_border():
 	var tilemap_cell_size = cell_size
 	var top_left_position = Vector2(tilemap_rect.position.x * tilemap_cell_size.x, tilemap_rect.position.y * tilemap_cell_size.y)
 	var bottom_right_position = Vector2(tilemap_rect.size.x + tilemap_rect.position.x, tilemap_rect.size.y + tilemap_rect.position.y) * tilemap_cell_size
-	var shape_thickness := 15
+	var shape_thickness := 25
 	
 	var top_map_border = MapBorder.instance()
 	var collision_shape = CollisionShape2D.new()

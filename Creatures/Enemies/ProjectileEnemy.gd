@@ -112,6 +112,9 @@ func wander(_delta):
 	if is_on_wall():
 		change_direction()
 	
+	if randi() % 100 < 1:
+		fire_projectile()
+	
 	animated_sprite.play(current_anim)
 	
 	direction = next_direction

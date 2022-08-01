@@ -1403,8 +1403,7 @@ max_wander_distance = 250
 facing_direction = Vector2( -1, 0 )
 
 [node name="ArcherDogProjectileEnemy" parent="YSort" instance=ExtResource( 7 )]
-position = Vector2( 410, 541 )
-collision_mask = 1
+position = Vector2( 401, 416 )
 
 [node name="ChangeSceneDoor" parent="YSort" instance=ExtResource( 8 )]
 position = Vector2( 108, -29 )
@@ -1493,6 +1492,8 @@ contained_item_name = "Sword"
 
 [node name="LockedDoor" parent="YSort" instance=ExtResource( 15 )]
 position = Vector2( 616, 4 )
+vanish_on_unlock = false
+scene_to_load = "res://Levels/Overworld.tscn"
 
 [node name="KeyStatRefill" parent="YSort" instance=ExtResource( 16 )]
 position = Vector2( 785, 213 )
