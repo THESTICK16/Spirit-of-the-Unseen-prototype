@@ -73,7 +73,7 @@ func _ready():
 		walking_audio.connect("finished", self, "vary_walking_pitch")
 #	if tilemap_detection_area != null:
 #		tilemap_detection_area.connect("area_entered", self, "scroll_camera")
-	
+	call_deferred("initialize_camera_limits")
 	
 func _unhandled_input(_event):
 	if Input.is_action_just_pressed("toggle_eyes"):
@@ -84,7 +84,8 @@ func _physics_process(_delta):
 #	input_vector.y = Input.get_action_strength("ui_down") - Input.get_action_strength("ui_up")
 	input_vector = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down", 0.5)
 	input_vector = input_vector.round()
-
+	
+	
 #func get_equipped_button(item: PackedScene):
 #	match item:
 #		stats.equipped_item_a:
@@ -134,6 +135,11 @@ func get_equipped_item(button : String):
 
 func vary_walking_pitch():
 	walking_audio.pitch_scale = rand_range(0.8, 1.2)
+	
+func initialize_camera_limits():
+	yield(get_tree().create_timer(.02), "timeout")
+	if tilemap_detection_area.get_overlapping_areas().size() > 0:
+		camera.set_extents(tilemap_detection_area.get_overlapping_areas()[0].get_parent())
 	
 #func scroll_camera(_area):
 #	if _area.get_parent() is TileMap:

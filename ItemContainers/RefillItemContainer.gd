@@ -8,12 +8,12 @@ export var specific_refill : PackedScene setget set_specific_refill
 
 export var breaking_sound : AudioStream
 
-onready var hurtbox = $HurtBox
+#onready var hurtbox = $HurtBox
 
 func _ready():
 	randomize()
-	if hurtbox != null:
-		hurtbox.connect("area_entered", self, "open")
+#	if hurtbox != null:
+#		hurtbox.connect("area_entered", self, "open")
 
 ## Adds an item to the list of items this scene can spawn
 ## Should be called when the player acquires a new refillable resource
@@ -47,3 +47,6 @@ func open(_area):
 		get_tree().current_scene.call_deferred("add_child", new_refill) #.add_child(new_refill)
 		
 	queue_free()
+	
+func broken():
+	open(null)

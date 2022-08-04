@@ -1,7 +1,7 @@
 extends Camera2D
 
-func _ready():
-	set_extents()
+#func _ready():
+#	set_extents()
 
 func set_extents(tilemap : TileMap = get_tilemap()):
 #	tilemap : TileMap = get_tilemap()
