@@ -21,6 +21,10 @@
       "0": {
         "speaker_name": "",
         "text": "You acquired a new Spirit Ability, the Spirit Bomb! This powerful explosive can ignore physical barriers! Hold the button down to extend its distance"
+      },
+      "1": {
+        "speaker_name": "",
+        "text": "Try using it on cracked walls, you never know what may be behind them!"
       }
     },
     "Key": {

@@ -44,7 +44,8 @@ func set_box_color():
 	color_rect.color = Color(bubble_color.r, bubble_color.g, bubble_color.b, 0.1)
 	
 func set_text(new_text: String):
-	text_bubble.bbcode_text = new_text
+	text_bubble.bbcode_text = "[indent]" + new_text + "[/indent]"
+
 	
 func get_text() -> String:
 	return text_bubble.bbcode_text

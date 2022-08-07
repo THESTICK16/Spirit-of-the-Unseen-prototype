@@ -1,8 +1,10 @@
 extends Node
 
 onready var parent = get_parent()
-## If ture, making the entity dissapear will also disable their collisions
+## If true, making the entity dissapear will also disable their collisions
 export var disble_collision := false
+## If true, activating the eyes will make this object dissapear instead of appear
+export var inverted := false
 ## If true, the object is visible. if false, invisible
 var visible := true setget set_visible
 
@@ -13,7 +15,7 @@ func _ready():
 	assert(parent != null)
 	if not is_in_group("Unseen"):
 		add_to_group("Unseen")
-	visible = PlayerStats.eyes_active
+	self.visible = PlayerStats.eyes_active
 	toggle_visibility(visible)
 #	if PlayerStats.eyes_active:
 #		parent.call_deferred("hide")
@@ -52,4 +54,6 @@ func toggle_visibility(is_visible : bool):
 
 func set_visible(is_visible : bool):
 	visible = is_visible
+	if inverted:
+		visible = not visible
 	toggle_visibility(visible)

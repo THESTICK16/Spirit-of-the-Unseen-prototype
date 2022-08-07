@@ -32,6 +32,9 @@ shape = SubResource( 2 )
 position = Vector2( 0, -6 )
 shape = SubResource( 3 )
 
+[node name="VisibilityEnabler2D" parent="." index="5"]
+visible = true
+
 [node name="ResizableSpeechBubble" parent="." index="7" instance=ExtResource( 3 )]
 speech = "There once was a ship that put to sea and the name of that ship was the billy o tea"
 

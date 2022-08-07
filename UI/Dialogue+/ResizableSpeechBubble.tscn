@@ -7,6 +7,8 @@
 size = 20
 outline_size = 2
 outline_color = Color( 0, 0, 0, 1 )
+extra_spacing_top = 2
+extra_spacing_bottom = -2
 font_data = ExtResource( 1 )
 
 [node name="ResizableSpeechBubble" type="Control" groups=["Speech_Bubbles"]]
@@ -68,6 +70,8 @@ margin_bottom = 100.0
 size_flags_horizontal = 5
 size_flags_vertical = 5
 custom_fonts/normal_font = SubResource( 1 )
+bbcode_enabled = true
+tab_size = 1
 scroll_active = false
 
 [node name="NextLineTimer" type="Timer" parent="."]

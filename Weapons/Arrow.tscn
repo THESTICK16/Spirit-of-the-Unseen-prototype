@@ -30,14 +30,14 @@ animations = [ {
 "name": "animated_arrow",
 "speed": 10.0
 }, {
-"frames": [ ExtResource( 4 ), ExtResource( 4 ), ExtResource( 4 ), ExtResource( 4 ), ExtResource( 4 ) ],
-"loop": false,
-"name": "stuck",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 4 ) ],
 "loop": true,
 "name": "default",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 4 ), ExtResource( 4 ), ExtResource( 4 ), ExtResource( 4 ), ExtResource( 4 ) ],
+"loop": false,
+"name": "stuck",
 "speed": 5.0
 } ]
 
@@ -61,7 +61,7 @@ knockback = 100
 scale = Vector2( 2, 2 )
 frames = SubResource( 3 )
 animation = "animated_arrow"
-frame = 1
+frame = 3
 playing = true
 
 [node name="CollisionShape2D" parent="." index="1"]

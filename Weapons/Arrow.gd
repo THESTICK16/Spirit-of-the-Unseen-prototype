@@ -24,6 +24,7 @@ func _physics_process(delta):
 	var collision = move_and_collide(velocity * delta)
 	
 	if collision != null and not hit:
+#		
 #		if not stuck_audio.playing and not hit:
 #		stuck_audio.play()
 		hit = true

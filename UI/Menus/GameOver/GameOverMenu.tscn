@@ -27,7 +27,7 @@ margin_right = 1024.0
 margin_bottom = 148.0
 focus_neighbour_top = NodePath("../QuitMenuButton")
 text = "Continue"
-path_to_scene_to_load = "res://TestResources/TestRoom.tscn"
+path_to_scene_to_load = "res://Levels/Overworld.tscn"
 
 [node name="QuitMenuButton" parent="VBoxContainer/HBoxContainer/Buttons" index="1" instance=ExtResource( 3 )]
 margin_top = 152.0

@@ -1383,6 +1383,9 @@ position = Vector2( 596, 292 )
 position = Vector2( 764, 64 )
 rotation = -0.90059
 
+[node name="UnseenEffect" parent="YSort/UnseenCreature" index="2"]
+inverted = true
+
 [node name="SpiderWanderingEnemy" parent="YSort" instance=ExtResource( 5 )]
 position = Vector2( 264, 156 )
 collision_mask = 1
@@ -1404,6 +1407,7 @@ facing_direction = Vector2( -1, 0 )
 
 [node name="ArcherDogProjectileEnemy" parent="YSort" instance=ExtResource( 7 )]
 position = Vector2( 401, 416 )
+collision_mask = 8193
 
 [node name="ChangeSceneDoor" parent="YSort" instance=ExtResource( 8 )]
 position = Vector2( 108, -29 )
@@ -1582,5 +1586,6 @@ z_index = 2
 margin_right = 1112.0
 margin_bottom = 586.0
 
+[editable path="YSort/UnseenCreature"]
 [editable path="DarkenRoomEffect"]
 [editable path="DarkenRoomEffect/DetectionArea"]

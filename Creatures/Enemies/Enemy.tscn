@@ -7,7 +7,7 @@
 
 [node name="Enemy" type="KinematicBody2D" groups=["Enemies"]]
 collision_layer = 16
-collision_mask = 8193
+collision_mask = 24577
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 

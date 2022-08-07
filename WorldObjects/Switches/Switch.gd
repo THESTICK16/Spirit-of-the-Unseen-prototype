@@ -6,10 +6,15 @@ onready var animation_player = $AnimationPlayer
 ## The group that this switch should affect. This must correspond to the name of a grou and match exactly in spelling and case
 export (String) var group_to_call
 
-func _ready():
-	hurtbox.connect("area_entered", self, "call_group")
+signal switch_struck
 
-func call_group(_area):
-	animation_player.play("rotate")
+func _ready():
+	hurtbox.connect("area_entered", self, "struck")
+
+func struck(_area):
+	if animation_player != null and animation_player.has_animation("struck"):
+		animation_player.play("struck")
 	if group_to_call != null and get_tree().has_group(group_to_call):
 		get_tree().call_group(group_to_call, "switch_struck")
+	
+	emit_signal("switch_struck")

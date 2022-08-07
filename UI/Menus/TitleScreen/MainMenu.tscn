@@ -30,7 +30,7 @@ margin_right = 1024.0
 margin_bottom = 59.0
 custom_styles/focus = SubResource( 1 )
 text = "New Game"
-path_to_scene_to_load = "res://TestResources/TestRoom.tscn"
+path_to_scene_to_load = "res://Levels/Overworld.tscn"
 
 [node name="ContinueMenuButton" parent="VBoxContainer/HBoxContainer/Buttons" index="1" instance=ExtResource( 2 )]
 margin_top = 63.0
