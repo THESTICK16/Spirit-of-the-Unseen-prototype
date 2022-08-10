@@ -4,5 +4,15 @@
         "speaker_name": "",
         "text": "You need a key to open this door! Keep searching!"
       }
+    },
+    "HowToUseEyes": {
+      "0": {
+        "speaker_name": "",
+        "text": "The Eyes of the Spirit allow you to glimpse into the Hidden Realm. Activate them with shift on a keyboard or R1 on a controller"
+      },
+      "1": {
+        "speaker_name": "",
+        "text": "Be sure to use them frequently as you never know what you may discover!"
+      }
     }
 }

@@ -1,4 +1,4 @@
-[gd_scene load_steps=116 format=2]
+[gd_scene load_steps=123 format=2]
 
 [ext_resource path="res://Levels/BaseLevel.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Assets/Solaria Demo Pack Update 01/32x32/Tilesets/Solaria Demo Update 01 32.png" type="Texture" id=2]
@@ -19,6 +19,11 @@
 [ext_resource path="res://WorldObjects/Switches/Switch.tscn" type="PackedScene" id=17]
 [ext_resource path="res://Assets/target.png" type="Texture" id=18]
 [ext_resource path="res://WorldObjects/BombableObject.tscn" type="PackedScene" id=19]
+[ext_resource path="res://WorldObjects/Door.tscn" type="PackedScene" id=20]
+[ext_resource path="res://Interface + Abstract Nodes/UnseenEffect.tscn" type="PackedScene" id=21]
+[ext_resource path="res://Interface + Abstract Nodes/DialogueInteractableArea.tscn" type="PackedScene" id=22]
+[ext_resource path="res://ItemContainers/BushRefillItemContainer.tscn" type="PackedScene" id=23]
+[ext_resource path="res://Refills/ArrowItemRefill.tscn" type="PackedScene" id=24]
 
 [sub_resource type="TileSet" id=45]
 0/name = "Grass"
@@ -1257,10 +1262,18 @@ extents = Vector2( 14, 44.5 )
 atlas = ExtResource( 2 )
 region = Rect2( 0, 384, 32, 96 )
 
+[sub_resource type="AtlasTexture" id=100]
+atlas = ExtResource( 2 )
+region = Rect2( 800, 320, 96, 96 )
+
+[sub_resource type="AtlasTexture" id=101]
+atlas = ExtResource( 2 )
+region = Rect2( 640, 192, 32, 32 )
+
 [node name="Overworld" instance=ExtResource( 1 )]
 
 [node name="SingletonPlayer" parent="YSort" index="0" instance=ExtResource( 4 )]
-position = Vector2( 3257, 171 )
+position = Vector2( 1544, -816 )
 
 [node name="SpawnRoomYSort" type="YSort" parent="YSort" index="1"]
 
@@ -1408,6 +1421,7 @@ tile_data = PoolIntArray( -65467, 2, 65536, -65464, 3, 65536, 69, 2, 65536, 72, 
 
 [node name="WorldObjectsTileMap" parent="YSort/SpiritBombSecretTileMapLayersSet" index="2"]
 tile_set = ExtResource( 3 )
+tile_data = PoolIntArray( 655456, 24, 0, 655457, 24, 1, 655458, 24, 1, 655459, 24, 1, 655460, 24, 1, 655461, 24, 1, 655462, 24, 1, 655463, 24, 1, 655464, 24, 1, 655465, 24, 1, 655466, 24, 1, 655467, 24, 1, 720992, 24, 65536, 786528, 24, 65536, 852064, 24, 65536, 917600, 24, 65536 )
 
 [node name="Chest" parent="YSort/SpiritBombSecretTileMapLayersSet/WorldObjectsTileMap" index="1" instance=ExtResource( 11 )]
 position = Vector2( 2947, 124 )
@@ -1435,6 +1449,30 @@ tile_data = PoolIntArray( -2293668, 24, 2, -2293665, 24, 0 )
 position = Vector2( 3033, -1438 )
 pop_up_text = "Use the Eyes of the Spirit to see things in the Hidden Realm!"
 
+[node name="DialogueInteractableArea" parent="YSort/DungeonEntranceAreaTileMapLayersSet/WorldObjectsTileMap/Sign" index="8" instance=ExtResource( 22 )]
+dialogue_json_filepath = "MISCELLANEOUS_MESSAGES_JSON_FILEPATH"
+optional_dialogue_key = "HowToUseEyes"
+
+[node name="DungeonEntranceDoor" parent="YSort/DungeonEntranceAreaTileMapLayersSet/WorldObjectsTileMap" index="2" instance=ExtResource( 20 )]
+position = Vector2( 2431, -1776 )
+__meta__ = {
+"_edit_group_": true
+}
+change_scene_door = true
+
+[node name="Sprite2" type="Sprite" parent="YSort/DungeonEntranceAreaTileMapLayersSet/WorldObjectsTileMap/DungeonEntranceDoor" index="0"]
+z_index = -6
+texture = SubResource( 100 )
+
+[node name="Sprite" parent="YSort/DungeonEntranceAreaTileMapLayersSet/WorldObjectsTileMap/DungeonEntranceDoor" index="1"]
+scale = Vector2( 1, 1 )
+texture = SubResource( 101 )
+
+[node name="CollisionShape2D" parent="YSort/DungeonEntranceAreaTileMapLayersSet/WorldObjectsTileMap/DungeonEntranceDoor" index="2"]
+position = Vector2( 0, -2.5 )
+
+[node name="UnseenEffect" parent="YSort/DungeonEntranceAreaTileMapLayersSet/WorldObjectsTileMap/DungeonEntranceDoor" index="3" instance=ExtResource( 21 )]
+
 [node name="DungeonExteriorLayer0TileMap" parent="YSort/DungeonEntranceAreaTileMapLayersSet" index="3" instance=ExtResource( 8 )]
 tile_set = ExtResource( 16 )
 tile_data = PoolIntArray( -3604406, 1, 0, -3604405, 1, 0, -3604404, 1, 0, -3604403, 1, 0, -3604402, 1, 0, -3604401, 1, 0, -3604400, 1, 0, -3604399, 1, 0, -3604398, 1, 0, -3604397, 1, 0, -3604396, 1, 0, -3604395, 1, 0, -3604394, 1, 0, -3604393, 1, 0, -3604392, 1, 0, -3604391, 1, 0, -3604390, 1, 0, -3604389, 1, 0, -3604388, 1, 0, -3604387, 1, 0, -3604386, 1, 0, -3604385, 1, 0, -3604384, 1, 0, -3604383, 1, 0, -3604382, 1, 0, -3604381, 1, 0, -3604380, 1, 0, -3604379, 1, 0, -3604378, 1, 0, -3604377, 1, 0, -3604376, 1, 0, -3604375, 1, 0, -3604374, 1, 0, -3604373, 1, 0, -3604372, 1, 0, -3604371, 1, 0, -3604370, 1, 0, -3538870, 1, 0, -3538869, 1, 0, -3538868, 1, 0, -3538867, 1, 0, -3538866, 1, 0, -3538865, 1, 0, -3538864, 1, 0, -3538863, 1, 0, -3538862, 1, 0, -3538861, 1, 0, -3538860, 1, 0, -3538859, 1, 0, -3538858, 1, 0, -3538857, 1, 0, -3538856, 1, 0, -3538855, 1, 0, -3538854, 1, 0, -3538853, 1, 0, -3538852, 1, 0, -3538851, 1, 0, -3538850, 1, 0, -3538849, 1, 0, -3538848, 1, 0, -3538847, 1, 0, -3538846, 1, 0, -3538845, 1, 0, -3538844, 1, 0, -3538843, 1, 0, -3538842, 1, 0, -3538841, 1, 0, -3538840, 1, 0, -3538839, 1, 0, -3538838, 1, 0, -3538837, 1, 0, -3538836, 1, 0, -3538835, 1, 0, -3538834, 1, 0, -3473334, 1, 0, -3473333, 1, 0, -3473332, 1, 0, -3473331, 1, 0, -3473330, 1, 0, -3473329, 1, 0, -3473328, 1, 0, -3473327, 1, 0, -3473326, 1, 0, -3473325, 1, 0, -3473324, 1, 0, -3473323, 1, 0, -3473322, 1, 0, -3473321, 1, 0, -3473320, 1, 0, -3473319, 1, 0, -3473318, 1, 0, -3473317, 1, 0, -3473316, 1, 0, -3473315, 1, 0, -3473314, 1, 0, -3473313, 1, 0, -3473312, 1, 0, -3473311, 1, 0, -3473310, 1, 0, -3473309, 1, 0, -3473308, 1, 0, -3473307, 1, 0, -3473306, 1, 0, -3473305, 1, 0, -3473304, 1, 0, -3473303, 1, 0, -3473302, 1, 0, -3473301, 1, 0, -3473300, 1, 0, -3473299, 1, 0, -3473298, 1, 0 )
@@ -1443,6 +1481,88 @@ script = null
 [node name="DungeonExteriorLayer1TileMap2" parent="YSort/DungeonEntranceAreaTileMapLayersSet" index="4" instance=ExtResource( 9 )]
 tile_set = ExtResource( 15 )
 tile_data = PoolIntArray( -3801015, 0, 196608, -3801014, 0, 196609, -3801013, 0, 196609, -3801012, 0, 196609, -3801011, 0, 196609, -3801010, 0, 196609, -3801009, 0, 196609, -3801008, 0, 196609, -3801007, 0, 196609, -3801006, 0, 196609, -3801005, 0, 196609, -3801004, 0, 196609, -3801003, 0, 196609, -3801002, 0, 196609, -3801001, 0, 196609, -3801000, 0, 196609, -3800999, 0, 196609, -3800998, 0, 196609, -3800997, 0, 196609, -3800996, 0, 196609, -3800995, 0, 196609, -3800994, 0, 196609, -3800993, 0, 196609, -3800992, 0, 196609, -3800991, 0, 196609, -3800990, 0, 196609, -3800989, 0, 196609, -3800988, 0, 196609, -3800987, 0, 196609, -3800986, 0, 196609, -3800985, 0, 196609, -3800984, 0, 196609, -3800983, 0, 196609, -3800982, 0, 196609, -3800981, 0, 196609, -3800980, 0, 196609, -3800979, 0, 196609, -3800978, 0, 196609, -3800977, 0, 196610, -3735479, 0, 262144, -3735478, 0, 262145, -3735477, 0, 262145, -3735476, 0, 262145, -3735475, 0, 262145, -3735474, 0, 262145, -3735473, 0, 262145, -3735472, 0, 262145, -3735471, 0, 262145, -3735470, 0, 262145, -3735469, 0, 262145, -3735468, 0, 262145, -3735467, 0, 262145, -3735466, 0, 262145, -3735465, 0, 262145, -3735464, 0, 262145, -3735463, 0, 262145, -3735462, 0, 262145, -3735461, 0, 262145, -3735460, 0, 262145, -3735459, 0, 262145, -3735458, 0, 262145, -3735457, 0, 262145, -3735456, 0, 262145, -3735455, 0, 262145, -3735454, 0, 262145, -3735453, 0, 262145, -3735452, 0, 262145, -3735451, 0, 262145, -3735450, 0, 262145, -3735449, 0, 262145, -3735448, 0, 262145, -3735447, 0, 262145, -3735446, 0, 262145, -3735445, 0, 262145, -3735444, 0, 262145, -3735443, 0, 262145, -3735442, 0, 196609, -3735441, 0, 262146, -3669943, 0, 262144, -3669942, 0, 327681, -3669941, 0, 327681, -3669940, 0, 327681, -3669939, 0, 327681, -3669938, 0, 327681, -3669937, 0, 327681, -3669936, 0, 327681, -3669935, 0, 327681, -3669934, 0, 327681, -3669933, 0, 327681, -3669932, 0, 327681, -3669931, 0, 327681, -3669930, 0, 327681, -3669929, 0, 327681, -3669928, 0, 327681, -3669927, 0, 327681, -3669926, 0, 327681, -3669925, 0, 327681, -3669924, 0, 327681, -3669923, 0, 327681, -3669922, 0, 327681, -3669921, 0, 327681, -3669920, 0, 327681, -3669919, 0, 327681, -3669918, 0, 327681, -3669917, 0, 327681, -3669916, 0, 327681, -3669915, 0, 327681, -3669914, 0, 327681, -3669913, 0, 327681, -3669912, 0, 327681, -3669911, 0, 327681, -3669910, 0, 327681, -3669909, 0, 327681, -3669908, 0, 327681, -3669907, 0, 327681, -3669906, 0, 327681, -3669905, 0, 262146, -3604407, 0, 327680, -3604406, 1, 65536, -3604370, 1, 65538, -3604369, 0, 327682, -3538870, 1, 65536, -3538834, 1, 65538, -3473334, 1, 131072, -3473333, 1, 131073, -3473332, 1, 131073, -3473331, 1, 131073, -3473330, 1, 131073, -3473329, 1, 131073, -3473328, 1, 131073, -3473327, 1, 131073, -3473326, 1, 131073, -3473325, 1, 131073, -3473324, 1, 131073, -3473323, 1, 131073, -3473322, 1, 131073, -3473321, 1, 131073, -3473320, 1, 131073, -3473319, 1, 131073, -3473318, 1, 131073, -3473317, 1, 131073, -3473316, 1, 131073, -3473313, 1, 131073, -3473312, 1, 131073, -3473311, 1, 131073, -3473310, 1, 131073, -3473309, 1, 131073, -3473308, 1, 131073, -3473307, 1, 131073, -3473306, 1, 131073, -3473305, 1, 131073, -3473304, 1, 131073, -3473303, 1, 131073, -3473302, 1, 131073, -3473301, 1, 131073, -3473300, 1, 131073, -3473299, 1, 131073, -3473298, 1, 131074, -3407798, 0, 327680, -3407797, 0, 327681, -3407796, 0, 327681, -3407795, 0, 327681, -3407794, 0, 327681, -3407793, 0, 327681, -3407792, 0, 327681, -3407791, 0, 327681, -3407790, 0, 327681, -3407789, 0, 327681, -3407788, 0, 327681, -3407787, 0, 327681, -3407786, 0, 327681, -3407785, 0, 327681, -3407784, 0, 327681, -3407783, 0, 327681, -3407782, 0, 327681, -3407781, 0, 327681, -3407780, 0, 327681, -3407779, 4, 0, -3407778, 4, 0, -3407777, 0, 327681, -3407776, 0, 327681, -3407775, 0, 327681, -3407774, 0, 327681, -3407773, 0, 327681, -3407772, 0, 327681, -3407771, 0, 327681, -3407770, 0, 327681, -3407769, 0, 327681, -3407768, 0, 327681, -3407767, 0, 327681, -3407766, 0, 327681, -3407765, 0, 327681, -3407764, 0, 327681, -3407763, 0, 327681, -3407762, 0, 327682 )
+
+[node name="Bushes" type="YSort" parent="YSort" index="6"]
+
+[node name="BushRefillItemContainer" parent="YSort/Bushes" index="0" instance=ExtResource( 23 )]
+position = Vector2( 1557, -969 )
+specific_refill = ExtResource( 24 )
+
+[node name="BushRefillItemContainer2" parent="YSort/Bushes" index="1" instance=ExtResource( 23 )]
+position = Vector2( 1589, -997 )
+specific_refill = ExtResource( 24 )
+
+[node name="BushRefillItemContainer3" parent="YSort/Bushes" index="2" instance=ExtResource( 23 )]
+position = Vector2( 1589, -969 )
+specific_refill = ExtResource( 24 )
+
+[node name="BushRefillItemContainer4" parent="YSort/Bushes" index="3" instance=ExtResource( 23 )]
+position = Vector2( 1557, -997 )
+specific_refill = ExtResource( 24 )
+
+[node name="BushRefillItemContainer5" parent="YSort/Bushes" index="4" instance=ExtResource( 23 )]
+position = Vector2( 1608, -628 )
+specific_refill = ExtResource( 24 )
+
+[node name="BushRefillItemContainer6" parent="YSort/Bushes" index="5" instance=ExtResource( 23 )]
+position = Vector2( 1640, -656 )
+specific_refill = ExtResource( 24 )
+
+[node name="BushRefillItemContainer7" parent="YSort/Bushes" index="6" instance=ExtResource( 23 )]
+position = Vector2( 1640, -628 )
+specific_refill = ExtResource( 24 )
+
+[node name="BushRefillItemContainer8" parent="YSort/Bushes" index="7" instance=ExtResource( 23 )]
+position = Vector2( 1608, -656 )
+specific_refill = ExtResource( 24 )
+
+[node name="BushRefillItemContainer9" parent="YSort/Bushes" index="8" instance=ExtResource( 23 )]
+position = Vector2( 1352, -748 )
+specific_refill = ExtResource( 24 )
+
+[node name="BushRefillItemContainer10" parent="YSort/Bushes" index="9" instance=ExtResource( 23 )]
+position = Vector2( 1384, -776 )
+specific_refill = ExtResource( 24 )
+
+[node name="BushRefillItemContainer11" parent="YSort/Bushes" index="10" instance=ExtResource( 23 )]
+position = Vector2( 1384, -748 )
+specific_refill = ExtResource( 24 )
+
+[node name="BushRefillItemContainer12" parent="YSort/Bushes" index="11" instance=ExtResource( 23 )]
+position = Vector2( 1352, -776 )
+specific_refill = ExtResource( 24 )
+
+[node name="BushRefillItemContainer13" parent="YSort/Bushes" index="12" instance=ExtResource( 23 )]
+position = Vector2( 1872, -978 )
+specific_refill = ExtResource( 24 )
+
+[node name="BushRefillItemContainer14" parent="YSort/Bushes" index="13" instance=ExtResource( 23 )]
+position = Vector2( 1904, -1006 )
+specific_refill = ExtResource( 24 )
+
+[node name="BushRefillItemContainer15" parent="YSort/Bushes" index="14" instance=ExtResource( 23 )]
+position = Vector2( 1904, -978 )
+specific_refill = ExtResource( 24 )
+
+[node name="BushRefillItemContainer16" parent="YSort/Bushes" index="15" instance=ExtResource( 23 )]
+position = Vector2( 1872, -1006 )
+specific_refill = ExtResource( 24 )
+
+[node name="BushRefillItemContainer17" parent="YSort/Bushes" index="16" instance=ExtResource( 23 )]
+position = Vector2( 1872, -914 )
+specific_refill = ExtResource( 24 )
+
+[node name="BushRefillItemContainer18" parent="YSort/Bushes" index="17" instance=ExtResource( 23 )]
+position = Vector2( 1904, -942 )
+specific_refill = ExtResource( 24 )
+
+[node name="BushRefillItemContainer19" parent="YSort/Bushes" index="18" instance=ExtResource( 23 )]
+position = Vector2( 1904, -914 )
+specific_refill = ExtResource( 24 )
+
+[node name="BushRefillItemContainer20" parent="YSort/Bushes" index="19" instance=ExtResource( 23 )]
+position = Vector2( 1872, -942 )
+specific_refill = ExtResource( 24 )
 
 [connection signal="switch_struck" from="YSort/BowTeachingAreaTileMapLayersSet/WorldObjectsTileMap/Switch" to="YSort/BowTeachingAreaTileMapLayersSet/WorldObjectsTileMap/BridgeGate" method="queue_free"]
 
@@ -1453,3 +1573,4 @@ tile_data = PoolIntArray( -3801015, 0, 196608, -3801014, 0, 196609, -3801013, 0,
 [editable path="YSort/SpiritBombSecretTileMapLayersSet/WorldObjectsTileMap/CliffBombableObject"]
 [editable path="YSort/SpiritBombSecretTileMapLayersSet/WorldObjectsTileMap/CliffBombableObject/HurtBox"]
 [editable path="YSort/DungeonEntranceAreaTileMapLayersSet"]
+[editable path="YSort/DungeonEntranceAreaTileMapLayersSet/WorldObjectsTileMap/DungeonEntranceDoor"]

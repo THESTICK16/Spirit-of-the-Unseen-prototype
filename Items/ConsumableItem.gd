@@ -2,9 +2,9 @@ extends Item
 class_name ConsumableItem
 
 ## The maximum number of this item the player can hold
-export (int) var max_storage setget set_max_storage
+export (int) var max_storage = 10 setget set_max_storage
 ## The current number of this item the player has
-var current_stock := 10 setget set_current_stock
+var current_stock : int = max_storage setget set_current_stock
 
 # The below consts are the field names that can be entered into the get_item_field function
 ## No calls should be made to get_item_field without using one of these as a paramater

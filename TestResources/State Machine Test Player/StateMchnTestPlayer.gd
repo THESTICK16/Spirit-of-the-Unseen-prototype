@@ -112,7 +112,10 @@ func take_hit(area):
 		area.get_parent().give_hit()
 		
 func recognize_interactable(area):
-	interactable_object = area.get_parent()
+	if area.has_method("get_interactable_type") and area.has_method("interact"):
+		interactable_object = area
+	else:
+		interactable_object = area.get_parent()
 	interacting = true
 	if interactable_object.has_method("get_interactable_type"):
 		hud.set_button(ControllerButtons.A, Interactables.get_interactable_label_text(interactable_object.get_interactable_type()))

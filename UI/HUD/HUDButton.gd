@@ -57,6 +57,5 @@ func connect_stock_label(connect_to : ConsumableItem):
 	if not connect_to.is_connected("stock_changed", self, "set_stock_label"):
 #		call_deferred("set_stock_label", connect_to.get_item_field(ConsumableItem.CURRENT_STOCK))
 		connect_to.connect("stock_changed", self, "set_stock_label")
-		print("Connected") #FIXME!
-	print(connect_to.get_item_field(ConsumableItem.CURRENT_STOCK)) #FIXME!
-	set_stock_label(connect_to.get_item_field(ConsumableItem.CURRENT_STOCK))
+	call_deferred("set_stock_label", connect_to.get_item_field(ConsumableItem.CURRENT_STOCK))
+#	set_stock_label(connect_to.get_item_field(ConsumableItem.CURRENT_STOCK))

@@ -26,7 +26,7 @@ func set_specific_refill(new_specific_refill: PackedScene):
 		
 func open(_area):
 	if breaking_sound != null:
-		SFXController.play_sfx(breaking_sound)
+		SFXController.play_sfx(breaking_sound, false)
 	
 	if specific_refill == null and possible_item_refills.size() <= 0:
 		queue_free()

@@ -27,26 +27,22 @@ hframes = 2
 position = Vector2( 0, 9.5 )
 shape = SubResource( 1 )
 
-[node name="HurtBox" parent="." index="2"]
-visible = false
-
-[node name="InteractableArea" parent="." index="3" instance=ExtResource( 3 )]
+[node name="InteractableArea" parent="." index="2" instance=ExtResource( 3 )]
 position = Vector2( 0, 11 )
 
 [node name="CollisionShape2D" parent="InteractableArea" index="0"]
 shape = SubResource( 2 )
 
-[node name="ItemSprite" type="Sprite" parent="." index="4"]
+[node name="ItemSprite" type="Sprite" parent="." index="3"]
 position = Vector2( 0, -35 )
 scale = Vector2( 1.5, 1.5 )
 
-[node name="OpenAudioStreamPlayer" type="AudioStreamPlayer" parent="." index="5"]
+[node name="OpenAudioStreamPlayer" type="AudioStreamPlayer" parent="." index="4"]
 pause_mode = 2
 stream = ExtResource( 5 )
 
-[node name="GetItemAudioStreamPlayer" type="AudioStreamPlayer" parent="." index="6"]
+[node name="GetItemAudioStreamPlayer" type="AudioStreamPlayer" parent="." index="5"]
 pause_mode = 2
 stream = ExtResource( 6 )
 
-[editable path="HurtBox"]
 [editable path="InteractableArea"]

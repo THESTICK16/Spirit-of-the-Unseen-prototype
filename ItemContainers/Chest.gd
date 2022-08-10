@@ -12,6 +12,7 @@ var opened := false setget set_opened
 
 func _ready():
 	PauseController.connect("unpaused", item_sprite, "hide")
+	opened = Equipment.get_item_field(contained_item_name, Item.PLAYER_HAS_ITEM) #This sets the chest to be opened if the player has already obtained the contained item
 	set_opened(opened)
 
 ## Sets the 'opened' status of the chest and adjusts the sprite frame accordingly
@@ -19,8 +20,8 @@ func set_opened(is_opened : bool):
 	opened = is_opened
 	if opened:
 		sprite.frame = 1
-		open_audio.connect("finished", get_item_audio, "play")
-		open_audio.play()
+#		open_audio.connect("finished", get_item_audio, "play")
+#		open_audio.play()
 	elif not opened:
 		sprite.frame = 0
 		
@@ -45,7 +46,11 @@ func interact():
 	var contained_item = Equipment.get_item_resource(contained_item_name)
 	if contained_item is Item:
 		contained_item.set_player_has_item(true)
+		if contained_item is ConsumableItem:
+			contained_item.change_stock(contained_item.get_item_field(ConsumableItem.MAX_STORAGE))
 	self.opened = true
+	open_audio.connect("finished", get_item_audio, "play")
+	open_audio.play()
 	show_item_sprite()
 	DialogueLoader.create_dialogue_box(JSONFilePaths.ITEM_ACQUISITION_TEXT_JSON_FILEPATH, contained_item_name)
 #	get_item_audio.play()
