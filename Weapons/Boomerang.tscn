@@ -21,6 +21,8 @@ var return_location : Vector2
 var max_distance = 250 #375
 #var velocity : Vector2
 var returning := false
+## The distance from the player that the boomerang will be 'caught' aka dissapear
+const CATCH_DISTANCE = 30
 onready var curve_intensity = get_curve(start_direction) * speed
 onready var curve = curve_intensity #get_curve(start_direction) * speed
 #onready var hitbox = $HitBox
@@ -108,9 +110,9 @@ func move_straight(delta):
 	
 	rotate(rotation_speed * delta)
 	
-	if returning and global_position.distance_to(return_location) < 60:
+	if returning and global_position.distance_to(return_location) < CATCH_DISTANCE:
 		queue_free()
-		if player != null:
+		if is_instance_valid(player) and player != null:
 			player.can_throw_boomerang = true
 	
 	
@@ -151,7 +153,7 @@ func move_with_curve(delta):
 	
 	rotate(rotation_speed * delta)
 	
-	if returning and global_position.distance_to(return_location) < 60:
+	if returning and global_position.distance_to(return_location) < CATCH_DISTANCE:
 		queue_free()
 		if player != null:
 			player.can_throw_boomerang = true

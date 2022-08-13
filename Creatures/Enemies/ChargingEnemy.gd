@@ -24,6 +24,8 @@ export var ray_length := 100
 export var default_knockback := 100
 ## The animation that will play based on the direction of the skeleton
 var current_anim : String
+## The amount that the outer raycasts will be rotated by in radians
+const raycast_rotation = 30 #16
 
 func _ready():
 	add_state("RETURNING")
@@ -35,8 +37,8 @@ func _ready():
 	
 	for i in raycasts:
 		i.cast_to = facing_direction * ray_length
-	raycast2.rotate(PI / 16) #deg2rad(90))
-	raycast3.rotate(-PI / 16)
+	raycast2.rotate(PI / raycast_rotation) #deg2rad(90))
+	raycast3.rotate(-PI / raycast_rotation)
 	
 	match facing_direction:
 		Vector2.UP:

@@ -14,7 +14,6 @@ monitorable = false
 
 [node name="CollisionShape2D" parent="DetectionArea" index="0"]
 visible = false
-shape = null
 
 [node name="RayCast2D" type="RayCast2D" parent="." index="7"]
 enabled = true

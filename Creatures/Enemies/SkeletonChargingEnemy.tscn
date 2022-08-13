@@ -4,6 +4,22 @@
 [ext_resource path="res://Assets/zombie_n_skeleton2_Sprite.png" type="Texture" id=2]
 [ext_resource path="res://Interface + Abstract Nodes/UnseenEffect.tscn" type="PackedScene" id=3]
 
+[sub_resource type="AtlasTexture" id=30]
+atlas = ExtResource( 2 )
+region = Rect2( 96, 0, 32, 64 )
+
+[sub_resource type="AtlasTexture" id=31]
+atlas = ExtResource( 2 )
+region = Rect2( 96, 64, 32, 64 )
+
+[sub_resource type="AtlasTexture" id=32]
+atlas = ExtResource( 2 )
+region = Rect2( 96, 128, 32, 64 )
+
+[sub_resource type="AtlasTexture" id=33]
+atlas = ExtResource( 2 )
+region = Rect2( 96, 192, 32, 64 )
+
 [sub_resource type="AtlasTexture" id=1]
 atlas = ExtResource( 2 )
 region = Rect2( 96, 0, 32, 64 )
@@ -100,24 +116,13 @@ region = Rect2( 224, 192, 32, 64 )
 atlas = ExtResource( 2 )
 region = Rect2( 256, 192, 32, 64 )
 
-[sub_resource type="AtlasTexture" id=30]
-atlas = ExtResource( 2 )
-region = Rect2( 96, 0, 32, 64 )
-
-[sub_resource type="AtlasTexture" id=31]
-atlas = ExtResource( 2 )
-region = Rect2( 96, 64, 32, 64 )
-
-[sub_resource type="AtlasTexture" id=32]
-atlas = ExtResource( 2 )
-region = Rect2( 96, 128, 32, 64 )
-
-[sub_resource type="AtlasTexture" id=33]
-atlas = ExtResource( 2 )
-region = Rect2( 96, 192, 32, 64 )
-
 [sub_resource type="SpriteFrames" id=7]
 animations = [ {
+"frames": [ SubResource( 30 ), SubResource( 31 ), SubResource( 32 ), SubResource( 33 ) ],
+"loop": false,
+"name": "Die",
+"speed": 3.0
+}, {
 "frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ) ],
 "loop": true,
 "name": "Down",
@@ -137,11 +142,6 @@ animations = [ {
 "loop": true,
 "name": "Up",
 "speed": 10.0
-}, {
-"frames": [ SubResource( 30 ), SubResource( 31 ), SubResource( 32 ), SubResource( 33 ) ],
-"loop": false,
-"name": "Die",
-"speed": 3.0
 } ]
 
 [sub_resource type="CapsuleShape2D" id=26]

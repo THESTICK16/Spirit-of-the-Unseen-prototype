@@ -29,6 +29,7 @@ onready var wander_timer = $WanderTimer
 ## The starting position of the enemy, to be used in the wander state to ensure movement is not to far
 onready var start_position = global_position
 onready var Death_Effect = preload("res://SpecialEffects/DeathEffect.tscn")
+onready var visibility_notifier : VisibilityNotifier2D = $VisibilityNotifier2D
 
 ## The maximum health the enemy can have
 export var max_health := 5
@@ -84,6 +85,9 @@ func _ready():
 		hitbox.damage = damage
 		hitbox.knockback = knockback
 		hitbox.stuns = stuns
+	if visibility_notifier != null:
+		visibility_notifier.connect("screen_entered", self, "visibility_changed")
+		visibility_notifier.connect("screen_exited", self, "visibility_changed")
 	
 	connect("state_changed", self, "state_changed")
 	connect("tree_exiting", self, "spawn_death_effect")
@@ -202,3 +206,15 @@ func spawn_death_effect(_death_effect : AnimatedSprite = Death_Effect):
 	death_effect.play()
 	death_effect.connect("animation_finished", death_effect, "queue_free")
 	get_tree().current_scene.call_deferred("add_child", death_effect) #add_child(death_effect)
+
+## Called when the enemy enters/exits the camera's view
+## Does things like turn on/off player detection to avoid enemies waiting for player as soon as they enter the area
+func visibility_changed():
+	if visibility_notifier.is_on_screen():
+		detection_area.set_deferred("monitoring", true)
+	elif not visibility_notifier.is_on_screen():
+		player = null
+		detection_area.set_deferred("monitoring", false)
+		
+	yield() #FIXME
+	print(str(name) + ": " + str(detection_area.monitoring) + ", " + str(player)) #FIXME

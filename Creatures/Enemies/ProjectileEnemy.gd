@@ -263,7 +263,7 @@ func _on_DetectionArea_body_exited(_body):
 func vanish():
 	if state == DEAD:
 		rotate(deg2rad(-90))
-		yield(get_tree().create_timer(1), "timeout")
+#		yield(get_tree().create_timer(1), "timeout")
 		queue_free()
 
 #func die():

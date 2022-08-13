@@ -97,10 +97,10 @@ func _physics_process(delta):
 		DEAD:
 			dead(delta)
 		
-	if animated_sprite.animation == "Walk":
-		animated_sprite.speed_scale = velocity.length() / 100
-	else:
-		animated_sprite.speed_scale = 1
+#	if animated_sprite.animation == "Walk":
+#		animated_sprite.speed_scale = velocity.length() / 100
+#	else:
+#		animated_sprite.speed_scale = 1
 	animated_sprite.flip_h = direction.x > 0
 	velocity = move_and_slide(velocity)
 

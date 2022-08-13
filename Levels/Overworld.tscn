@@ -1,4 +1,4 @@
-[gd_scene load_steps=123 format=2]
+[gd_scene load_steps=130 format=2]
 
 [ext_resource path="res://Levels/BaseLevel.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Assets/Solaria Demo Pack Update 01/32x32/Tilesets/Solaria Demo Update 01 32.png" type="Texture" id=2]
@@ -24,6 +24,12 @@
 [ext_resource path="res://Interface + Abstract Nodes/DialogueInteractableArea.tscn" type="PackedScene" id=22]
 [ext_resource path="res://ItemContainers/BushRefillItemContainer.tscn" type="PackedScene" id=23]
 [ext_resource path="res://Refills/ArrowItemRefill.tscn" type="PackedScene" id=24]
+[ext_resource path="res://Refills/SpiritEnergyRefill.tscn" type="PackedScene" id=25]
+[ext_resource path="res://Creatures/Enemies/SlimeWanderingEnemy.tscn" type="PackedScene" id=26]
+[ext_resource path="res://Creatures/Enemies/BatWanderingEnemy.tscn" type="PackedScene" id=27]
+[ext_resource path="res://Creatures/Enemies/SpiderWanderingEnemy.tscn" type="PackedScene" id=28]
+[ext_resource path="res://WorldObjects/ChangeSceneArea.tscn" type="PackedScene" id=29]
+[ext_resource path="res://Levels/KeyCave.tscn" type="PackedScene" id=30]
 
 [sub_resource type="TileSet" id=45]
 0/name = "Grass"
@@ -1262,6 +1268,9 @@ extents = Vector2( 14, 44.5 )
 atlas = ExtResource( 2 )
 region = Rect2( 0, 384, 32, 96 )
 
+[sub_resource type="RectangleShape2D" id=102]
+extents = Vector2( 8, 8.25 )
+
 [sub_resource type="AtlasTexture" id=100]
 atlas = ExtResource( 2 )
 region = Rect2( 800, 320, 96, 96 )
@@ -1273,7 +1282,7 @@ region = Rect2( 640, 192, 32, 32 )
 [node name="Overworld" instance=ExtResource( 1 )]
 
 [node name="SingletonPlayer" parent="YSort" index="0" instance=ExtResource( 4 )]
-position = Vector2( 1544, -816 )
+position = Vector2( 3366, 128 )
 
 [node name="SpawnRoomYSort" type="YSort" parent="YSort" index="1"]
 
@@ -1306,7 +1315,7 @@ cell_size = Vector2( 32, 32 )
 cell_tile_origin = 2
 cell_y_sort = true
 format = 1
-tile_data = PoolIntArray( -458736, 8, 0, -458720, 9, 0, -458718, 9, 0, -393214, 4, 0, -393209, 9, 0, -393206, 8, 0, -393194, 5, 0, -393193, 5, 0, -393192, 5, 0, -393190, 9, 0, -327671, 7, 0, -327663, 9, 0, -262133, 7, 0, -196574, 5, 0, -131046, 7, 0, -131045, 7, 0, -131043, 4, 0, -131039, 9, 0, -65533, 8, 0, -65530, 7, 0, -65529, 7, 0, -65509, 7, 0, -65508, 7, 0, 6, 7, 0, 7, 7, 0, 12, 8, 0, 25, 6, 0, 65544, 9, 0, 131076, 4, 0, 196625, 6, 0, 196628, 9, 0, 196632, 4, 0, 262144, 6, 0, 327680, 6, 0, 327708, 8, 0, 327709, 8, 0, 393216, 6, 0, 393234, 9, 0, 393249, 5, 0, 458752, 6, 0, 458760, 6, 0, 458767, 6, 0, 524288, 6, 0, 524317, 9, 0, 524320, 9, 0, 589824, 6, 0, 655367, 9, 0, 720912, 7, 0, 720913, 7, 0, 720923, 4, 0, 786449, 7, 0, 786451, 8, 0, 786455, 7, 0, 786456, 7, 0, 786457, 7, 0, 851977, 6, 0, 851984, 9, 0, 851990, 9, 0, 851999, 8, 0, 852000, 6, 0, 917504, 3, 0, 917537, 3, 1, 983040, 3, 1, 983042, 8, 0, 983073, 3, 0, 1048576, 3, 0, 1048580, 8, 0, 1048586, 9, 0, 1048596, 8, 0, 1048607, 9, 0, 1048610, 3, 1, 1114112, 3, 0 )
+tile_data = PoolIntArray( -458736, 8, 0, -458720, 9, 0, -458718, 9, 0, -393214, 4, 0, -393209, 9, 0, -393206, 8, 0, -393194, 5, 0, -393193, 5, 0, -393192, 5, 0, -393190, 9, 0, -327671, 7, 0, -327663, 9, 0, -262133, 7, 0, -196574, 5, 0, -131043, 4, 0, -131039, 9, 0, -65533, 8, 0, 12, 8, 0, 25, 6, 0, 65544, 9, 0, 131076, 4, 0, 196625, 6, 0, 196628, 9, 0, 196632, 4, 0, 262144, 6, 0, 327680, 6, 0, 327708, 8, 0, 327709, 8, 0, 393216, 6, 0, 393234, 9, 0, 393249, 5, 0, 458752, 6, 0, 458760, 6, 0, 458767, 6, 0, 524288, 6, 0, 524317, 9, 0, 524320, 9, 0, 589824, 6, 0, 655367, 9, 0, 720923, 4, 0, 786451, 8, 0, 786455, 7, 0, 786456, 7, 0, 786457, 7, 0, 851977, 6, 0, 851984, 9, 0, 851990, 9, 0, 851999, 8, 0, 852000, 6, 0, 917504, 3, 0, 917537, 3, 1, 983040, 3, 1, 983042, 8, 0, 983073, 3, 0, 1048576, 3, 0, 1048580, 8, 0, 1048586, 9, 0, 1048596, 8, 0, 1048607, 9, 0, 1048610, 3, 1, 1114112, 3, 0 )
 __meta__ = {
 "_editor_description_": ""
 }
@@ -1327,7 +1336,7 @@ tile_data = PoolIntArray( -2228224, 2, 1, -2228223, 2, 1, -2228222, 2, 1, -22282
 
 [node name="EnemyIntroductionWorldObjectsTileMap" parent="YSort/SwordTeachingRoomYSort2" index="2" instance=ExtResource( 10 )]
 tile_set = ExtResource( 3 )
-tile_data = PoolIntArray( -2228223, 6, 0, -2162687, 6, 0, -2162668, 5, 0, -2162666, 5, 0, -2162661, 3, 1, -2162660, 3, 0, -2097151, 6, 0, -2097124, 3, 0, -2031615, 6, 0, -1900527, 3, 1, -1900526, 3, 1, -1834998, 8, 0, -1834993, 8, 0, -1834983, 9, 0, -1769469, 4, 0, -1703917, 9, 0, -1638394, 9, 0, -1572850, 7, 0, -1572843, 4, 0, -1572836, 9, 0, -1310709, 9, 0, -1310707, 5, 0, -1245180, 9, 0, -1245161, 7, 0, -1179641, 7, 0, -1179640, 7, 0, -1179638, 8, 0, -1114108, 6, 0, -1114105, 7, 0, -1114104, 7, 0, -1114087, 5, 0, -1114084, 3, 1, -1114083, 3, 0, -1048563, 7, 0, -1048548, 3, 1, -1048547, 9, 0, -983034, 6, 0, -983033, 6, 0, -917493, 8, 0, -917482, 3, 1, -917477, 9, 0, -851958, 4, 0, -851946, 3, 1, -786404, 9, 0, -786401, 9, 0, -720892, 9, 0, -720887, 6, 0, -655337, 4, 0, -655331, 7, 0, -589799, 9, 0 )
+tile_data = PoolIntArray( -2228223, 6, 0, -2162687, 6, 0, -2162668, 5, 0, -2162666, 5, 0, -2162661, 3, 1, -2162660, 3, 0, -2097151, 6, 0, -2097124, 3, 0, -2031615, 6, 0, -1900527, 3, 1, -1900526, 3, 1, -1834998, 8, 0, -1834993, 8, 0, -1834983, 9, 0, -1769469, 4, 0, -1703917, 9, 0, -1638394, 9, 0, -1572843, 4, 0, -1572836, 9, 0, -1310709, 9, 0, -1310707, 5, 0, -1245180, 9, 0, -1245161, 7, 0, -1179641, 7, 0, -1179640, 7, 0, -1179638, 8, 0, -1114108, 6, 0, -1114105, 7, 0, -1114104, 7, 0, -1114087, 5, 0, -1114084, 3, 1, -1114083, 3, 0, -1048563, 7, 0, -1048548, 3, 1, -1048547, 9, 0, -983034, 6, 0, -983033, 6, 0, -917493, 8, 0, -917482, 3, 1, -917477, 9, 0, -851958, 4, 0, -851946, 3, 1, -786404, 9, 0, -786401, 9, 0, -720892, 9, 0, -720887, 6, 0, -655337, 4, 0, -655331, 7, 0, -589799, 9, 0 )
 
 [node name="Sign" parent="YSort/SwordTeachingRoomYSort2/EnemyIntroductionWorldObjectsTileMap" index="1" instance=ExtResource( 12 )]
 position = Vector2( 535, -317 )
@@ -1421,7 +1430,7 @@ tile_data = PoolIntArray( -65467, 2, 65536, -65464, 3, 65536, 69, 2, 65536, 72, 
 
 [node name="WorldObjectsTileMap" parent="YSort/SpiritBombSecretTileMapLayersSet" index="2"]
 tile_set = ExtResource( 3 )
-tile_data = PoolIntArray( 655456, 24, 0, 655457, 24, 1, 655458, 24, 1, 655459, 24, 1, 655460, 24, 1, 655461, 24, 1, 655462, 24, 1, 655463, 24, 1, 655464, 24, 1, 655465, 24, 1, 655466, 24, 1, 655467, 24, 1, 720992, 24, 65536, 786528, 24, 65536, 852064, 24, 65536, 917600, 24, 65536 )
+tile_data = PoolIntArray( 524393, 24, 1, 524394, 24, 1, 524395, 24, 1, 589928, 24, 1, 589929, 24, 1, 589930, 24, 1, 589931, 24, 1, 655464, 24, 0, 655465, 24, 0, 655466, 24, 1, 655467, 24, 1, 721000, 24, 65536, 721001, 24, 65536, 786536, 24, 65536, 786537, 24, 65536, 852072, 24, 65536, 852073, 24, 65536, 917608, 24, 65536, 917609, 24, 131072, 983144, 24, 65536 )
 
 [node name="Chest" parent="YSort/SpiritBombSecretTileMapLayersSet/WorldObjectsTileMap" index="1" instance=ExtResource( 11 )]
 position = Vector2( 2947, 124 )
@@ -1430,6 +1439,17 @@ contained_item_name = "SpiritBomb"
 [node name="CliffBombableObject" parent="YSort/SpiritBombSecretTileMapLayersSet/WorldObjectsTileMap" index="2" instance=ExtResource( 19 )]
 position = Vector2( 3438, 19 )
 scale = Vector2( 0.85, 0.85 )
+
+[node name="ToKeyCaveChangeSceneArea" parent="YSort/SpiritBombSecretTileMapLayersSet/WorldObjectsTileMap" index="3" instance=ExtResource( 29 )]
+position = Vector2( 3438, 18 )
+__meta__ = {
+"_edit_group_": true
+}
+change_scene_door = true
+next_scene = ExtResource( 30 )
+
+[node name="CollisionShape2D" parent="YSort/SpiritBombSecretTileMapLayersSet/WorldObjectsTileMap/ToKeyCaveChangeSceneArea" index="1"]
+shape = SubResource( 102 )
 
 [node name="DungeonEntranceAreaTileMapLayersSet" parent="YSort" index="5" instance=ExtResource( 14 )]
 
@@ -1564,6 +1584,141 @@ specific_refill = ExtResource( 24 )
 position = Vector2( 1872, -942 )
 specific_refill = ExtResource( 24 )
 
+[node name="BushRefillItemContainer21" parent="YSort/Bushes" index="20" instance=ExtResource( 23 )]
+position = Vector2( 2901, 256 )
+specific_refill = ExtResource( 25 )
+
+[node name="BushRefillItemContainer22" parent="YSort/Bushes" index="21" instance=ExtResource( 23 )]
+position = Vector2( 2856, 400 )
+specific_refill = ExtResource( 25 )
+
+[node name="BushRefillItemContainer23" parent="YSort/Bushes" index="22" instance=ExtResource( 23 )]
+position = Vector2( 2856, 360 )
+specific_refill = ExtResource( 25 )
+
+[node name="BushRefillItemContainer24" parent="YSort/Bushes" index="23" instance=ExtResource( 23 )]
+position = Vector2( 2901, 336 )
+specific_refill = ExtResource( 25 )
+
+[node name="BushRefillItemContainer25" parent="YSort/Bushes" index="24" instance=ExtResource( 23 )]
+position = Vector2( 2901, 296 )
+specific_refill = ExtResource( 25 )
+
+[node name="BushRefillItemContainer26" parent="YSort/Bushes" index="25" instance=ExtResource( 23 )]
+position = Vector2( 2824, 80 )
+specific_refill = ExtResource( 25 )
+
+[node name="BushRefillItemContainer27" parent="YSort/Bushes" index="26" instance=ExtResource( 23 )]
+position = Vector2( 2784, 80 )
+specific_refill = ExtResource( 25 )
+
+[node name="BushRefillItemContainer28" parent="YSort/Bushes" index="27" instance=ExtResource( 23 )]
+position = Vector2( 2744, 80 )
+specific_refill = ExtResource( 25 )
+
+[node name="BushRefillItemContainer29" parent="YSort/Bushes" index="28" instance=ExtResource( 23 )]
+position = Vector2( 2704, 80 )
+specific_refill = ExtResource( 25 )
+
+[node name="BushRefillItemContainer30" parent="YSort/Bushes" index="29" instance=ExtResource( 23 )]
+position = Vector2( 2472, 440 )
+
+[node name="BushRefillItemContainer31" parent="YSort/Bushes" index="30" instance=ExtResource( 23 )]
+position = Vector2( 1048, -760 )
+
+[node name="BushRefillItemContainer32" parent="YSort/Bushes" index="31" instance=ExtResource( 23 )]
+position = Vector2( 984, -987 )
+
+[node name="BushRefillItemContainer33" parent="YSort/Bushes" index="32" instance=ExtResource( 23 )]
+position = Vector2( 504, -914 )
+
+[node name="BushRefillItemContainer34" parent="YSort/Bushes" index="33" instance=ExtResource( 23 )]
+position = Vector2( 352, -752 )
+
+[node name="BushRefillItemContainer35" parent="YSort/Bushes" index="34" instance=ExtResource( 23 )]
+position = Vector2( 256, -824 )
+
+[node name="BushRefillItemContainer36" parent="YSort/Bushes" index="35" instance=ExtResource( 23 )]
+position = Vector2( 656, -688 )
+
+[node name="BushRefillItemContainer37" parent="YSort/Bushes" index="36" instance=ExtResource( 23 )]
+position = Vector2( 656, -656 )
+
+[node name="BushRefillItemContainer38" parent="YSort/Bushes" index="37" instance=ExtResource( 23 )]
+position = Vector2( 720, -816 )
+
+[node name="BushRefillItemContainer39" parent="YSort/Bushes" index="38" instance=ExtResource( 23 )]
+position = Vector2( 760, -816 )
+
+[node name="BushRefillItemContainer40" parent="YSort/Bushes" index="39" instance=ExtResource( 23 )]
+position = Vector2( 816, -741 )
+
+[node name="BushRefillItemContainer41" parent="YSort/Bushes" index="40" instance=ExtResource( 23 )]
+position = Vector2( 720, -368 )
+
+[node name="Enemies" type="YSort" parent="YSort" index="7"]
+
+[node name="SlimeWanderingEnemy" parent="YSort/Enemies" index="0" instance=ExtResource( 26 )]
+position = Vector2( 593, -494 )
+max_wander_distance = 1
+
+[node name="SlimeWanderingEnemy2" parent="YSort/Enemies" index="1" instance=ExtResource( 26 )]
+position = Vector2( 674, -804 )
+
+[node name="SlimeWanderingEnemy3" parent="YSort/Enemies" index="2" instance=ExtResource( 26 )]
+position = Vector2( 579, -798 )
+
+[node name="SlimeWanderingEnemy4" parent="YSort/Enemies" index="3" instance=ExtResource( 26 )]
+position = Vector2( 1150, -984 )
+
+[node name="BatWanderingEnemy" parent="YSort/Enemies" index="4" instance=ExtResource( 27 )]
+position = Vector2( 339, -974 )
+
+[node name="BatWanderingEnemy2" parent="YSort/Enemies" index="5" instance=ExtResource( 27 )]
+position = Vector2( 1140, -901 )
+
+[node name="BatWanderingEnemy3" parent="YSort/Enemies" index="6" instance=ExtResource( 27 )]
+position = Vector2( 1408, -565 )
+
+[node name="SlimeWanderingEnemy5" parent="YSort/Enemies" index="7" instance=ExtResource( 26 )]
+position = Vector2( 1809, -1022 )
+
+[node name="SlimeWanderingEnemy6" parent="YSort/Enemies" index="8" instance=ExtResource( 26 )]
+position = Vector2( 1808, -967 )
+
+[node name="SlimeWanderingEnemy7" parent="YSort/Enemies" index="9" instance=ExtResource( 26 )]
+position = Vector2( 1820, -626 )
+
+[node name="BatWanderingEnemy4" parent="YSort/Enemies" index="10" instance=ExtResource( 27 )]
+position = Vector2( 3381, 425 )
+
+[node name="BatWanderingEnemy5" parent="YSort/Enemies" index="11" instance=ExtResource( 27 )]
+position = Vector2( 3404, 370 )
+
+[node name="BatWanderingEnemy6" parent="YSort/Enemies" index="12" instance=ExtResource( 27 )]
+position = Vector2( 2569, 338 )
+
+[node name="SlimeWanderingEnemy8" parent="YSort/Enemies" index="13" instance=ExtResource( 26 )]
+position = Vector2( 2395, 214 )
+
+[node name="SlimeWanderingEnemy9" parent="YSort/Enemies" index="14" instance=ExtResource( 26 )]
+position = Vector2( 2344, 449 )
+
+[node name="SlimeWanderingEnemy10" parent="YSort/Enemies" index="15" instance=ExtResource( 26 )]
+position = Vector2( 2626, 237 )
+
+[node name="BatWanderingEnemy7" parent="YSort/Enemies" index="16" instance=ExtResource( 27 )]
+position = Vector2( 2434, -838 )
+
+[node name="BatWanderingEnemy8" parent="YSort/Enemies" index="17" instance=ExtResource( 27 )]
+position = Vector2( 3044, -762 )
+
+[node name="BatWanderingEnemy9" parent="YSort/Enemies" index="18" instance=ExtResource( 27 )]
+position = Vector2( 2568, -1405 )
+
+[node name="SpiderWanderingEnemy" parent="YSort/Enemies" index="19" instance=ExtResource( 28 )]
+position = Vector2( 2684, -1713 )
+
 [connection signal="switch_struck" from="YSort/BowTeachingAreaTileMapLayersSet/WorldObjectsTileMap/Switch" to="YSort/BowTeachingAreaTileMapLayersSet/WorldObjectsTileMap/BridgeGate" method="queue_free"]
 
 [editable path="YSort/BowTeachingAreaTileMapLayersSet"]
@@ -1572,5 +1727,6 @@ specific_refill = ExtResource( 24 )
 [editable path="YSort/SpiritBombSecretTileMapLayersSet"]
 [editable path="YSort/SpiritBombSecretTileMapLayersSet/WorldObjectsTileMap/CliffBombableObject"]
 [editable path="YSort/SpiritBombSecretTileMapLayersSet/WorldObjectsTileMap/CliffBombableObject/HurtBox"]
+[editable path="YSort/SpiritBombSecretTileMapLayersSet/WorldObjectsTileMap/ToKeyCaveChangeSceneArea"]
 [editable path="YSort/DungeonEntranceAreaTileMapLayersSet"]
 [editable path="YSort/DungeonEntranceAreaTileMapLayersSet/WorldObjectsTileMap/DungeonEntranceDoor"]

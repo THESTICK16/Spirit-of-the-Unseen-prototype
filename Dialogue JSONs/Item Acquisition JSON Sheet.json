@@ -30,7 +30,7 @@
     "Key": {
       "0": {
         "speaker_name": "",
-        "text": "You found a key! Locked doors can't stop you now! Only works in the dungeon it was found."
+        "text": "You found a key! Locked doors can't stop you now! Only works in the area it was found."
       }
     }
 }

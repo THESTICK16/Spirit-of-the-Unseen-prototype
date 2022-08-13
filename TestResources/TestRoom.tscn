@@ -1,4 +1,4 @@
-[gd_scene load_steps=90 format=2]
+[gd_scene load_steps=93 format=2]
 
 [ext_resource path="res://Creatures/Player/SingletonPlayer.tscn" type="PackedScene" id=1]
 [ext_resource path="res://TestResources/TestMap.tscn" type="PackedScene" id=2]
@@ -21,6 +21,9 @@
 [ext_resource path="res://Assets/Solaria Demo Pack Update 01/32x32/Tilesets/Solaria Demo Update 01 32.png" type="Texture" id=19]
 [ext_resource path="res://ItemContainers/BushRefillItemContainer.tscn" type="PackedScene" id=20]
 [ext_resource path="res://LevelCreation/Tilemaps/Layer0TileMap.gd" type="Script" id=21]
+[ext_resource path="res://Creatures/Enemies/SlimeWanderingEnemy.tscn" type="PackedScene" id=22]
+[ext_resource path="res://Creatures/Enemies/SpikeyChargingEnemy.tscn" type="PackedScene" id=23]
+[ext_resource path="res://Creatures/Enemies/BatWanderingEnemy.tscn" type="PackedScene" id=24]
 
 [sub_resource type="TileSet" id=97]
 0/name = "Grass"
@@ -1378,7 +1381,7 @@ tile_data = PoolIntArray( 65537, 0, 0, 65538, 0, 0, 131073, 0, 0, 196621, 0, 0, 
 position = Vector2( 113, 21 )
 
 [node name="SingletonPlayer" parent="YSort" instance=ExtResource( 1 )]
-position = Vector2( 596, 292 )
+position = Vector2( 602, 160 )
 
 [node name="UnseenCreature" parent="YSort" instance=ExtResource( 4 )]
 position = Vector2( 764, 64 )
@@ -1511,7 +1514,7 @@ specific_refill = ExtResource( 16 )
 
 [node name="Sign" parent="YSort" instance=ExtResource( 18 )]
 position = Vector2( 552, 187 )
-pop_up_text = "Locked doors can be opened with a key"
+pop_up_text = "That's what I'm sayin' dawg"
 
 [node name="OutdoorLayer0TileMap" type="TileMap" parent="YSort" groups=["Tilemaps"]]
 z_index = -10
@@ -1590,6 +1593,35 @@ position = Vector2( 480, 78 )
 
 [node name="BushRefillItemContainer3" parent="YSort" instance=ExtResource( 20 )]
 position = Vector2( 513, 84 )
+
+[node name="SlimeWanderingEnemy" parent="YSort" instance=ExtResource( 22 )]
+position = Vector2( 131, -229 )
+
+[node name="SlimeWanderingEnemy2" parent="YSort" instance=ExtResource( 22 )]
+position = Vector2( 88, -149 )
+
+[node name="SlimeWanderingEnemy3" parent="YSort" instance=ExtResource( 22 )]
+position = Vector2( 202, -150 )
+
+[node name="SpikeyChargingEnemy" parent="YSort" instance=ExtResource( 23 )]
+position = Vector2( 696, -386 )
+
+[node name="SpikeyChargingEnemy2" parent="YSort" instance=ExtResource( 23 )]
+position = Vector2( 905, -281 )
+facing_direction = Vector2( -1, 0 )
+
+[node name="SpikeyChargingEnemy3" parent="YSort" instance=ExtResource( 23 )]
+position = Vector2( 503, -188 )
+facing_direction = Vector2( 1, 0 )
+
+[node name="BatWanderingEnemy" parent="YSort" instance=ExtResource( 24 )]
+position = Vector2( 345, -185 )
+
+[node name="BatWanderingEnemy2" parent="YSort" instance=ExtResource( 24 )]
+position = Vector2( 376, -298 )
+
+[node name="BatWanderingEnemy3" parent="YSort" instance=ExtResource( 24 )]
+position = Vector2( 332, -254 )
 
 [node name="DarkenRoomEffect" parent="." instance=ExtResource( 17 )]
 visible = false
