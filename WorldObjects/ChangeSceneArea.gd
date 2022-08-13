@@ -6,8 +6,8 @@ extends Area2D
 export var change_scene_door := false
 ## If true, entering this door will transport the player to another position within the same scene (var next_position)
 export var change_position_door := false
-## The room that will load when the player enters the door
-export (PackedScene) var next_scene
+## The path to the room that will load when the player enters the door
+export (String) var next_scene
 ## The position that the player will be moved to when they enter the door, must have a global_position
 export var next_position : Vector2
 

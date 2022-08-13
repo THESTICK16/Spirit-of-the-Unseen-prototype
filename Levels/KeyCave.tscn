@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://LevelCreation/TileMapLayersSet.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Levels/BaseLevel.tscn" type="PackedScene" id=2]
@@ -6,8 +6,9 @@
 [ext_resource path="res://LevelCreation/TileSets/Cave/CaveLayer0TileSet.tres" type="TileSet" id=4]
 [ext_resource path="res://Creatures/Player/SingletonPlayer.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Refills/KeyStatRefill.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Levels/Overworld.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Creatures/Enemies/SlimeWanderingEnemy.tscn" type="PackedScene" id=7]
 [ext_resource path="res://WorldObjects/ChangeSceneArea.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Creatures/Enemies/BatWanderingEnemy.tscn" type="PackedScene" id=9]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 32, 9.5 )
@@ -30,16 +31,31 @@ tile_data = PoolIntArray( -131073, 0, 65538, -196608, 0, 131072, -196607, 0, 131
 [node name="KeyStatRefill" parent="YSort" index="2" instance=ExtResource( 6 )]
 position = Vector2( 379, 49 )
 
-[node name="ChangeSceneArea" parent="YSort" index="3" instance=ExtResource( 8 )]
+[node name="ToOverworldChangeSceneArea" parent="YSort" index="3" instance=ExtResource( 8 )]
 position = Vector2( 368, 630 )
 __meta__ = {
 "_edit_group_": true
 }
 change_scene_door = true
-next_scene = ExtResource( 7 )
+next_scene = "res://Levels/Overworld.tscn"
 
-[node name="CollisionShape2D" parent="YSort/ChangeSceneArea" index="1"]
+[node name="CollisionShape2D" parent="YSort/ToOverworldChangeSceneArea" index="1"]
 shape = SubResource( 1 )
 
+[node name="BatWanderingEnemy" parent="YSort" index="4" instance=ExtResource( 9 )]
+position = Vector2( 126, 164 )
+
+[node name="BatWanderingEnemy2" parent="YSort" index="5" instance=ExtResource( 9 )]
+position = Vector2( 456, 227 )
+
+[node name="BatWanderingEnemy3" parent="YSort" index="6" instance=ExtResource( 9 )]
+position = Vector2( 115, 456 )
+
+[node name="SlimeWanderingEnemy" parent="YSort" index="7" instance=ExtResource( 7 )]
+position = Vector2( 250, 192 )
+
+[node name="SlimeWanderingEnemy2" parent="YSort" index="8" instance=ExtResource( 7 )]
+position = Vector2( 530, 346 )
+
 [editable path="YSort/TileMapLayersSet"]
-[editable path="YSort/ChangeSceneArea"]
+[editable path="YSort/ToOverworldChangeSceneArea"]
