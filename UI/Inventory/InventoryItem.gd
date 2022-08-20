@@ -103,7 +103,7 @@ func unselected():
 ## @param button a single character containing 'a', 'b', 'x', or 'y' representing the button to which this item should be assigned
 func equipped(button : String):
 #	if button != 'a' and button != 'b' and button != 'x' and button != 'y':
-	if not equipped_items.equippable_buttons.has(button) or not visibility_notifier.is_on_screen() or not player_has_item:
+	if not equipped_items.equippable_buttons.has(button) or not player_has_item: #or not visibility_notifier.is_on_screen():
 		return
 #	if not player_has_item:
 #		return

@@ -1283,6 +1283,7 @@ region = Rect2( 640, 192, 32, 32 )
 
 [node name="LevelMusicAudioStreamPlayer" parent="." index="1"]
 stream = ExtResource( 30 )
+volume_db = -5.0
 
 [node name="SingletonPlayer" parent="YSort" index="0" instance=ExtResource( 4 )]
 position = Vector2( 864, 222 )
@@ -1478,6 +1479,7 @@ optional_dialogue_key = "HowToUseEyes"
 [node name="DungeonEntranceDoor" parent="YSort/DungeonEntranceAreaTileMapLayersSet/WorldObjectsTileMap" index="2" instance=ExtResource( 20 )]
 position = Vector2( 2431, -1776 )
 change_scene_door = true
+next_scene = "res://UI/Menus/ThanksForPlayingScreen.tscn"
 
 [node name="Sprite2" type="Sprite" parent="YSort/DungeonEntranceAreaTileMapLayersSet/WorldObjectsTileMap/DungeonEntranceDoor" index="0"]
 z_index = -6

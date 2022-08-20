@@ -27,6 +27,7 @@ func _ready():
 		menu.connect("new_displayed_menu", self, "swap_menus_from_string")
 		menu.set_global_position(off_screen_position)
 		menu.focus_mode = Control.FOCUS_NONE
+		menu.hide()
 	
 	self.displayed_menu = main_menu
 	
@@ -47,11 +48,13 @@ func set_displayed_menu(set_to : TitleScreenMenu):
 		previous_menu = displayed_menu
 		previous_menu.set_global_position(off_screen_position)
 		previous_menu.focus_mode = Control.FOCUS_NONE
+		previous_menu.hide()
 	
 	displayed_menu = set_to
 	displayed_menu.set_global_position(display_position)
 	displayed_menu.focus_mode = Control.FOCUS_ALL
 	displayed_menu.grab_focus() #Apparently this can't grab focus? Make sure everything works properly
+	displayed_menu.show()
 	
 func swap_menus_from_string(swap_to : String):
 	var new_displayed = menus.get_node(swap_to)

@@ -1,0 +1,79 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://UI/Menus/MenuController.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Assets/Fonts/Inconsolata/static/Inconsolata/Inconsolata-Regular.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://UI/Menus/GameOver/GameOverMenu.tscn" type="PackedScene" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+size = 30
+outline_size = 2
+outline_color = Color( 0.458824, 0.00392157, 0.00392157, 1 )
+extra_spacing_char = 2
+font_data = ExtResource( 2 )
+
+[sub_resource type="GDScript" id=2]
+script/source = "extends TitleScreenMenu
+
+#onready var new_game_button = $VBoxContainer/HBoxContainer/Buttons/NewGameMenuButton
+#onready var top_button = $VBoxContainer/HBoxContainer/Buttons.get_children()[0]
+onready var buttons = $VBoxContainer/HBoxContainer/Buttons.get_children()
+onready var top_button = buttons[0]
+
+func _ready():
+#	new_game_button.grab_focus()
+	top_button.grab_focus()
+#	print(top_button.name) #FIXME
+	for button in buttons:
+		button.connect(\"pressed\", self, \"button_pressed\", [button.path_to_scene_to_load])
+#		button.connect(\"pressed\", self, \"button_been_pressed_yo\", [button.path_to_scene_to_load])
+	connect(\"focus_entered\", self, \"regain_focus\")
+	var bottom_button = buttons[buttons.size() - 1]
+	top_button.set_focus_neighbour(MARGIN_TOP, bottom_button.get_path())
+	bottom_button.set_focus_neighbour(MARGIN_BOTTOM, top_button.get_path())
+
+func button_pressed(next_scene_path : String):
+	if next_scene_path.ends_with(\"tscn\"):
+#		get_tree().change_scene(next_scene_path) #FIXME implement the pseudo code below with a transition scene
+		TransitionController.change_to_new_scene(next_scene_path)
+	elif next_scene_path.to_lower() == \"quit\":
+		get_tree().quit()
+	elif has_method(\"set_new_displayed_menu\"):
+		set_new_displayed_menu(next_scene_path)
+	elif PlayerStats.get(\"respawn_at\") != null:
+		TransitionController.change_to_new_scene(PlayerStats.get(\"respawn_at\"))
+
+
+func regain_focus():
+	top_button.grab_focus()
+"
+
+[node name="ThanksForPlayingScreen" instance=ExtResource( 1 )]
+
+[node name="Background" parent="." index="0"]
+color = Color( 0.317647, 0.301961, 0.054902, 1 )
+
+[node name="Label" type="Label" parent="." index="1"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "
+Thanks for playing the demo for Spirit of the Unseen!
+
+Check back later for more updates"
+align = 1
+
+[node name="GameOverMenu" parent="Menus" index="0" instance=ExtResource( 3 )]
+script = SubResource( 2 )
+
+[node name="TitleLabel" parent="Menus/GameOverMenu/VBoxContainer" index="0"]
+visible = false
+
+[node name="HBoxContainer" parent="Menus/GameOverMenu/VBoxContainer" index="1"]
+margin_top = 150.0
+margin_bottom = 450.0
+
+[node name="ContinueMenuButton" parent="Menus/GameOverMenu/VBoxContainer/HBoxContainer/Buttons" index="0"]
+text = "Play Again"
+
+[editable path="Menus/GameOverMenu"]

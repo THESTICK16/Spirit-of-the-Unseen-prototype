@@ -5,5 +5,5 @@ extends Node
 func _ready():
 	if is_instance_valid(get_parent()):
 		var parent = get_parent()
-		if parent != null and parent.get("path_to_scene_to_load") != null:
+		if parent != null and parent.get("path_to_scene_to_load") != null and PlayerStats.last_scene_path.ends_with("tscn"):
 			parent.path_to_scene_to_load = PlayerStats.last_scene_path
