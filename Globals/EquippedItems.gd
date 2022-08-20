@@ -16,8 +16,8 @@ signal equipped_items_changed
 ##Emitted for a specific button change
 signal button_equipped_changed(button, new_item)
 
-func _ready():
-	call_deferred("load_initial_inventory") #FIXME! Delete this when implementing a "load save data" function. This is for saving time while testing only!
+#func _ready():
+#	call_deferred("load_initial_inventory") #FIXME! Delete this when implementing a "load save data" function. This is for saving time while testing only!
 
 func equip_item(item: Item, button: String):
 	if (item == null) or (not ControllerButtons.is_equippable_button(button)):

@@ -4,6 +4,7 @@ onready var animation_player = $ColorRect/AnimationPlayer
 
 func _ready():
 	PauseController.pause()
+#	animation_player.playback_speed = 2
 	animation_player.play_backwards("Fade")
 
 func transition_to_new_scene(next_scene):
@@ -20,10 +21,12 @@ func transition_to_new_scene(next_scene):
 	elif next_scene is PackedScene:
 		get_tree().change_scene_to(next_scene)
 		
+#	animation_player.playback_speed = 1
 	animation_player.play("Fade")
 #	yield(animation_player, "animation_finished")
 	
 	PauseController.unpause()
 	
 	yield(animation_player, "animation_finished")
+#	animation_player.playback_speed = 1
 	queue_free()

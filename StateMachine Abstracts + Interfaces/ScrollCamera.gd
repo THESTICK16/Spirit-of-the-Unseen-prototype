@@ -34,7 +34,7 @@ func enter(_msg := {}) -> void:
 ## to clean up the state.
 ##@override
 func exit() -> void:
-	pass
+	player.stats.respawn_position = player.global_position
 
 func scroll_camera(_area):
 	if _area.get_parent() is TileMap:

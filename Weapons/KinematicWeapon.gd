@@ -14,6 +14,8 @@ enum weapon_types {
 export var weapon_name : String
 ##The type of weapon that this is (i.e. 'ranged', 'special', 'close'
 export (String, "RANGED", "CLOSE", "AREA_OF_EFFECT") var weapon_class
+## If true, this weapon is a spirit weapon/ability
+export var spirit_weapon := false
 #export (weapon_types) var weapon_class
 ##The amount of damage the weapon will do
 export var damage := 0.0

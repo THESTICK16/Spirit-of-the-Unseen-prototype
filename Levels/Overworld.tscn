@@ -1,4 +1,4 @@
-[gd_scene load_steps=129 format=2]
+[gd_scene load_steps=130 format=2]
 
 [ext_resource path="res://Levels/BaseLevel.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Assets/Solaria Demo Pack Update 01/32x32/Tilesets/Solaria Demo Update 01 32.png" type="Texture" id=2]
@@ -29,6 +29,7 @@
 [ext_resource path="res://Creatures/Enemies/BatWanderingEnemy.tscn" type="PackedScene" id=27]
 [ext_resource path="res://Creatures/Enemies/SpiderWanderingEnemy.tscn" type="PackedScene" id=28]
 [ext_resource path="res://WorldObjects/ChangeSceneArea.tscn" type="PackedScene" id=29]
+[ext_resource path="res://Assets/Sound/Music/melodies_of_the_future_-_albion_one_-_loop.wav" type="AudioStream" id=30]
 
 [sub_resource type="TileSet" id=45]
 0/name = "Grass"
@@ -1280,8 +1281,11 @@ region = Rect2( 640, 192, 32, 32 )
 
 [node name="Overworld" instance=ExtResource( 1 )]
 
+[node name="LevelMusicAudioStreamPlayer" parent="." index="1"]
+stream = ExtResource( 30 )
+
 [node name="SingletonPlayer" parent="YSort" index="0" instance=ExtResource( 4 )]
-position = Vector2( 3366, 128 )
+position = Vector2( 864, 222 )
 
 [node name="SpawnRoomYSort" type="YSort" parent="YSort" index="1"]
 
@@ -1343,6 +1347,8 @@ pop_up_text = "Equip Items in the Pause menu"
 
 [node name="LockedDoor" parent="YSort/SwordTeachingRoomYSort2/EnemyIntroductionWorldObjectsTileMap" index="2" instance=ExtResource( 13 )]
 position = Vector2( 176, -944 )
+vanish_on_unlock = false
+scene_to_load = "res://Levels/HouseInterior.tscn"
 
 [node name="BowTeachingAreaTileMapLayersSet" parent="YSort" index="3" instance=ExtResource( 14 )]
 
@@ -1357,7 +1363,7 @@ tile_data = PoolIntArray( -2228188, 2, 1, -2228187, 2, 1, -2228186, 2, 1, -22281
 
 [node name="WorldObjectsTileMap" parent="YSort/BowTeachingAreaTileMapLayersSet" index="2"]
 tile_set = ExtResource( 3 )
-tile_data = PoolIntArray( -2293686, 24, 0, -2228154, 4, 0, -2228150, 24, 131072, -2228149, 24, 1, -2228148, 24, 1, -2228147, 24, 1, -2228146, 24, 1, -2228145, 24, 1, -2228144, 24, 1, -2228143, 24, 1, -2228142, 24, 1, -2228141, 24, 1, -2228140, 24, 1, -2228139, 24, 1, -2228138, 24, 1, -2228137, 24, 1, -2228136, 24, 1, -2228135, 24, 1, -2228134, 24, 1, -2228133, 24, 1, -2228132, 24, 131074, -2228129, 24, 131072, -2228128, 24, 1, -2228127, 24, 1, -2228126, 24, 1, -2228125, 24, 1, -2228124, 24, 1, -2228123, 24, 1, -2228122, 24, 1, -2228121, 24, 1, -2097105, 9, 0, -2031578, 9, 0, -2031553, 5, 0, -2031549, 9, 0, -1900483, 9, 0, -1834957, 9, 0, -1769421, 5, 0, -1769416, 5, 0, -1703898, 4, 0, -1441747, 9, 0, -1376216, 9, 0, -1376194, 5, 0, -1376191, 4, 0, -1376188, 9, 0, -1310651, 9, 0, -1245114, 9, 0, -1179578, 9, 0, -1048533, 9, 0 )
+tile_data = PoolIntArray( -2293686, 24, 0, -2228154, 4, 0, -2228150, 24, 131072, -2228149, 24, 1, -2228148, 24, 1, -2228147, 24, 1, -2228146, 24, 1, -2228145, 24, 1, -2228144, 24, 1, -2228143, 24, 1, -2228142, 24, 1, -2228141, 24, 1, -2228140, 24, 1, -2228139, 24, 1, -2228138, 24, 1, -2228137, 24, 1, -2228136, 24, 1, -2228135, 24, 1, -2228134, 24, 1, -2228133, 24, 1, -2228132, 24, 131074, -2228129, 24, 131072, -2228128, 24, 1, -2228127, 24, 1, -2228126, 24, 1, -2228125, 24, 1, -2228124, 24, 1, -2228123, 24, 1, -2228122, 24, 1, -2228121, 24, 1, -2097105, 9, 0, -2031578, 9, 0, -2031553, 5, 0, -2031549, 9, 0, -1900483, 9, 0, -1834957, 9, 0, -1769421, 5, 0, -1769416, 5, 0, -1703898, 4, 0, -1441747, 9, 0, -1376216, 9, 0, -1376194, 5, 0, -1376191, 4, 0, -1376188, 9, 0, -1310651, 9, 0, -1245114, 9, 0, -1179578, 9, 0, -1179577, 9, 0, -1114042, 9, 0, -1048533, 9, 0 )
 
 [node name="Chest" parent="YSort/BowTeachingAreaTileMapLayersSet/WorldObjectsTileMap" index="1" instance=ExtResource( 11 )]
 position = Vector2( 1350, -980 )
@@ -1441,9 +1447,6 @@ scale = Vector2( 0.85, 0.85 )
 
 [node name="ToKeyCaveChangeSceneArea" parent="YSort/SpiritBombSecretTileMapLayersSet/WorldObjectsTileMap" index="3" instance=ExtResource( 29 )]
 position = Vector2( 3438, 18 )
-__meta__ = {
-"_edit_group_": true
-}
 change_scene_door = true
 next_scene = "res://Levels/KeyCave.tscn"
 
@@ -1474,9 +1477,6 @@ optional_dialogue_key = "HowToUseEyes"
 
 [node name="DungeonEntranceDoor" parent="YSort/DungeonEntranceAreaTileMapLayersSet/WorldObjectsTileMap" index="2" instance=ExtResource( 20 )]
 position = Vector2( 2431, -1776 )
-__meta__ = {
-"_edit_group_": true
-}
 change_scene_door = true
 
 [node name="Sprite2" type="Sprite" parent="YSort/DungeonEntranceAreaTileMapLayersSet/WorldObjectsTileMap/DungeonEntranceDoor" index="0"]

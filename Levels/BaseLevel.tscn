@@ -4,4 +4,8 @@
 
 [node name="VisibilityEnabler2D" type="VisibilityEnabler2D" parent="."]
 
+[node name="LevelMusicAudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+pause_mode = 2
+autoplay = true
+
 [node name="YSort" type="YSort" parent="."]

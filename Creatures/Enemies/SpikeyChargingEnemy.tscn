@@ -142,10 +142,11 @@ radius = 17.0
 radius = 12.0
 
 [node name="SpikeyChargingEnemy" instance=ExtResource( 2 )]
-max_health = 1
+max_health = 24
 max_speed = 400
 chase_max_speed = 600
 acceleration = 1000
+damage = 4
 knockback = 500
 ray_length = 500
 

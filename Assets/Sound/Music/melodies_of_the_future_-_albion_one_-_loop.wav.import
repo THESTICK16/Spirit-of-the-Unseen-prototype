@@ -1,0 +1,23 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/melodies_of_the_future_-_albion_one_-_loop.wav-6816a5ed364018ac35d4e0f0d59313d2.sample"
+
+[deps]
+
+source_file="res://Assets/Sound/Music/melodies_of_the_future_-_albion_one_-_loop.wav"
+dest_files=[ "res://.import/melodies_of_the_future_-_albion_one_-_loop.wav-6816a5ed364018ac35d4e0f0d59313d2.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=2
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

@@ -45,6 +45,9 @@ position = Vector2( 0, -8 )
 [node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
 rect = Rect2( -1, -1, 1, 1 )
 
+[node name="PlayerInSightRayCast2D" type="RayCast2D" parent="."]
+collision_mask = 3
+
 [editable path="DetectionArea"]
 [editable path="HitBox"]
 [editable path="HurtBox"]

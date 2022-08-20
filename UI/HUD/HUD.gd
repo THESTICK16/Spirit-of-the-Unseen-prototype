@@ -23,6 +23,8 @@ func _ready():
 	set_spirit_meter(player_stats.spirit_energy)
 	set_key_count(player_stats.dungeon_keys)
 	set_buttons_to_equipped_items()
+	hp_meter.max_value = PlayerStats.max_health
+	spirit_meter.max_value = PlayerStats.max_spirit_energy
 	
 	yield()
 	for i in buttons:

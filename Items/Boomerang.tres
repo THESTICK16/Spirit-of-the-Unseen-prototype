@@ -10,5 +10,5 @@ name = "Boomerang"
 filepath = "res://Weapons/Boomerang.tscn"
 scene = ExtResource( 2 )
 texture = ExtResource( 3 )
-player_has_item = true
+player_has_item = false
 acquisition_message = "You found a boomerang! Use its curve and stunning power to your advantage"

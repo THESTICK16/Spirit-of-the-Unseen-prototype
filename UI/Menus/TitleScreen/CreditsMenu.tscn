@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://UI/Menus/TitleScreen/CreditsMenu.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Fonts/Inconsolata/static/Inconsolata/Inconsolata-Regular.ttf" type="DynamicFontData" id=2]
@@ -7,64 +7,29 @@
 [sub_resource type="DynamicFont" id=1]
 font_data = ExtResource( 2 )
 
-[sub_resource type="Animation" id=2]
-resource_name = "AutoScroll"
-length = 6.0
-loop = true
-tracks/0/type = "value"
-tracks/0/path = NodePath("ScrollContainer:scroll_vertical")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 4, 6 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 0,
-"values": [ 0, 185, 185 ]
-}
-
-[sub_resource type="Animation" id=3]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/path = NodePath("ScrollContainer:scroll_vertical")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ 0 ]
-}
+[sub_resource type="DynamicFont" id=4]
+font_data = ExtResource( 2 )
 
 [node name="CreditsMenu" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="ScrollContainer" type="ScrollContainer" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
 scroll_horizontal_enabled = false
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
-margin_right = 896.0
-margin_bottom = 832.0
+margin_right = 1088.0
+margin_bottom = 1181.0
 custom_constants/separation = 16
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="CreditsLabel" type="Label" parent="ScrollContainer/VBoxContainer"]
-margin_right = 896.0
+margin_right = 1088.0
 margin_bottom = 66.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_colors/font_outline_modulate = Color( 0.968627, 1, 0, 1 )
@@ -75,64 +40,90 @@ valign = 1
 
 [node name="EngineCredits" type="Label" parent="ScrollContainer/VBoxContainer"]
 margin_top = 82.0
-margin_right = 896.0
+margin_right = 1088.0
 margin_bottom = 113.0
 text = "ENGINE:
 Godot Engine : https://godotengine.org/license"
+align = 1
 
 [node name="ArtCredits" type="Label" parent="ScrollContainer/VBoxContainer"]
 margin_top = 129.0
-margin_right = 896.0
-margin_bottom = 420.0
+margin_right = 1088.0
+margin_bottom = 525.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_fonts/font = SubResource( 1 )
 text = "ART:
-* Napoleon - https://opengameart.org/users/napoleon
-* AntumDeluge - https://opengameart.org/users/antumdeluge
-* JamieBrown Hill - https://www.jamiebrownhill.com/asset-license
-* Armando Montero - https://opengameart.org/users/armm1998
-* Elthen - https://elthen.itch.io
-* Tuomo Untinen - https://opengameart.org/users/reemax
-* Michael Williams - https://opengameart.org/users/bizmasterstudios
-* Caleb - https://opengameart.org/users/astraltempest
-* todaygirl - https://opengameart.org/users/todaygirl
-* Randalinski - https://opengameart.org/users/randalinski
-* Christian Rosenbauer - https://opengameart.org/users/chrisblue
-* WolfSleuth - https://opengameart.org/users/wolfsleuth
-* Skycore - https://opengameart.org/users/skycore"
+* Boomerang Bullet : Napoleon - https://opengameart.org/users/napoleon
+* Kobold-sprites : AntumDeluge - https://opengameart.org/users/antumdeluge
+* Solaria : JamieBrown Hill - https://www.jamiebrownhill.com/asset-license
+* Zelda_like Tileset : Armando Montero - https://opengameart.org/users/armm1998
+* Spider sprite sheet : Elthen - https://elthen.itch.io
+* zombie_n_skeleton2 : Tuomo Untinen - https://opengameart.org/users/reemax
+* BowIcon : Michael Williams - https://opengameart.org/users/bizmasterstudios
+* BrownPot : Caleb - https://opengameart.org/users/astraltempest
+* Circle : todaygirl - https://opengameart.org/users/todaygirl
+* Arrow2 : Randalinski - https://opengameart.org/users/randalinski
+* BombIcon : Christian Rosenbauer - https://opengameart.org/users/chrisblue
+* Key : WolfSleuth - https://opengameart.org/users/wolfsleuth
+* Sword Normal : Skycore - https://opengameart.org/users/skycore
+* Sun shiny : SalemF - http://mardaoft.com 
+* Poof : jellyfizh - http://github.com/jxz12
+* Target : Kyzerole - https://opengameart.org/users/kyzerole
+* Top_Down_Adventure_Pack_v.1.0 : O_LOBSTER - https://o-lobster.itch.io 
+"
+align = 1
 
 [node name="SoundCredits" type="Label" parent="ScrollContainer/VBoxContainer"]
-margin_top = 436.0
-margin_right = 896.0
-margin_bottom = 832.0
+margin_top = 541.0
+margin_right = 1088.0
+margin_bottom = 1000.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_fonts/font = SubResource( 1 )
 text = "SOUND DESIGN:
-* James Garrett - https://opengameart.org/users/cinameng
-* Joseph - https://opengameart.org/users/spookymodem
-* qbodup - http://qubodup.net
-* Oiboo - http://Turtlearcade.games
-* IgnasD - http://www.crystalgames.space
-* Bart Kelsey - https://opengameart.org/users/bart
-* NenadSimic - https://opengameart.org/users/nenadsimic 
-* Fupi - https://fupicat.github.io
-* Morten Barfod Søegaard - http://ww25.littlerobotsoundfactory.com/?subid1=20220706-0602-30e0-b0c7-9aa9e9c9508e 
-* Devin Watson (dklon) - https://opengameart.org/users/dklon 
-* KASTLE Knight - https://opengameart.org/users/kastle-knight
-* Justin Jacobs - https://dorkster.github.io
-* Alexandr Zhelanov - https://opengameart.org/users/alexandr-zhelanov 
-* Fernando Rocha - https://opengameart.org/users/rocha57
-* Marian Pekár - https://opengameart.org/users/zeroisnotnull
-* Luke.RUSTLTD - https://opengameart.org/users/lukerustltd 
-Some of the sounds in this project were created by David McKee (ViRiX)
-soundcloud.com/virix"
+* Rumble : James Garrett - https://opengameart.org/users/cinameng
+* Chest Creak : Joseph - https://opengameart.org/users/spookymodem
+* qbodup-DoorSet : qbodup - http://qubodup.net 
+* Open chest : Oiboo - http://Turtlearcade.games
+* Ice Shatters : IgnasD - http://www.crystalgames.space
+* Beeps : Bart Kelsey - https://opengameart.org/users/bart
+* Menu Selection click : NenadSimic - https://opengameart.org/users/nenadsimic 
+* Coin : Fupi - https://fupicat.github.io
+* Fantasy Sound Library : Morten Barfod Søegaard - http://ww25.littlerobotsoundfactory.com/?subid1=20220706-0602-30e0-b0c7-9aa9e9c9508e 
+* Poofs : Devin Watson (credit as dklon) - https://opengameart.org/users/dklon 
+* UI pack 1 : David McKee - https://soundcloud.com/virix 
+* Qubodup wobble : qubodup - http://qubodup.net
+* Sounds(ZW) : KASTLE Knight - https://opengameart.org/users/kastle-knight
+* Shoot : Justin Jacobs - https://dorkster.github.io
+* Open The Gate : Alexandr Zhelanov - https://opengameart.org/users/alexandr-zhelanov 
+* Spin : Fernando Rocha - https://opengameart.org/users/rocha57
+* movinsgshield_sound : Marian Pekár - https://opengameart.org/users/zeroisnotnull
+* 8bit_bomb_explosion : Luke.RUSTLTD - https://opengameart.org/users/lukerustltd
+* melodies_of_the_future_-_albion_one_-_loop : jocolloman - https://jocolloman.itch.io/ 
+* Some of the sounds in this project were created by David McKee (ViRiX)
+* soundcloud.com/virix "
+align = 1
 __meta__ = {
 "_editor_description_": ""
 }
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-autoplay = "AutoScroll"
-anims/AutoScroll = SubResource( 2 )
-anims/RESET = SubResource( 3 )
+[node name="LicenseCredits" type="Label" parent="ScrollContainer/VBoxContainer"]
+margin_top = 1016.0
+margin_right = 1088.0
+margin_bottom = 1181.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 4 )
+text = "Licenses for Assets:
+This project uses works licensed under the following Creative Commons licenses:
+* https://creativecommons.org/licenses/by-sa/3.0/
+* https://creativecommons.org/licenses/by/3.0/
+* https://creativecommons.org/publicdomain/zero/1.0/
+* https://creativecommons.org/licenses/by/4.0/
+* https://creativecommons.org/licenses/by-sa/4.0/
+* http://static.opengameart.org/OGA-BY-3.0.txt"
+align = 1
+__meta__ = {
+"_editor_description_": ""
+}

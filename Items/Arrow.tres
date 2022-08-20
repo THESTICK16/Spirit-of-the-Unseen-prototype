@@ -10,6 +10,6 @@ name = "Arrow"
 filepath = "res://Weapons/Arrow.tscn"
 scene = ExtResource( 3 )
 texture = ExtResource( 2 )
-player_has_item = true
+player_has_item = false
 acquisition_message = ""
 max_storage = 25

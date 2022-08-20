@@ -17,6 +17,7 @@ func _ready():
 	SFXController.play_sfx(load("res://Assets/Sound/SoundFX/open chest.wav"))
 	SFXController.play_sfx(load("res://Assets/Sound/SoundFX/rumble_shortened.wav"))
 	SFXController.play_sfx(load("res://Assets/Sound/SoundFX/qubodup-DoorClose01.wav"))
+	print(get_tree().current_scene.filename)
 	
 	
 #func _unhandled_input(event):

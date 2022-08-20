@@ -70,12 +70,12 @@ hue_variation_random = 1.0
 
 [node name="Sword" instance=ExtResource( 1 )]
 rotation = 1.5708
-scale = Vector2( 0.85, 0.85 )
+scale = Vector2( 0.75, 0.75 )
 z_index = -1
 script = ExtResource( 3 )
 weapon_name = "Sword"
 weapon_class = "CLOSE"
-damage = 50.0
+damage = 4.0
 knockback = 200
 
 [node name="AnimatedSprite" parent="." index="0"]

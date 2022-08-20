@@ -6,12 +6,15 @@ signal health_changed(new_hp)
 signal spirit_energy_changed(new_se)
 ## Emitted when the number of dungeon keys changes
 signal dungeon_keys_changed(new_key_count)
+## Emitted when the player var is changed (aka a new player scene is loaded)
+signal new_player_set(new_player)
 
 ## The current instance of the player in the current scene. 
 ## To be set by the player's _ready function
-var player : KinematicBody2D
+var player : KinematicBody2D setget set_player
 ## The maximum health value the player can have, can be added to with upgrades
-var max_health := 100
+## Health and damage scale by 4's
+var max_health := 12
 ## The player's current health
 onready var health := max_health setget set_health
 ## The maximum amount of spirit energy a player can have
@@ -33,6 +36,10 @@ export var friction := 1250
 export var stunnable := true
 ## If true, objects with a damaging effect will damage the player
 export var damageable := true 
+## The place the player will respawn if they die and respawn
+var respawn_position : Vector2
+## The most recent scene the player was in and the one to load on reaspawning
+var last_scene_path : String
 
 ##------------------------------------------------
 #	 #Inventory
@@ -137,6 +144,14 @@ func respawn():
 	self.eyes_active = false
 	if is_instance_valid(player):
 		player.is_dead = false
+		
+#	yield(self, "new_player_set")
+#	if respawn_position != null and is_instance_valid(player):
+#			player.global_position = respawn_position
+			
+func set_player(new_player):
+	player = new_player
+	emit_signal("new_player_set", player)
 
 #func get_equipped_item(button : String):
 #	if button != 'a' and button != 'b' and button != 'x' and button != 'y':

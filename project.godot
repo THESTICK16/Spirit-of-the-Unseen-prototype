@@ -159,6 +159,7 @@ PauseController="*res://Globals/PauseController.gd"
 DialogueLoader="*res://Globals/DialogueLoader.gd"
 TransitionController="*res://Globals/TransitionController.gd"
 SFXController="*res://Globals/SFXController.tscn"
+MusicController="*res://Globals/MusicController.tscn"
 
 [display]
 

@@ -68,7 +68,7 @@ animations = [ {
 "frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ) ],
 "loop": true,
 "name": "Die",
-"speed": 4.0
+"speed": 6.0
 }, {
 "frames": [ SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ) ],
 "loop": true,
@@ -86,7 +86,7 @@ radius = 6.0
 height = 14.0
 
 [sub_resource type="CircleShape2D" id=15]
-radius = 70.0
+radius = 113.04
 
 [sub_resource type="CapsuleShape2D" id=19]
 radius = 15.0
@@ -101,10 +101,11 @@ radius = 14.0
 height = 0.0
 
 [node name="SlimeWanderingEnemy" instance=ExtResource( 2 )]
-max_health = 30
+max_health = 8
 max_speed = 25
 chase_max_speed = 50
-acceleration = 200
+acceleration = 400
+damage = 1
 knockback = 100
 max_wander_distance = 50
 
@@ -112,37 +113,39 @@ max_wander_distance = 50
 position = Vector2( 0, -10 )
 frames = SubResource( 13 )
 animation = "Idle"
+frame = 3
+playing = true
 
-[node name="CollisionShape2D" parent="." index="2"]
+[node name="CollisionShape2D" parent="." index="1"]
 position = Vector2( 0, -10 )
 rotation = -1.5708
 shape = SubResource( 14 )
 
-[node name="DetectionArea" parent="." index="3"]
+[node name="DetectionArea" parent="." index="2"]
 position = Vector2( 0, -10 )
 
 [node name="CollisionShape2D" parent="DetectionArea" index="0"]
 shape = SubResource( 15 )
 
-[node name="HitBox" parent="." index="4"]
+[node name="HitBox" parent="." index="3"]
 position = Vector2( 0, -10 )
 
 [node name="CollisionShape2D" parent="HitBox" index="0"]
 shape = SubResource( 19 )
 
-[node name="HurtBox" parent="." index="5"]
+[node name="HurtBox" parent="." index="4"]
 position = Vector2( 0, -10 )
 
 [node name="CollisionShape2D" parent="HurtBox" index="0"]
 shape = SubResource( 17 )
 
-[node name="SoftCollisionBox" parent="." index="8"]
+[node name="SoftCollisionBox" parent="." index="7"]
 position = Vector2( 0, -10 )
 
 [node name="CollisionShape2D" parent="SoftCollisionBox" index="0"]
 shape = SubResource( 18 )
 
-[node name="VisibilityEnabler2D" parent="." index="10"]
+[node name="VisibilityEnabler2D" parent="." index="9"]
 position = Vector2( 0, -10 )
 
 [editable path="DetectionArea"]

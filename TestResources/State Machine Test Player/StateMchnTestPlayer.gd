@@ -73,7 +73,15 @@ func _ready():
 		walking_audio.connect("finished", self, "vary_walking_pitch")
 #	if tilemap_detection_area != null:
 #		tilemap_detection_area.connect("area_entered", self, "scroll_camera")
+	if stats.respawn_position != null and stats.respawn_position != Vector2.ZERO:
+		global_position = stats.respawn_position
+	stats.last_scene_path = get_tree().current_scene.filename
 	call_deferred("initialize_camera_limits")
+	
+	
+	set_physics_process(false)
+	yield(get_tree().create_timer(0.25), "timeout")
+	set_physics_process(true)
 	
 func _unhandled_input(_event):
 	if Input.is_action_just_pressed("toggle_eyes"):

@@ -77,8 +77,6 @@ func _ready():
 #		hitbox.knockback = knockback
 #		hitbox.stuns = stuns
 	randomize()
-	
-	print(str(name) + ": " + str(get_collision_mask_bit(13)))
 
 func _physics_process(delta):
 	match state:
@@ -110,7 +108,8 @@ func idle(delta):
 		change_direction()
 	animated_sprite.play("Idle")
 	if player != null:
-		change_state(CHASE) #state = CHASE
+		if visibility_notifier.is_on_screen():
+			change_state(CHASE) #state = CHASE
 	velocity = velocity.move_toward(Vector2.ZERO, friction * delta)
 	
 func chase(_delta):
@@ -185,7 +184,12 @@ func set_health(current_health): #implement a boolean or something that makes it
 
 func _on_DetectionArea_body_entered(_body):
 	player = _body
-	change_state(CHASE) #state = CHASE
+	if visibility_notifier.is_on_screen():
+		change_state(CHASE) #state = CHASE
+#	player_in_sight_raycast.cast_to = _body.global_position
+#	if player_in_sight_raycast.get_collider() is Player:
+#		print("Found the player!") #FIXME
+#		player = _body
 
 
 func _on_DetectionArea_body_exited(_body):

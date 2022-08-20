@@ -20,6 +20,9 @@ signal menu_opened
 signal menu_closed
 
 func _ready():
+	if MusicController.is_playing():
+		MusicController.stop_music()
+		
 	for menu in menus.get_children():
 		menu.connect("new_displayed_menu", self, "swap_menus_from_string")
 		menu.set_global_position(off_screen_position)

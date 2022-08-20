@@ -58,13 +58,16 @@ func _ready():
 	if texture_rect != null:
 #		if texture_rect.texture == null and item_icon != null:
 		texture_rect.texture = item_icon
+		
 		if player_has_item:
 			texture_rect.show()
 		else:
 			texture_rect.hide()
 	
 	if is_consumable_item and stock_label != null:
-		stock_label.show()
+		if player_has_item:
+			stock_label.show()
+		else: stock_label.hide()
 		stock_label.text = str(item_stock) + "/" + str(item_maximum_storage)
 		
 	connect("item_equipped", equipped_items, "equip_item")

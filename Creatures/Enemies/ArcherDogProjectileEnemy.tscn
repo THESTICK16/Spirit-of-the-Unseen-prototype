@@ -132,11 +132,12 @@ height = 28.0
 
 [node name="ArcherDogProjectileEnemy" instance=ExtResource( 1 )]
 scale = Vector2( 0.85, 0.85 )
-max_health = 200
+max_health = 20
 max_speed = 50
 chase_max_speed = 100
 acceleration = 200
 friction = 800
+damage = 2
 knockback = 300
 Projectile = ExtResource( 3 )
 fire_range = 600

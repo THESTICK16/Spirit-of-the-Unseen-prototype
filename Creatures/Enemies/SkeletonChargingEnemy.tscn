@@ -158,11 +158,11 @@ radius = 9.0
 
 [node name="SkeletonChargingEnemy" instance=ExtResource( 1 )]
 scale = Vector2( 0.85, 0.85 )
-max_health = 150
+max_health = 12
 max_speed = 100
 chase_max_speed = 500
 acceleration = 1200
-damage = 20
+damage = 4
 knockback = 500
 ray_length = 300
 

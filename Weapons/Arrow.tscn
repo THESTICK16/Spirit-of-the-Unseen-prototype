@@ -53,7 +53,7 @@ z_index = -1
 script = ExtResource( 3 )
 weapon_name = "Arrow"
 weapon_class = "Ranged"
-damage = 25.0
+damage = 2.0
 speed = 500
 knockback = 100
 

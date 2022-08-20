@@ -10,6 +10,6 @@ name = "SpiritBomb"
 filepath = "res://Weapons/SpiritBomb.tscn"
 scene = ExtResource( 2 )
 texture = ExtResource( 3 )
-player_has_item = true
+player_has_item = false
 acquisition_message = "You acquired a new Spirit Ability, the Spirit Bomb! This powerful explosive can ignore physical barriers. Hold the button down to extend its distance"
 spirit_cost = 10

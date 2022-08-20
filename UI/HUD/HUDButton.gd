@@ -13,7 +13,7 @@ onready var stock_label = $StockLabel
 var item_resource : Item
 ## True if text is being shown, False if the image is being shown
 var showing_text := false
-	
+
 func set_hud_button(change_to):
 	if change_to is String and change_to == "":
 		_show_image()

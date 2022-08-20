@@ -30,6 +30,7 @@ onready var wander_timer = $WanderTimer
 onready var start_position = global_position
 onready var Death_Effect = preload("res://SpecialEffects/DeathEffect.tscn")
 onready var visibility_notifier : VisibilityNotifier2D = $VisibilityNotifier2D
+onready var player_in_sight_raycast : RayCast2D = $PlayerInSightRayCast2D
 
 ## The maximum health the enemy can have
 export var max_health := 5
@@ -94,7 +95,7 @@ func _ready():
 	randomize()
 	
 	set_collision_mask_bit(13, true)
-	print("Setting the " + str(name) + " collison layer for map border manually through code...")
+#	print("Setting the " + str(name) + " collison layer for map border manually through code...")
 
 ## The logic for taking a hit
 ## @Override
@@ -138,7 +139,10 @@ func set_health(current_health):
 ## Registers detection of the player and sets the 'player' var to the player
 ## @Override
 func _on_DetectionArea_body_entered(_body):
-	player = _body
+	player_in_sight_raycast.cast_to = _body.global_position
+	if player_in_sight_raycast.get_collider() is Player:
+		print("Found the player!") #FIXME
+		player = _body
 #
 ## Virtual function
 ## Registers the player leaving the search range and sets the player to null
@@ -207,14 +211,12 @@ func spawn_death_effect(_death_effect : AnimatedSprite = Death_Effect):
 	death_effect.connect("animation_finished", death_effect, "queue_free")
 	get_tree().current_scene.call_deferred("add_child", death_effect) #add_child(death_effect)
 
-## Called when the enemy enters/exits the camera's view
-## Does things like turn on/off player detection to avoid enemies waiting for player as soon as they enter the area
+# Called when the enemy enters/exits the camera's view
+# Does things like turn on/off player detection to avoid enemies waiting for player as soon as they enter the area
 func visibility_changed():
 	if visibility_notifier.is_on_screen():
-		detection_area.set_deferred("monitoring", true)
-	elif not visibility_notifier.is_on_screen():
-		player = null
 		detection_area.set_deferred("monitoring", false)
-		
-	yield() #FIXME
-	print(str(name) + ": " + str(detection_area.monitoring) + ", " + str(player)) #FIXME
+		detection_area.set_deferred("monitoring", true)
+#
+#	yield() #FIXME
+#	print(str(name) + ": " + str(detection_area.monitoring) + ", " + str(player)) #FIXME

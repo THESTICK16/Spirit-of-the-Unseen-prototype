@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Interface + Abstract Nodes/ContinueSceneSetter.gd" type="Script" id=1]
+
+[node name="ContinueSceneSetter" type="Node"]
+script = ExtResource( 1 )

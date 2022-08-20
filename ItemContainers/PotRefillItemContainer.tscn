@@ -5,7 +5,7 @@
 [ext_resource path="res://Assets/Sound/SoundFX/IceShatter.wav" type="AudioStream" id=3]
 
 [node name="PotRefillItemContainer" instance=ExtResource( 1 )]
-scale = Vector2( 0.85, 0.85 )
+scale = Vector2( 0.6, 0.6 )
 breaking_sound = ExtResource( 3 )
 
 [node name="Sprite" parent="." index="0"]
@@ -15,8 +15,4 @@ texture = ExtResource( 2 )
 [node name="CollisionShape2D" parent="." index="1"]
 position = Vector2( 0, 6 )
 
-[node name="HurtBox" parent="." index="2"]
-collision_layer = 512
-
-[editable path="HurtBox"]
 [editable path="Breakable"]

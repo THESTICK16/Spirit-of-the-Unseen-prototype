@@ -10,5 +10,5 @@ name = "Sword"
 filepath = "res://Weapons/Sword.tscn"
 scene = ExtResource( 2 )
 texture = ExtResource( 3 )
-player_has_item = true
+player_has_item = false
 acquisition_message = "You got a sword! It may be basic, but its effective at close range. Equip to the face buttons and swing away"

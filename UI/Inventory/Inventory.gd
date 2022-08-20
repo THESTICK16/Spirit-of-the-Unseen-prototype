@@ -10,7 +10,7 @@ onready var center_container = $CenterContainer
 ## The PackedScene of the InventoryItem scene
 onready var inventory_item = preload("res://UI/Inventory/InventoryItem.tscn")
 ## A list containing the inventory items in the order they are displayed
-var items #onready var items = item_slots.get_children()
+var items : Array #onready var items = item_slots.get_children()
 ## The item slot that is currently selected
 var currently_selected_item : InventoryItem setget set_currently_selected_item
 ## The width (number of x axis item slots) of the inventory
@@ -94,13 +94,14 @@ func _change_selected(input : Vector2):
 			while not new_item.player_has_item:
 				new_item = new_item.left
 				if new_item == currently_selected_item:
-					return
+					new_item = get_disconnected_item(currently_selected_item, false)
+					
 		if input.x > 0:
 			new_item = new_item.right
 			while not new_item.player_has_item:
 				new_item = new_item.right
 				if new_item == currently_selected_item:
-					return
+					new_item = get_disconnected_item(currently_selected_item, true)
 				
 	elif input.y != 0:
 		if input.y < 0:
@@ -108,13 +109,13 @@ func _change_selected(input : Vector2):
 			while not new_item.player_has_item:
 				new_item = new_item.up
 				if new_item == currently_selected_item:
-					return
+					new_item = get_disconnected_item(currently_selected_item, false)
 		if input.y > 0:
 			new_item = new_item.down
 			while not new_item.player_has_item:
 				new_item = new_item.down
 				if new_item == currently_selected_item:
-					return
+					new_item = get_disconnected_item(currently_selected_item, true)
 		
 	if new_item != currently_selected_item:
 		set_currently_selected_item(new_item) #self.currently_selected_item = new_item
@@ -135,6 +136,37 @@ func _change_selected(input : Vector2):
 #			if current_index + input.y >=0 and current_index + input.y < items.size():
 #				#TODO Make it so that items that the player does not yet have cannot be selected
 #				self.currently_selected_item = items[current_index + input.y]
+
+## For use when the current item has no adjacently filled slots to select
+## Iterates through 'items' to find an item the player has
+## @param start_item the item who's index is to begin iterating on
+## @param forward if true, will iterate forward (+1), else will iterate backwards (-1)
+## @return the first available item found through iteration
+func get_disconnected_item(start_item : InventoryItem, forward := true) -> InventoryItem:
+	var new_item : InventoryItem = start_item
+	var current_index = items.find(start_item)
+	if current_index == -1:
+		return null
+		
+	var iteration_direction
+	if forward: 
+		iteration_direction = 1
+	else: 
+		iteration_direction = -1
+		
+	current_index += iteration_direction
+	if current_index >= items.size():
+		current_index = 0
+		
+	while not items[current_index].player_has_item:
+		current_index += iteration_direction
+		if current_index >= items.size():
+			current_index = 0
+		if current_index < 0:
+			current_index = items.size() - 1
+	
+	new_item = items[current_index]
+	return new_item
 	
 ## Connects the left, right, above, and below slots of each item in the inventory
 func _connect_item_slots():

@@ -1,9 +1,15 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://UI/Menus/Options/ControlOptionsMenu.gd" type="Script" id=1]
 [ext_resource path="res://Settings/KeybindMapping/KeybindSettings.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Assets/Fonts/Inconsolata/static/Inconsolata/Inconsolata-Regular.ttf" type="DynamicFontData" id=3]
 [ext_resource path="res://UI/Menus/Options/ControllerButtonLabels.tscn" type="PackedScene" id=4]
+
+[sub_resource type="DynamicFont" id=2]
+size = 50
+outline_size = 1
+outline_color = Color( 0.45098, 0.458824, 0.00392157, 1 )
+font_data = ExtResource( 3 )
 
 [sub_resource type="DynamicFont" id=1]
 font_data = ExtResource( 3 )
@@ -27,19 +33,20 @@ __meta__ = {
 
 [node name="SaveButton" type="Button" parent="ControlOptions"]
 margin_right = 1024.0
-margin_bottom = 50.0
+margin_bottom = 59.0
 rect_min_size = Vector2( 0, 50 )
+custom_fonts/font = SubResource( 2 )
 text = "Save"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Label" type="Label" parent="ControlOptions"]
-margin_top = 54.0
+margin_top = 63.0
 margin_right = 1024.0
-margin_bottom = 72.0
+margin_bottom = 81.0
 custom_fonts/font = SubResource( 1 )
-text = "(Keyboard Controls Only)"
+text = "(Keyboard Controls Only: Click to change)"
 align = 1
 valign = 1
 
