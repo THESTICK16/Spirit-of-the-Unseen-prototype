@@ -104,7 +104,7 @@ height = 0.0
 max_health = 8
 max_speed = 25
 chase_max_speed = 50
-acceleration = 400
+acceleration = 650
 damage = 1
 knockback = 100
 max_wander_distance = 50
@@ -113,7 +113,6 @@ max_wander_distance = 50
 position = Vector2( 0, -10 )
 frames = SubResource( 13 )
 animation = "Idle"
-frame = 3
 playing = true
 
 [node name="CollisionShape2D" parent="." index="1"]

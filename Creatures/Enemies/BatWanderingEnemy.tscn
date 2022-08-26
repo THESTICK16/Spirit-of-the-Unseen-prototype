@@ -95,6 +95,7 @@ __meta__ = {
 max_health = 8
 max_speed = 50
 chase_max_speed = 175
+acceleration = 600
 damage = 1
 knockback = 225
 max_wander_distance = 750
@@ -104,7 +105,7 @@ position = Vector2( 0, -5 )
 scale = Vector2( 1.5, 1.5 )
 frames = SubResource( 4 )
 animation = "Idle"
-frame = 2
+frame = 1
 playing = true
 
 [node name="CollisionShape2D" parent="." index="1"]
