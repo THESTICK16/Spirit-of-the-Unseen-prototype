@@ -94,6 +94,9 @@ func _physics_process(delta):
 		
 		DEAD:
 			dead(delta)
+			
+		KNOCKBACK:
+			knockback(delta)
 		
 #	if animated_sprite.animation == "Walk":
 #		animated_sprite.speed_scale = velocity.length() / 100
@@ -150,6 +153,13 @@ func dead(delta):
 	else:
 		velocity = velocity.move_toward(Vector2.ZERO, friction * delta)
 	
+## The state for when an enemy has received knockback
+## @Override
+func knockback(_delta):
+	velocity = velocity.move_toward(Vector2.ZERO, friction * _delta)
+	if velocity.is_equal_approx(Vector2.ZERO):
+		change_state(IDLE)
+
 func take_hit(area):
 	if state != STUNNED:
 		if area.stuns:
@@ -159,6 +169,8 @@ func take_hit(area):
 	health -= area.damage
 	if health <= 0:
 		change_state(DEAD) #state = DEAD
+	else:
+		change_state(KNOCKBACK)
 
 func _on_StunTimer_timeout():
 	exit_stunned()

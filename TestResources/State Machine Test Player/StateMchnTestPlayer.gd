@@ -93,6 +93,8 @@ func _physics_process(_delta):
 	input_vector = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down", 0.5)
 	input_vector = input_vector.round()
 	
+	print(stats.respawn_position) #FIXME
+	
 	
 #func get_equipped_button(item: PackedScene):
 #	match item:

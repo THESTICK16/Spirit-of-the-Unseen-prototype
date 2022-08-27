@@ -8,7 +8,9 @@ func change_to_new_scene(change_to):
 	var scene_transition = SceneTransition.instance()
 	get_tree().root.add_child(scene_transition)
 	
-	PlayerStats.respawn_position = Vector2.ZERO
+	if is_instance_valid(PlayerStats.player):
+		if not PlayerStats.player.is_dead: 
+			PlayerStats.respawn_position = Vector2.ZERO
 	if PlayerStats.health <= 0:
 		PlayerStats.respawn()
 	

@@ -10,13 +10,15 @@ var states = {
 	"CHASE" : 1,
 	"WANDER" : 2,
 	"STUNNED" : 3,
-	"DEAD" : 4
+	"DEAD" : 4,
+	"KNOCKBACK" : 5
 	}
 onready var IDLE = states.get("IDLE")
 onready var CHASE = states.get("CHASE")
 onready var WANDER = states.get("WANDER")
 onready var STUNNED = states.get("STUNNED")
 onready var DEAD = states.get("DEAD")
+onready var KNOCKBACK = states.get("KNOCKBACK")
 
 ## The current state the enemy is in. Will influence enemy behavior
 var state : int setget change_state, get_state
