@@ -13,11 +13,12 @@ func _ready():
 #	Input.connect("joy_connection_changed", self, "controller_changed")
 #	if Input.is_joy_known(0):
 #			print("Recognized " + str(Input.get_joy_name(0)))
-	SFXController.play_sfx(load("res://Assets/Sound/SoundFX/IceShatter.wav"))
-	SFXController.play_sfx(load("res://Assets/Sound/SoundFX/open chest.wav"))
-	SFXController.play_sfx(load("res://Assets/Sound/SoundFX/rumble_shortened.wav"))
-	SFXController.play_sfx(load("res://Assets/Sound/SoundFX/qubodup-DoorClose01.wav"))
-	print(get_tree().current_scene.filename)
+#	SFXController.play_sfx(load("res://Assets/Sound/SoundFX/IceShatter.wav"))
+#	SFXController.play_sfx(load("res://Assets/Sound/SoundFX/open chest.wav"))
+#	SFXController.play_sfx(load("res://Assets/Sound/SoundFX/rumble_shortened.wav"))
+#	SFXController.play_sfx(load("res://Assets/Sound/SoundFX/qubodup-DoorClose01.wav"))
+#	print(get_tree().current_scene.filename)
+	DialogueLoader.create_dialogue_box("joemama")
 	
 	
 #func _unhandled_input(event):

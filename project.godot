@@ -147,7 +147,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Spirit of the Unseen Prototype"
-run/main_scene="res://TestResources/TestRoom.tscn"
+run/main_scene="res://UI/Menus/TitleScreen/TitleScreen.tscn"
 config/icon="res://icon.png"
 
 [autoload]

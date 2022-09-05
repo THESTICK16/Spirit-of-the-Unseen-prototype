@@ -4,7 +4,7 @@ onready var dialogue_box = preload("res://UI/Dialogue+/DialogueBox.tscn")
 #onready var dialogue_box = preload("res://UI/Dialogue+/NewDialogueBox.tscn") #preload("res://UI/Dialogue+/DialogueBox.tscn")
 
 ## The dialogue to display if there is an error in loading the proper dialogue
-var error_response := {0: "Whoops looks like the developer forgot to write any dialogue for me :("}
+var error_response := {0: {"speaker_name": "", "text": "Whoops! looks like the developer forgot to write dialogue for me :("}}
 
 ## Creates a dialogue box and passes it the dialogue found from source
 ## @param source The source of the dialogue to load. Must be either a JSON file or a Dictionary
