@@ -1446,12 +1446,12 @@ contained_item_name = "SpiritBomb"
 position = Vector2( 3438, 19 )
 scale = Vector2( 0.85, 0.85 )
 
-[node name="ToKeyCaveChangeSceneArea" parent="YSort/SpiritBombSecretTileMapLayersSet/WorldObjectsTileMap" index="3" instance=ExtResource( 29 )]
+[node name="OverworldToKeyCaveChangeSceneArea" parent="YSort/SpiritBombSecretTileMapLayersSet/WorldObjectsTileMap" index="3" instance=ExtResource( 29 )]
 position = Vector2( 3438, 18 )
 change_scene_door = true
 next_scene = "res://Levels/KeyCave.tscn"
 
-[node name="CollisionShape2D" parent="YSort/SpiritBombSecretTileMapLayersSet/WorldObjectsTileMap/ToKeyCaveChangeSceneArea" index="1"]
+[node name="CollisionShape2D" parent="YSort/SpiritBombSecretTileMapLayersSet/WorldObjectsTileMap/OverworldToKeyCaveChangeSceneArea" index="1"]
 shape = SubResource( 102 )
 
 [node name="DungeonEntranceAreaTileMapLayersSet" parent="YSort" index="5" instance=ExtResource( 14 )]
@@ -1479,23 +1479,23 @@ pop_up_text = "Use the Eyes of the Spirit to see things in the Hidden Realm!"
 dialogue_json_filepath = "MISCELLANEOUS_MESSAGES_JSON_FILEPATH"
 optional_dialogue_key = "HowToUseEyes"
 
-[node name="DungeonEntranceDoor" parent="YSort/DungeonEntranceAreaTileMapLayersSet/WorldObjectsTileMap" index="2" instance=ExtResource( 20 )]
+[node name="OverworldToDungeonChangeSceneArea" parent="YSort/DungeonEntranceAreaTileMapLayersSet/WorldObjectsTileMap" index="2" instance=ExtResource( 20 )]
 position = Vector2( 3431, -1776 )
 change_scene_door = true
 next_scene = "res://UI/Menus/ThanksForPlayingScreen.tscn"
 
-[node name="Sprite2" type="Sprite" parent="YSort/DungeonEntranceAreaTileMapLayersSet/WorldObjectsTileMap/DungeonEntranceDoor" index="0"]
+[node name="Sprite2" type="Sprite" parent="YSort/DungeonEntranceAreaTileMapLayersSet/WorldObjectsTileMap/OverworldToDungeonChangeSceneArea" index="0"]
 z_index = -6
 texture = SubResource( 100 )
 
-[node name="Sprite" parent="YSort/DungeonEntranceAreaTileMapLayersSet/WorldObjectsTileMap/DungeonEntranceDoor" index="1"]
+[node name="Sprite" parent="YSort/DungeonEntranceAreaTileMapLayersSet/WorldObjectsTileMap/OverworldToDungeonChangeSceneArea" index="1"]
 scale = Vector2( 1, 1 )
 texture = SubResource( 101 )
 
-[node name="CollisionShape2D" parent="YSort/DungeonEntranceAreaTileMapLayersSet/WorldObjectsTileMap/DungeonEntranceDoor" index="2"]
+[node name="CollisionShape2D" parent="YSort/DungeonEntranceAreaTileMapLayersSet/WorldObjectsTileMap/OverworldToDungeonChangeSceneArea" index="2"]
 position = Vector2( 0, -2.5 )
 
-[node name="UnseenEffect" parent="YSort/DungeonEntranceAreaTileMapLayersSet/WorldObjectsTileMap/DungeonEntranceDoor" index="3" instance=ExtResource( 21 )]
+[node name="UnseenEffect" parent="YSort/DungeonEntranceAreaTileMapLayersSet/WorldObjectsTileMap/OverworldToDungeonChangeSceneArea" index="3" instance=ExtResource( 21 )]
 
 [node name="DungeonExteriorLayer0TileMap" parent="YSort/DungeonEntranceAreaTileMapLayersSet" index="3" instance=ExtResource( 8 )]
 tile_set = ExtResource( 16 )
@@ -1737,6 +1737,6 @@ position = Vector2( 2684, -1713 )
 [editable path="YSort/SpiritBombSecretTileMapLayersSet"]
 [editable path="YSort/SpiritBombSecretTileMapLayersSet/WorldObjectsTileMap/CliffBombableObject"]
 [editable path="YSort/SpiritBombSecretTileMapLayersSet/WorldObjectsTileMap/CliffBombableObject/HurtBox"]
-[editable path="YSort/SpiritBombSecretTileMapLayersSet/WorldObjectsTileMap/ToKeyCaveChangeSceneArea"]
+[editable path="YSort/SpiritBombSecretTileMapLayersSet/WorldObjectsTileMap/OverworldToKeyCaveChangeSceneArea"]
 [editable path="YSort/DungeonEntranceAreaTileMapLayersSet"]
-[editable path="YSort/DungeonEntranceAreaTileMapLayersSet/WorldObjectsTileMap/DungeonEntranceDoor"]
+[editable path="YSort/DungeonEntranceAreaTileMapLayersSet/WorldObjectsTileMap/OverworldToDungeonChangeSceneArea"]

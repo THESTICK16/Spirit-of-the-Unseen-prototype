@@ -17,7 +17,7 @@ const SELECT = '-'
 const EQUIPPABLE_BUTTONS = [A, B, X, Y]
 
 static func get_equippable_buttons():
-	return EQUIPPABLE_BUTTONS
+	return EQUIPPABLE_BUTTONS.duplicate()
 	
 static func is_equippable_button(button: String):
 	if not EQUIPPABLE_BUTTONS.has(button):

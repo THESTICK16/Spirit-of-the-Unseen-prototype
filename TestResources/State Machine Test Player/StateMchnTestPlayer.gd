@@ -162,3 +162,9 @@ func initialize_camera_limits():
 #
 #		tween.start()
 ##		yield(tween, "tween_all_completed")
+
+func update_animation_tree_blend_positions():
+	animation_tree.set("parameters/Idle/blend_position", PlayerStats.player.direction)
+	animation_tree.set("parameters/Move/blend_position", PlayerStats.player.direction)
+	animation_tree.set("parameters/Attack/blend_position", PlayerStats.player.direction)
+

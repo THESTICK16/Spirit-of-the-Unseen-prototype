@@ -26,7 +26,6 @@ func is_paused()-> bool:
 		return false
 		
 func pause_with_pause_screen(pause_screen):
-	print(pause_screen) #FIXME
 	var new_pause_screen
 	if pause_screen is String and pause_screen.ends_with(".tscn"):
 		new_pause_screen = load(pause_screen).instance()

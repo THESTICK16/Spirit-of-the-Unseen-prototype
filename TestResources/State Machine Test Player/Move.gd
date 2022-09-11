@@ -25,9 +25,10 @@ func physics_update(_delta: float) -> void:
 		player.ranged_weapon_spawn_position.position = player.direction * 32
 		player.interactable_detection_area.position = player.direction * 20
 		player.tilemap_detection_area.position = player.direction * 10
-		player.animation_tree.set("parameters/Idle/blend_position", player.direction)
-		player.animation_tree.set("parameters/Move/blend_position", player.direction)
-		player.animation_tree.set("parameters/Attack/blend_position", player.direction)
+		player.update_animation_tree_blend_positions()
+#		player.animation_tree.set("parameters/Idle/blend_position", player.direction)
+#		player.animation_tree.set("parameters/Move/blend_position", player.direction)
+#		player.animation_tree.set("parameters/Attack/blend_position", player.direction)
 		
 	check_face_buttons()
 #	if Input.is_action_just_pressed("a"):

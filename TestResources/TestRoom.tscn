@@ -1,4 +1,4 @@
-[gd_scene load_steps=93 format=2]
+[gd_scene load_steps=94 format=2]
 
 [ext_resource path="res://Creatures/Player/SingletonPlayer.tscn" type="PackedScene" id=1]
 [ext_resource path="res://TestResources/TestMap.tscn" type="PackedScene" id=2]
@@ -24,6 +24,7 @@
 [ext_resource path="res://Creatures/Enemies/SlimeWanderingEnemy.tscn" type="PackedScene" id=22]
 [ext_resource path="res://Creatures/Enemies/SpikeyChargingEnemy.tscn" type="PackedScene" id=23]
 [ext_resource path="res://Creatures/Enemies/BatWanderingEnemy.tscn" type="PackedScene" id=24]
+[ext_resource path="res://WorldObjects/ChangeSceneArea.tscn" type="PackedScene" id=25]
 
 [sub_resource type="TileSet" id=97]
 0/name = "Grass"
@@ -1414,9 +1415,9 @@ position = Vector2( 401, 416 )
 collision_mask = 8193
 
 [node name="ChangeSceneDoor" parent="YSort" instance=ExtResource( 8 )]
-position = Vector2( 108, -29 )
+position = Vector2( 671, 6 )
 change_scene_door = true
-next_scene = ExtResource( 1 )
+next_scene = "res://TestResources/TestRotatingRoomLevel.tscn"
 
 [node name="ChangeSceneDoor2" parent="YSort" instance=ExtResource( 8 )]
 position = Vector2( 30, -31 )
@@ -1622,6 +1623,10 @@ position = Vector2( 376, -298 )
 
 [node name="BatWanderingEnemy3" parent="YSort" instance=ExtResource( 24 )]
 position = Vector2( 332, -254 )
+
+[node name="ChangeSceneArea" parent="YSort" instance=ExtResource( 25 )]
+position = Vector2( 417, -31 )
+exit_direction = Vector2( 12, 12 )
 
 [node name="DarkenRoomEffect" parent="." instance=ExtResource( 17 )]
 visible = false

@@ -2,7 +2,7 @@
 
 [ext_resource path="res://WorldObjects/ChangeSceneArea.gd" type="Script" id=1]
 
-[node name="ChangeSceneArea" type="Area2D"]
+[node name="ChangeSceneArea" type="Area2D" groups=["ChangeSceneAreas"]]
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_group_": true
@@ -11,3 +11,5 @@ __meta__ = {
 [node name="Sprite" type="Sprite" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+[node name="ExitSpawnPosition2D" type="Position2D" parent="."]

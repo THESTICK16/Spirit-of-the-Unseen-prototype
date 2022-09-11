@@ -11,9 +11,12 @@ export var contained_item_name : String
 var opened := false setget set_opened
 
 func _ready():
-	PauseController.connect("unpaused", item_sprite, "hide")
-	opened = Equipment.get_item_field(contained_item_name, Item.PLAYER_HAS_ITEM) #This sets the chest to be opened if the player has already obtained the contained item
-	set_opened(opened)
+	if contained_item_name == null or contained_item_name == "":
+		queue_free()
+	else:
+		PauseController.connect("unpaused", item_sprite, "hide")
+		opened = Equipment.get_item_field(contained_item_name, Item.PLAYER_HAS_ITEM) #This sets the chest to be opened if the player has already obtained the contained item
+		set_opened(opened)
 
 ## Sets the 'opened' status of the chest and adjusts the sprite frame accordingly
 func set_opened(is_opened : bool):

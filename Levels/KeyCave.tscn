@@ -115,6 +115,7 @@ position = Vector2( 379, 49 )
 position = Vector2( 368, 630 )
 change_scene_door = true
 next_scene = "res://Levels/Overworld.tscn"
+exit_direction = Vector2( 0, -1 )
 
 [node name="CollisionShape2D" parent="YSort/ToOverworldChangeSceneArea" index="1"]
 shape = SubResource( 1 )
