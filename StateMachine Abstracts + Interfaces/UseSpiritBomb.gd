@@ -65,6 +65,6 @@ func _spirit_bomb():
 		spirit_bomb.user = player
 		spirit_bomb.global_position = player.ranged_weapon_spawn_position.global_position
 		spirit_bomb.start_direction = player.direction
-		get_tree().root.add_child(spirit_bomb) #.current_scene.add_child(spirit_bomb)
+		get_tree().current_scene.add_child(spirit_bomb) #.current_scene.add_child(spirit_bomb)
 		player.stats.spirit_energy -= spirit_bomb_resource.get_item_field(SpiritItem.SPIRIT_COST)
 		player.can_use_spirit_attack = false #Set this back to true when the bomb explodes from the bomb script!!!

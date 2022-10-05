@@ -14,6 +14,7 @@ export (String) var next_scene
 export var next_position : Vector2
 ## The Direction that the player would be facing as they "exit" the door
 export (Vector2) var exit_direction := Vector2.DOWN
+export (String, "UP", "DOWN", "LEFT", "RIGHT") var exit_dir := "DOWN"
 ## The distance from the center of this door the player should be placed when it is "exited" in pixels
 export var spawn_spacing := 32
 

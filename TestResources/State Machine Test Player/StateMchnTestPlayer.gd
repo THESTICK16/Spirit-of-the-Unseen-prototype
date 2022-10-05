@@ -74,13 +74,15 @@ func _ready():
 #	if tilemap_detection_area != null:
 #		tilemap_detection_area.connect("area_entered", self, "scroll_camera")
 	if stats.respawn_position != null and stats.respawn_position != Vector2.ZERO:
-		global_position = stats.respawn_position
+#		global_position = stats.respawn_position
+		set_deferred("global_position", stats.respawn_position)
+		camera.call_deferred("reset_smoothing")
 	stats.last_scene_path = get_tree().current_scene.filename
 	call_deferred("initialize_camera_limits")
 	
 	
-	set_physics_process(false)
-	yield(get_tree().create_timer(0.25), "timeout")
+	set_physics_process(false) #This is done because for some reason the state changes to scroll camera upon loading a new scene if the player is moving upon loading
+	yield(get_tree().create_timer(0.45), "timeout")
 	set_physics_process(true)
 	
 func _unhandled_input(_event):
@@ -149,6 +151,7 @@ func vary_walking_pitch():
 	
 func initialize_camera_limits():
 	yield(get_tree().create_timer(.02), "timeout")
+#	yield(TransitionController, "scene_changed")
 	if tilemap_detection_area.get_overlapping_areas().size() > 0:
 		camera.set_extents(tilemap_detection_area.get_overlapping_areas()[0].get_parent())
 	

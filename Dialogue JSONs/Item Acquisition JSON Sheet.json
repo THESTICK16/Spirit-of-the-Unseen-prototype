@@ -8,7 +8,7 @@
     "Boomerang": {
       "0": {
         "speaker_name": "",
-        "text": "You found a boomerang! Use its curve and stunning power to your advantage!"
+        "text": "You found a boomerang! Use its curve and ability to stun to your advantage!"
       }
     },
     "Sword": {
@@ -31,6 +31,16 @@
       "0": {
         "speaker_name": "",
         "text": "You found a key! Locked doors can't stop you now! Only works in the area it was found."
+      }
+    },
+    "SpiritGravity": {
+      "0": {
+        "speaker_name": "",
+        "text": "You acquired a new Spirit Ability, Spirit Gravity! This creates a powerful gravity field that sucks enemies in!"
+      },
+      "1": {
+        "speaker_name": "",
+        "text": "It can only affect one enemy at a time, so place it wisely"
       }
     }
 }

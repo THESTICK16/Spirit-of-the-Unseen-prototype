@@ -1,0 +1,41 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Weapons/BaseWeapon.tscn" type="PackedScene" id=1]
+[ext_resource path="res://SpiritEffects/SpiritGravityPull.tscn" type="PackedScene" id=2]
+[ext_resource path="res://CollisionBoxes/DetectionArea.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Weapons/SpiritGravity.gd" type="Script" id=4]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 31.257
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 33.0152
+
+[node name="SpiritGravity" instance=ExtResource( 1 )]
+z_index = -1
+script = ExtResource( 4 )
+weapon_name = "SpiritGravity"
+weapon_class = "AREA_OF_EFFECT"
+spirit_weapon = true
+
+[node name="CollisionShape2D" parent="." index="1"]
+shape = SubResource( 1 )
+
+[node name="SpiritGravityPull" parent="." index="3" instance=ExtResource( 2 )]
+
+[node name="EnemyDetectionArea" parent="." index="4" instance=ExtResource( 3 )]
+collision_layer = 0
+collision_mask = 16
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" parent="EnemyDetectionArea" index="0"]
+scale = Vector2( 1, 1 )
+shape = SubResource( 2 )
+
+[node name="DespawnTimer" type="Timer" parent="." index="5"]
+wait_time = 7.0
+
+[editable path="HitBox"]
+[editable path="EnemyDetectionArea"]

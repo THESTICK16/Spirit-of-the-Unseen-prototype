@@ -53,6 +53,7 @@ func _ready():
 func effect():
 	pass
 	
+## Returns the value in radians that the weapon should rotate based on its starting direction (assumes DOWN is 0 degrees)
 func set_rotation_direction() -> float:
 	match start_direction:
 		Vector2.UP:

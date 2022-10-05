@@ -1,0 +1,27 @@
+[gd_scene load_steps=2 format=2]
+
+[sub_resource type="ParticlesMaterial" id=1]
+lifetime_randomness = 1.0
+emission_shape = 5
+emission_ring_radius = 30.0
+emission_ring_inner_radius = 25.0
+emission_ring_height = 0.0
+emission_ring_axis = Vector3( 0, 0, 1 )
+flag_disable_z = true
+direction = Vector3( 0, 0, 0 )
+spread = 0.0
+gravity = Vector3( 0, 0, 0 )
+orbit_velocity = -0.08
+orbit_velocity_random = 0.36
+linear_accel = 5.0
+radial_accel = -100.0
+scale = 2.0
+scale_random = 1.0
+color = Color( 0.976471, 1, 0, 1 )
+hue_variation = 0.05
+hue_variation_random = 1.0
+
+[node name="SpiritGravityPull" type="Particles2D"]
+amount = 250
+lifetime = 0.9
+process_material = SubResource( 1 )
