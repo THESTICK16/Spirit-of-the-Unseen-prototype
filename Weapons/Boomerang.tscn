@@ -155,7 +155,7 @@ func move_with_curve(delta):
 	
 	if returning and global_position.distance_to(return_location) < CATCH_DISTANCE:
 		queue_free()
-		if player != null:
+		if is_instance_valid(player) and player != null:
 			player.can_throw_boomerang = true
 	
 	
@@ -170,7 +170,7 @@ func move_with_curve(delta):
 		
 	elif returning:
 		$CollisionShape2D.disabled = true
-		if player != null:
+		if is_instance_valid(player) and player != null:
 			return_location = player.global_position
 		else:
 			return_location = start_position

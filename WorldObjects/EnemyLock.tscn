@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://WorldObjects/EnemyLock.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Sound/SoundFX/open chest.wav" type="AudioStream" id=2]
+
+[node name="EnemyLock" type="YSort"]
+script = ExtResource( 1 )
+sound_effect = ExtResource( 2 )

@@ -35,6 +35,7 @@ onready var walking_audio = $WalkingAudioStreamPlayer
 onready var tilemap_detection_area = $TilemapDetectionBox
 onready var tween = $Tween
 onready var visibility_notifier = $VisibilityNotifier2D
+onready var gaussian_blur = $ShaderCanvasLayer/GaussianBlur
 
 
 #onready var inventory_menu = $Inventory
@@ -170,4 +171,11 @@ func update_animation_tree_blend_positions():
 	animation_tree.set("parameters/Idle/blend_position", PlayerStats.player.direction)
 	animation_tree.set("parameters/Move/blend_position", PlayerStats.player.direction)
 	animation_tree.set("parameters/Attack/blend_position", PlayerStats.player.direction)
+	
+func set_shader_position(shader_rect : ColorRect):
+	var shader_target : Vector2 = global_position
+	var viewport_size = get_viewport_rect().size
+	shader_target.x /= viewport_size.x
+	shader_target.y /= viewport_size.y
+	shader_rect.material.set_shader_param("target", shader_target)
 

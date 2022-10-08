@@ -74,6 +74,6 @@ margin_top = 150.0
 margin_bottom = 450.0
 
 [node name="ContinueMenuButton" parent="Menus/GameOverMenu/VBoxContainer/HBoxContainer/Buttons" index="0"]
-text = "Play Again"
+text = "Keep Playing"
 
 [editable path="Menus/GameOverMenu"]

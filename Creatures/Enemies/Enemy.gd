@@ -96,6 +96,8 @@ func _ready():
 	connect("tree_exiting", self, "spawn_death_effect")
 	randomize()
 	
+	visibility_changed()
+	
 	set_collision_mask_bit(13, true)
 #	print("Setting the " + str(name) + " collison layer for map border manually through code...")
 
@@ -144,7 +146,7 @@ func _on_DetectionArea_body_entered(_body):
 	player_in_sight_raycast.cast_to = _body.global_position
 	if player_in_sight_raycast.get_collider() is Player:
 		print("Found the player!") #FIXME
-		player = _body
+	player = _body
 #
 ## Virtual function
 ## Registers the player leaving the search range and sets the player to null
@@ -219,6 +221,11 @@ func visibility_changed():
 	if visibility_notifier.is_on_screen():
 		detection_area.set_deferred("monitoring", false)
 		detection_area.set_deferred("monitoring", true)
+	
+	if not visibility_notifier.is_on_screen():
+		set_physics_process(false)
+	else:
+		set_physics_process(true)
 #
 #	yield() #FIXME
 #	print(str(name) + ": " + str(detection_area.monitoring) + ", " + str(player)) #FIXME

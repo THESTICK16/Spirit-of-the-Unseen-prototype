@@ -1,5 +1,8 @@
 extends KinematicBody2D
 
+## Emitted when the chest is opened
+signal opened
+
 onready var sprite = $Sprite
 onready var item_sprite = $ItemSprite
 onready var open_audio = $OpenAudioStreamPlayer
@@ -56,4 +59,5 @@ func interact():
 	open_audio.play()
 	show_item_sprite()
 	DialogueLoader.create_dialogue_box(JSONFilePaths.ITEM_ACQUISITION_TEXT_JSON_FILEPATH, contained_item_name)
+	emit_signal("opened")
 #	get_item_audio.play()

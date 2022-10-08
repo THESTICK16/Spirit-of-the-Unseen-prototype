@@ -1,4 +1,4 @@
-[gd_scene load_steps=95 format=2]
+[gd_scene load_steps=96 format=2]
 
 [ext_resource path="res://Creatures/Player/SingletonPlayer.tscn" type="PackedScene" id=1]
 [ext_resource path="res://TestResources/TestMap.tscn" type="PackedScene" id=2]
@@ -26,6 +26,7 @@
 [ext_resource path="res://Creatures/Enemies/BatWanderingEnemy.tscn" type="PackedScene" id=24]
 [ext_resource path="res://WorldObjects/ChangeSceneArea.tscn" type="PackedScene" id=25]
 [ext_resource path="res://Weapons/SpiritGravity.tscn" type="PackedScene" id=26]
+[ext_resource path="res://WorldObjects/EnemyLock.tscn" type="PackedScene" id=27]
 
 [sub_resource type="TileSet" id=97]
 0/name = "Grass"
@@ -1392,14 +1393,6 @@ rotation = -0.90059
 [node name="UnseenEffect" parent="YSort/UnseenCreature" index="2"]
 inverted = true
 
-[node name="SpiderWanderingEnemy" parent="YSort" instance=ExtResource( 5 )]
-position = Vector2( 264, 156 )
-collision_mask = 1
-
-[node name="SpiderWanderingEnemy2" parent="YSort" instance=ExtResource( 5 )]
-position = Vector2( 153, 174 )
-collision_mask = 1
-
 [node name="SkeletonChargingEnemy" parent="YSort" instance=ExtResource( 6 )]
 position = Vector2( 1073, 12 )
 collision_mask = 1
@@ -1629,6 +1622,16 @@ position = Vector2( 332, -254 )
 position = Vector2( 417, -31 )
 exit_direction = Vector2( 12, 12 )
 
+[node name="EnemyLock" parent="YSort" instance=ExtResource( 27 )]
+
+[node name="SpiderWanderingEnemy" parent="YSort/EnemyLock" instance=ExtResource( 5 )]
+position = Vector2( 264, 156 )
+collision_mask = 1
+
+[node name="SpiderWanderingEnemy2" parent="YSort/EnemyLock" instance=ExtResource( 5 )]
+position = Vector2( 153, 174 )
+collision_mask = 1
+
 [node name="DarkenRoomEffect" parent="." instance=ExtResource( 17 )]
 visible = false
 z_index = 2
@@ -1639,6 +1642,8 @@ margin_bottom = 586.0
 
 [node name="SpiritGravity" parent="." instance=ExtResource( 26 )]
 position = Vector2( 274, -156 )
+
+[connection signal="all_enemies_defeated" from="YSort/EnemyLock" to="YSort/TestEnemy" method="queue_free"]
 
 [editable path="YSort/UnseenCreature"]
 [editable path="DarkenRoomEffect"]

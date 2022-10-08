@@ -22,7 +22,7 @@ scroll_horizontal_enabled = false
 
 [node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
 margin_right = 1088.0
-margin_bottom = 1181.0
+margin_bottom = 1202.0
 custom_constants/separation = 16
 __meta__ = {
 "_edit_use_anchors_": false
@@ -77,7 +77,7 @@ align = 1
 [node name="SoundCredits" type="Label" parent="ScrollContainer/VBoxContainer"]
 margin_top = 541.0
 margin_right = 1088.0
-margin_bottom = 1000.0
+margin_bottom = 1021.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_fonts/font = SubResource( 1 )
@@ -102,16 +102,17 @@ text = "SOUND DESIGN:
 * 8bit_bomb_explosion : Luke.RUSTLTD - https://opengameart.org/users/lukerustltd
 * melodies_of_the_future_-_albion_one_-_loop : jocolloman - https://jocolloman.itch.io/ 
 * Some of the sounds in this project were created by David McKee (ViRiX)
-* soundcloud.com/virix "
+* soundcloud.com/virix 
+* Dungeon 3 : Beau Buckley - https://opengameart.org/users/fantasy-musica"
 align = 1
 __meta__ = {
 "_editor_description_": ""
 }
 
 [node name="LicenseCredits" type="Label" parent="ScrollContainer/VBoxContainer"]
-margin_top = 1016.0
+margin_top = 1037.0
 margin_right = 1088.0
-margin_bottom = 1181.0
+margin_bottom = 1202.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_fonts/font = SubResource( 4 )
