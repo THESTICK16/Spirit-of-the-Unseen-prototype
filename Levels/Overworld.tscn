@@ -1509,7 +1509,7 @@ optional_dialogue_key = "HowToUseEyes"
 [node name="OverworldToDungeonChangeSceneArea" parent="YSort/DungeonEntranceAreaTileMapLayersSet/WorldObjectsTileMap" index="2" instance=ExtResource( 20 )]
 position = Vector2( 3431, -1776 )
 change_scene_door = true
-next_scene = "res://Levels/Dungeon.tscn"
+next_scene = "res://Levels/DemoDungeon.tscn"
 
 [node name="Sprite2" type="Sprite" parent="YSort/DungeonEntranceAreaTileMapLayersSet/WorldObjectsTileMap/OverworldToDungeonChangeSceneArea" index="0"]
 z_index = -6

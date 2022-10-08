@@ -37,7 +37,7 @@ margin_top = 63.0
 margin_right = 1024.0
 margin_bottom = 122.0
 text = "Play From Dungeon"
-path_to_scene_to_load = "res://Levels/Dungeon.tscn"
+path_to_scene_to_load = "res://Levels/DemoDungeon.tscn"
 
 [node name="ContinueMenuButton" parent="VBoxContainer/HBoxContainer/Buttons" index="2" instance=ExtResource( 2 )]
 visible = false

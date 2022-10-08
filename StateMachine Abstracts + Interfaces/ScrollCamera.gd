@@ -1,6 +1,6 @@
 extends PlayerState
 
-var new_limits : Dictionary
+#var new_limits : Dictionary
 const SCROLL_SPEED = 1000
 
 ## Virtual function. Receives events from the `_unhandled_input()` callback.
