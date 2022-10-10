@@ -1,4 +1,4 @@
-[gd_scene load_steps=96 format=2]
+[gd_scene load_steps=97 format=2]
 
 [ext_resource path="res://Creatures/Player/SingletonPlayer.tscn" type="PackedScene" id=1]
 [ext_resource path="res://TestResources/TestMap.tscn" type="PackedScene" id=2]
@@ -27,6 +27,7 @@
 [ext_resource path="res://WorldObjects/ChangeSceneArea.tscn" type="PackedScene" id=25]
 [ext_resource path="res://Weapons/SpiritGravity.tscn" type="PackedScene" id=26]
 [ext_resource path="res://WorldObjects/EnemyLock.tscn" type="PackedScene" id=27]
+[ext_resource path="res://Interface + Abstract Nodes/StartWithItemsAcquired.gd" type="Script" id=28]
 
 [sub_resource type="TileSet" id=97]
 0/name = "Grass"
@@ -1495,8 +1496,6 @@ contained_item_name = "Sword"
 
 [node name="LockedDoor" parent="YSort" instance=ExtResource( 15 )]
 position = Vector2( 616, 4 )
-vanish_on_unlock = false
-scene_to_load = "res://Levels/Overworld.tscn"
 
 [node name="KeyStatRefill" parent="YSort" instance=ExtResource( 16 )]
 position = Vector2( 785, 213 )
@@ -1642,6 +1641,9 @@ margin_bottom = 586.0
 
 [node name="SpiritGravity" parent="." instance=ExtResource( 26 )]
 position = Vector2( 274, -156 )
+
+[node name="StartWithItemsAcquired" type="Node" parent="."]
+script = ExtResource( 28 )
 
 [connection signal="all_enemies_defeated" from="YSort/EnemyLock" to="YSort/TestEnemy" method="queue_free"]
 

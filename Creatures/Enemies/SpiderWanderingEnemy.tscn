@@ -174,7 +174,7 @@ max_wander_distance = 200
 position = Vector2( 0, -54 )
 scale = Vector2( 4, 4 )
 frames = SubResource( 35 )
-frame = 8
+animation = "Idle"
 playing = true
 
 [node name="CollisionShape2D" parent="." index="1"]

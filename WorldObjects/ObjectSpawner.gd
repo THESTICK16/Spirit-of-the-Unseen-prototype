@@ -14,7 +14,7 @@ onready var object_to_spawn = load(object_to_spawn_filepath)
 func spawn():
 	var new_object = object_to_spawn.instance()
 	new_object.global_position = self.global_position
-	get_tree().current_scene.add_child(new_object)
+	get_tree().current_scene.call_deferred("add_child", new_object)# add_child(new_object)
 	SFXController.play_sfx(sound_effect)
 	if single_use:
 		queue_free()

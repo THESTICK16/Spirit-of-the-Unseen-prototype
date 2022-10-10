@@ -20,31 +20,79 @@ signal scene_changed
 #	scene_transition.transition_to_new_scene(change_to)
 #	emit_signal("scene_changed")
 
+
+
+
+
+
 func change_to_new_scene(change_to):
 	var scene_transition = SceneTransition.instance()
 	get_tree().root.add_child(scene_transition)
-	
+
 	PauseController.pause()
 	scene_transition.fade_in()
 	yield(scene_transition, "faded_in")
-	
+
 #	_setup_player()
-		
+	var load_satus
 	if change_to is String and change_to.ends_with("tscn"):
-		get_tree().change_scene(change_to)
-	
+		load_satus = get_tree().change_scene(change_to)
+
 	elif change_to is PackedScene:
-		get_tree().change_scene_to(change_to)
-	
+		load_satus = get_tree().change_scene_to(change_to)
+		
+#	display_scene_load_status(load_satus) #FIXME
+
 	call_deferred("emit_signal", "scene_changed")
 #	emit_signal("scene_changed")
 	_setup_player()
-		
+
 	PauseController.unpause()
 	scene_transition.fade_out()
-	
+
 	yield(scene_transition, "faded_out")
 	scene_transition.queue_free()
+	
+	
+	
+	
+	
+	
+#func change_to_new_scene(change_to):
+#	var scene_transition = SceneTransition.instance()
+#	get_tree().root.add_child(scene_transition)
+#
+#	var next_scene
+#	if change_to is String and change_to.ends_with("tscn"):
+#		next_scene = load(change_to)
+#	elif change_to is PackedScene:
+#		next_scene = change_to
+#
+#	PauseController.pause()
+#	scene_transition.fade_in()
+#	yield(scene_transition, "faded_in")
+##	if change_to is String and change_to.ends_with("tscn"):
+##		yield(next_scene, "ready")
+#
+#	var loaded_okay = get_tree().change_scene_to(next_scene)
+#
+##	_setup_player()
+#
+##	if change_to is String and change_to.ends_with("tscn"):
+##		get_tree().change_scene(change_to)
+##
+##	elif change_to is PackedScene:
+##		get_tree().change_scene_to(change_to)
+#
+#	call_deferred("emit_signal", "scene_changed")
+##	emit_signal("scene_changed")
+#	_setup_player()
+#
+#	PauseController.unpause()
+#	scene_transition.fade_out()
+#
+#	yield(scene_transition, "faded_out")
+#	scene_transition.queue_free()
 	
 func change_to_new_scene_and_set_player_position(change_to, change_scene_area_entered: ChangeSceneArea):
 	var next_door_name = change_scene_area_entered.door_to_exit_from_name
@@ -57,12 +105,14 @@ func change_to_new_scene_and_set_player_position(change_to, change_scene_area_en
 	yield(scene_transition, "faded_in")
 	
 #	_setup_player()
-		
+	var load_satus
 	if change_to is String and change_to.ends_with("tscn"):
-		get_tree().change_scene(change_to)
+		load_satus = get_tree().change_scene(change_to)
 	
 	elif change_to is PackedScene:
-		get_tree().change_scene_to(change_to)
+		load_satus = get_tree().change_scene_to(change_to)
+		
+#	display_scene_load_status(load_satus) #FIXME!!!
 	
 	call_deferred("emit_signal", "scene_changed")
 #	emit_signal("scene_changed")
@@ -109,3 +159,17 @@ func set_player_at_door(change_scene_area_entered: ChangeSceneArea, next_door_na
 #						PlayerStats.player.animation_tree.set("parameters/Idle/blend_position", PlayerStats.player.direction)
 #						PlayerStats.player.animation_tree.set("parameters/Move/blend_position", PlayerStats.player.direction)
 #						PlayerStats.player.animation_tree.set("parameters/Attack/blend_position", PlayerStats.player.direction)
+
+
+func display_scene_load_status(status):
+	var canvas_layer = CanvasLayer.new()
+	canvas_layer.layer = 50
+	var label = Label.new()
+	label.text = "Scene Load Status: " + str(status)
+	canvas_layer.add_child(label)
+	get_tree().root.add_child(canvas_layer)
+	print("Scene Load Status: " + str(status))
+#	print(status)
+#	yield(self, "scene_changed")
+#	DialogueLoader.create_dialogue_box("Scene Load Status: " + str(status))
+	

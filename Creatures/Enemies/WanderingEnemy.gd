@@ -138,6 +138,7 @@ func wander(_delta):
 	
 func stunned(delta):
 	velocity = velocity.move_toward(Vector2.ZERO, friction * delta)
+	animated_sprite.stop()
 	
 func dead(delta):
 	if not dead:
@@ -169,7 +170,7 @@ func take_hit(area):
 	health -= area.damage
 	if health <= 0:
 		change_state(DEAD) #state = DEAD
-	else:
+	elif get_state() != STUNNED:
 		change_state(KNOCKBACK)
 
 func _on_StunTimer_timeout():

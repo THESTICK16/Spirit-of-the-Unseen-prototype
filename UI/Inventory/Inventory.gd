@@ -36,8 +36,16 @@ func _input(_event):
 #func _unhandled_input(_event):
 #	var current_index = items.find(currently_selected_item) 
 	var input = Vector2.ZERO
-	input.x = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
-	input.y = Input.get_action_strength("ui_down") - Input.get_action_strength("ui_up")
+	if Input.is_action_just_pressed("ui_up"):
+		input.y -= 1
+	if Input.is_action_just_pressed("ui_down"):
+		input.y += 1
+	if Input.is_action_just_pressed("ui_left"):
+		input.x -= 1
+	if Input.is_action_just_pressed("ui_right"):
+		input.x += 1
+#	input.x = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
+#	input.y = Input.get_action_strength("ui_down") - Input.get_action_strength("ui_up")
 	if input.x != 0 or input.y != 0:
 		_change_selected(input)
 #	if input.x != 0:

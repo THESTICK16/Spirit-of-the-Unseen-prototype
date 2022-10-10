@@ -2,7 +2,7 @@
 
 [ext_resource path="res://WorldObjects/Switches/Switch.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Assets/RotatingSwitch.png" type="Texture" id=2]
-[ext_resource path="res://Assets/Sound/rumble_shortened.wav" type="AudioStream" id=3]
+[ext_resource path="res://Assets/Sound/SoundFX/rumble_shortened.wav" type="AudioStream" id=3]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 32.0156
