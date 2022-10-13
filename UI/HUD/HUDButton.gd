@@ -4,6 +4,8 @@ class_name HUDButton
 onready var item_texture_rect : TextureRect = $CenterContainer/ButtonTextureRect/ItemTextureRect
 onready var text_label : Label = $CenterContainer/ButtonTextureRect/TextLabel
 onready var stock_label = $StockLabel
+onready var null_texture = preload("res://Assets/BlankImage.png")
+onready var bow_texture = preload("res://Assets/BowIcon.png")
 
 ### The button to which this slot belongs
 ### Must match one of ControllerButtons.equippable_buttons
@@ -49,6 +51,9 @@ func _swap_displayed():
 func set_stock_label(set_to: int):
 	if set_to < 0:
 		stock_label.hide()
+	elif item_texture_rect.texture != bow_texture: #This is a temporary fix for the bug that displays the stock label on any button icon that the bow was previously equipped to fix this
+		stock_label.hide()
+		push_warning("The button is checking to see if the bow is equipped to display the stock label. FIX THIS FOR FUTURE RELEASES")
 	else:
 		stock_label.show()
 	stock_label.text = str(set_to)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=2]
+[gd_scene load_steps=56 format=2]
 
 [ext_resource path="res://StateMachine Abstracts + Interfaces/PlayerStateMachine.tscn" type="PackedScene" id=1]
 [ext_resource path="res://CollisionBoxes/SoftCollisionBox.tscn" type="PackedScene" id=2]
@@ -12,6 +12,8 @@
 [ext_resource path="res://Assets/Sound/SoundFX/Footsteps/Footstep_Dirt_01.wav" type="AudioStream" id=10]
 [ext_resource path="res://Creatures/Player/PlayerCamera.gd" type="Script" id=11]
 [ext_resource path="res://CollisionBoxes/TilemapDetectionArea.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Interface + Abstract Nodes/UnseenEffect.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Shaders/GaussianBlur.gdshader" type="Shader" id=14]
 
 [sub_resource type="CapsuleShape2D" id=36]
 radius = 5.00001
@@ -350,6 +352,11 @@ height = 4.0
 [sub_resource type="CircleShape2D" id=74]
 radius = 2.0
 
+[sub_resource type="ShaderMaterial" id=76]
+shader = ExtResource( 14 )
+shader_param/target = Vector2( 0.5, 0.5 )
+shader_param/intensity = 1.0
+
 [node name="SingletonPlayer" type="KinematicBody2D"]
 scale = Vector2( 0.85, 0.85 )
 collision_layer = 2
@@ -459,6 +466,17 @@ shape = SubResource( 74 )
 [node name="Tween" type="Tween" parent="."]
 
 [node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
+
+[node name="ShaderCanvasLayer" type="CanvasLayer" parent="."]
+layer = 0
+
+[node name="GaussianBlur" type="ColorRect" parent="ShaderCanvasLayer"]
+visible = false
+material = SubResource( 76 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="UnseenEffect" parent="ShaderCanvasLayer/GaussianBlur" instance=ExtResource( 13 )]
 
 [editable path="HurtBox"]
 [editable path="SoftCollisionBox"]

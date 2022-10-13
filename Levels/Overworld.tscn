@@ -1287,6 +1287,7 @@ atlas = ExtResource( 2 )
 region = Rect2( 640, 192, 32, 32 )
 
 [node name="Overworld" instance=ExtResource( 1 )]
+position = Vector2( 3, 0 )
 
 [node name="LevelMusicAudioStreamPlayer" parent="." index="1"]
 stream = ExtResource( 30 )

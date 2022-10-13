@@ -35,6 +35,7 @@ onready var walking_audio = $WalkingAudioStreamPlayer
 onready var tilemap_detection_area = $TilemapDetectionBox
 onready var tween = $Tween
 onready var visibility_notifier = $VisibilityNotifier2D
+onready var gaussian_blur =$ShaderCanvasLayer/GaussianBlur
 
 
 #onready var inventory_menu = $Inventory
@@ -94,6 +95,8 @@ func _physics_process(_delta):
 #	input_vector.y = Input.get_action_strength("ui_down") - Input.get_action_strength("ui_up")
 	input_vector = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down", 0.5)
 	input_vector = input_vector.round()
+	
+	set_shader_position(gaussian_blur)
 	
 	
 #func get_equipped_button(item: PackedScene):
@@ -172,9 +175,14 @@ func update_animation_tree_blend_positions():
 	animation_tree.set("parameters/Attack/blend_position", PlayerStats.player.direction)
 	
 func set_shader_position(shader_rect : ColorRect):
-	var shader_target : Vector2 = global_position
-	var viewport_size = get_viewport_rect().size
-	shader_target.x /= viewport_size.x
-	shader_target.y /= viewport_size.y
+	var shader_target = get_global_transform_with_canvas().origin
+	shader_target.x = clamp(shader_target.x, 0, get_viewport_rect().size.x) / get_viewport_rect().size.x
+	shader_target.y = clamp(shader_target.y, 0, get_viewport_rect().size.y) / get_viewport_rect().size.y
+	
+#	var shader_target : Vector2 = global_position
+#	var viewport_size = get_viewport_rect().size
+#	shader_target.x /= viewport_size.x
+#	shader_target.y /= viewport_size.y
+
 	shader_rect.material.set_shader_param("target", shader_target)
 

@@ -44,7 +44,8 @@ func open(_area):
 		
 	if new_refill != null:
 		new_refill.global_position = global_position
-		get_tree().current_scene.call_deferred("add_child", new_refill) #.add_child(new_refill)
+#		get_tree().current_scene.call_deferred("add_child", new_refill) #.add_child(new_refill)
+		get_parent().call_deferred("add_child", new_refill) # Add to parent because parent will likely be a YSort
 		
 	queue_free()
 	

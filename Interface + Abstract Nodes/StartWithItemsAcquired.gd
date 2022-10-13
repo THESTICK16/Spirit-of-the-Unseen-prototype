@@ -2,7 +2,8 @@ extends Node
 
 var exempt_items := [
 	"Boomerang", 
-	"SpiritBomb"]
+	"SpiritBomb"
+]
 
 func _ready():
 	call_deferred("acquire_all_items")
