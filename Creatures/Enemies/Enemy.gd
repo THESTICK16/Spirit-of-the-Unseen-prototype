@@ -76,6 +76,7 @@ func _ready():
 		detection_area.connect("body_exited", self, "_on_DetectionArea_body_exited")
 	if hurtbox != null:
 		hurtbox.connect("area_entered", self, "take_hit")
+		hurtbox.connect("area_entered", self, "play_hit_effect")
 	if stun_timer != null:
 		stun_timer.connect("timeout", self, "exit_stunned")
 #	if invincibility_timer != null:
@@ -229,3 +230,19 @@ func visibility_changed():
 #
 #	yield() #FIXME
 #	print(str(name) + ": " + str(detection_area.monitoring) + ", " + str(player)) #FIXME
+
+func play_hit_effect(area, duration := 0.1, hit_color: Color = Color(2, 0, 0, 1)):
+	if is_instance_valid(animated_sprite) and animated_sprite != null and (animated_sprite is Sprite or animated_sprite is AnimatedSprite):
+		var start_modulate: Color = animated_sprite.get("modulate")
+		var new_modulate: Color = hit_color
+#		if start_modulate != null:
+#			new_modulate = start_modulate.blend(hit_color)
+		
+		var tween := create_tween()
+		tween.set_ease(Tween.EASE_OUT)
+		var property_tweener = tween.tween_property(animated_sprite, "modulate", new_modulate, duration)
+		yield(tween, "finished")
+		
+		if is_instance_valid(animated_sprite) and animated_sprite != null and (animated_sprite is Sprite or animated_sprite is AnimatedSprite):
+			tween = create_tween()
+			tween.tween_property(animated_sprite, "modulate", start_modulate, duration / 2)

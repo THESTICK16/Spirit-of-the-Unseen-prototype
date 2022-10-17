@@ -16,6 +16,7 @@ func acquire_all_items():
 		if not exempt_items.has(item):
 #		if item != "Boomerang" and item != "SpiritBomb":
 			Equipment.get_item_resource(item).set_player_has_item(true)
+	queue_free()
 
 func get_paths_of_children(start_scene):
 	if start_scene.get_child_count() > 0:

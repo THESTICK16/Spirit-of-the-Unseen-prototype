@@ -36,6 +36,7 @@ onready var tilemap_detection_area = $TilemapDetectionBox
 onready var tween = $Tween
 onready var visibility_notifier = $VisibilityNotifier2D
 onready var gaussian_blur =$ShaderCanvasLayer/GaussianBlur
+onready var sprite = $Sprite
 
 
 #onready var inventory_menu = $Inventory
@@ -123,6 +124,7 @@ func take_hit(area):
 	hurtbox.start_invincibility(invincibility_duration)
 	if area.get_parent().has_method("give_hit"):
 		area.get_parent().give_hit()
+	play_hit_effect()
 		
 func recognize_interactable(area):
 	if area.has_method("get_interactable_type") and area.has_method("interact"):
@@ -186,3 +188,20 @@ func set_shader_position(shader_rect : ColorRect):
 
 	shader_rect.material.set_shader_param("target", shader_target)
 
+func play_hit_effect(duration := 0.1, hit_color: Color = Color(2, 0, 0, 1)):
+	if is_instance_valid(sprite) and sprite != null and (sprite is Sprite or sprite is AnimatedSprite):
+		var start_modulate: Color = sprite.get("modulate")
+		var new_modulate: Color = hit_color
+#		if start_modulate != null:
+#			new_modulate = start_modulate.blend(hit_color)
+		
+		var tween := create_tween()
+		tween.set_ease(Tween.EASE_OUT)
+		var property_tweener = tween.tween_property(sprite, "modulate", new_modulate, duration)
+		yield(tween, "finished")
+		
+		if is_instance_valid(sprite) and sprite != null and (sprite is Sprite or sprite is AnimatedSprite):
+			tween = create_tween()
+			tween.tween_property(sprite, "modulate", start_modulate, duration / 2)
+
+	

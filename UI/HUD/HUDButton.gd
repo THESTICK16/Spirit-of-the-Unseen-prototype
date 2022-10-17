@@ -6,6 +6,8 @@ onready var text_label : Label = $CenterContainer/ButtonTextureRect/TextLabel
 onready var stock_label = $StockLabel
 onready var null_texture = preload("res://Assets/BlankImage.png")
 onready var bow_texture = preload("res://Assets/BowIcon.png")
+onready var button_letter = get_button_letter()
+onready var button_texture_rect = $CenterContainer/ButtonTextureRect
 
 ### The button to which this slot belongs
 ### Must match one of ControllerButtons.equippable_buttons
@@ -15,6 +17,14 @@ onready var bow_texture = preload("res://Assets/BowIcon.png")
 var item_resource : Item
 ## True if text is being shown, False if the image is being shown
 var showing_text := false
+
+func _input(event):
+	if Input.is_action_pressed(button_letter):
+		button_texture_rect.set("modulate", Color.lightskyblue)
+	elif Input.is_action_just_released(button_letter):
+		button_texture_rect.set("modulate", Color.white)
+	else:
+		button_texture_rect.set("modulate", Color.white)
 
 func set_hud_button(change_to):
 	if change_to is String and change_to == "":
@@ -64,3 +74,13 @@ func connect_stock_label(connect_to : ConsumableItem):
 		connect_to.connect("stock_changed", self, "set_stock_label")
 	call_deferred("set_stock_label", connect_to.get_item_field(ConsumableItem.CURRENT_STOCK))
 #	set_stock_label(connect_to.get_item_field(ConsumableItem.CURRENT_STOCK))
+
+func get_button_letter() -> String:
+	var button_letter = "?"
+	
+	var first_letter = name[0].to_lower()
+	if ControllerButtons.is_equippable_button(first_letter):
+		button_letter = first_letter
+	
+	print(button_letter)
+	return button_letter

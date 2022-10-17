@@ -754,54 +754,54 @@ position = Vector2( -16, 1616 )
 [node name="SpikeyChargingEnemy" parent="YSort2/EnemiesYSort" index="0" instance=ExtResource( 8 )]
 position = Vector2( -241, 815 )
 chase_max_speed = 1000
-acceleration = 4000
+acceleration = 2500
 facing_direction = Vector2( 1, 0 )
 ray_length = 1000
 
 [node name="SpikeyChargingEnemy2" parent="YSort2/EnemiesYSort" index="1" instance=ExtResource( 8 )]
 position = Vector2( 401, 748 )
 chase_max_speed = 1000
-acceleration = 4000
+acceleration = 2500
 facing_direction = Vector2( -1, 0 )
 ray_length = 1000
 
 [node name="SpikeyChargingEnemy5" parent="YSort2/EnemiesYSort" index="2" instance=ExtResource( 8 )]
 position = Vector2( 272, 622 )
 chase_max_speed = 1000
-acceleration = 4000
+acceleration = 2500
 facing_direction = Vector2( -1, 0 )
 ray_length = 1000
 
 [node name="SpikeyChargingEnemy6" parent="YSort2/EnemiesYSort" index="3" instance=ExtResource( 8 )]
 position = Vector2( 47, 880 )
 chase_max_speed = 1000
-acceleration = 4000
+acceleration = 2500
 facing_direction = Vector2( -1, 0 )
 ray_length = 1000
 
 [node name="SpikeyChargingEnemy3" parent="YSort2/EnemiesYSort" index="4" instance=ExtResource( 8 )]
 position = Vector2( -431, 943 )
 chase_max_speed = 1000
-acceleration = 4000
+acceleration = 2500
 facing_direction = Vector2( 1, 0 )
 ray_length = 1000
 
 [node name="SpikeyChargingEnemy4" parent="YSort2/EnemiesYSort" index="5" instance=ExtResource( 8 )]
 position = Vector2( -81, 687 )
 chase_max_speed = 1000
-acceleration = 4000
+acceleration = 2500
 facing_direction = Vector2( 1, 0 )
 ray_length = 1000
 
 [node name="SpikeyChargingEnemy7" parent="YSort2/EnemiesYSort" index="6" instance=ExtResource( 8 )]
 position = Vector2( 976, -112 )
 chase_max_speed = 1000
-acceleration = 4000
+acceleration = 2500
 
 [node name="SpikeyChargingEnemy8" parent="YSort2/EnemiesYSort" index="7" instance=ExtResource( 8 )]
 position = Vector2( 1296, 144 )
 chase_max_speed = 1000
-acceleration = 4000
+acceleration = 2500
 facing_direction = Vector2( 0, -1 )
 
 [node name="SpiderWanderingEnemy" parent="YSort2/EnemiesYSort" index="8" instance=ExtResource( 11 )]
