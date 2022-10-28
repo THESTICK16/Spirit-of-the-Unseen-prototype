@@ -73,6 +73,6 @@ margin_right = 1024.0
 margin_bottom = 545.0
 rect_min_size = Vector2( 300, 50 )
 custom_fonts/font = SubResource( 2 )
-text = "Version: 1.2.7 (Alpha)"
+text = "Version: 1.2.8 (Alpha)"
 align = 1
 valign = 1

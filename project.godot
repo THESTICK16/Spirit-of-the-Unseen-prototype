@@ -155,6 +155,8 @@ _global_script_class_icons={
 config/name="Spirit of the Unseen Prototype"
 run/main_scene="res://UI/Menus/TitleScreen/TitleScreen.tscn"
 config/icon="res://Assets/Application Icons/SotU Icon.png"
+config/macos_native_icon="res://Assets/Application Icons/SotU Icon(icns).icns"
+config/windows_native_icon="res://Assets/Application Icons/SotU Icon.ico"
 
 [autoload]
 
