@@ -20,11 +20,12 @@ text = "Paused"
 
 [node name="InventoryMenuButton" parent="VBoxContainer/HBoxContainer/Buttons" index="0" instance=ExtResource( 3 )]
 margin_right = 1024.0
-margin_bottom = 97.0
+margin_bottom = 148.0
 text = "Inventory"
 path_to_scene_to_load = "Inventory"
 
-[node name="InventoryMenuButton2" parent="VBoxContainer/HBoxContainer/Buttons" index="1" instance=ExtResource( 3 )]
+[node name="OptionsMenuButton" parent="VBoxContainer/HBoxContainer/Buttons" index="1" instance=ExtResource( 3 )]
+visible = false
 margin_top = 101.0
 margin_right = 1024.0
 margin_bottom = 198.0
@@ -32,7 +33,7 @@ text = "Options"
 path_to_scene_to_load = "OptionsMenu"
 
 [node name="QuitMenuButton" parent="VBoxContainer/HBoxContainer/Buttons" index="2" instance=ExtResource( 3 )]
-margin_top = 202.0
+margin_top = 152.0
 margin_right = 1024.0
 text = "Quit"
 path_to_scene_to_load = "res://UI/Menus/TitleScreen/TitleScreen.tscn"

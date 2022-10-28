@@ -1,7 +1,7 @@
 extends PlayerState
 
 var bomb_button : String
-var spirit_bomb
+var spirit_bomb : KinematicWeapon
 var max_range := 100
 ## The resource scene for the spirit bomb
 var spirit_bomb_resource : SpiritItem
@@ -49,21 +49,23 @@ func enter(_msg := {}) -> void:
 	spirit_bomb_resource = player.equipment.get_item_resource("SpiritBomb")
 	bomb_button = player.equipped_items.get_equipped_button(player.equipment.get_item_resource("SpiritBomb"))
 	_spirit_bomb()
-	player.velocity = Vector2.ZERO
+	player.velocity = Vector2.ZERO #Put this so it gradually moves to zero in the physics process so it won't freeze the player if the button is pressed while a bomb is already out
 
 
 ## Virtual function. Called by the state machine before changing the active state. Use this function
 ## to clean up the state.
 ##@override
 func exit() -> void:
-	pass
+	spirit_bomb_resource = null
+	spirit_bomb = null
+	bomb_button = ""
 	
 func _spirit_bomb():
 	if player.can_use_spirit_attack and player.stats.has_spirit_energy():
 		spirit_bomb = player.equipment.get_item_field("SpiritBomb", Item.SCENE).instance()
 		max_range = spirit_bomb.max_range
 		spirit_bomb.user = player
-		spirit_bomb.global_position = player.ranged_weapon_spawn_position.global_position
+		spirit_bomb.global_position = player.global_position #player.ranged_weapon_spawn_position.global_position
 		spirit_bomb.start_direction = player.direction
 		get_tree().current_scene.add_child(spirit_bomb) #.current_scene.add_child(spirit_bomb)
 		player.stats.spirit_energy -= spirit_bomb_resource.get_item_field(SpiritItem.SPIRIT_COST)

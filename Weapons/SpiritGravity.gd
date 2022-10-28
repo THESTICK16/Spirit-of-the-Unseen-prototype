@@ -15,7 +15,7 @@ onready var enemy_detection_area = $EnemyDetectionArea
 
 func _ready():
 	if despawn_timer != null:
-		despawn_timer.connect("timeout", self, "queue_free")
+		despawn_timer.connect("timeout", self, "dissapear")
 	if enemy_detection_area != null:
 		enemy_detection_area.connect("body_entered", self, "catch_enemy")
 		enemy_detection_area.connect("body_exited", self, "release_enemy")
@@ -60,3 +60,9 @@ func pull(delta):
 #				enemy.velocity = enemy.velocity.move_toward(pull_direction * max_pull_strength, pull_acceleration * delta)
 #		else:
 #			release_enemy(enemy)
+
+func dissapear():
+	if is_instance_valid(user):
+		user.can_use_spirit_attack = true
+	queue_free()
+	# make the "dissapear" function for all weapons uniform when refactoring

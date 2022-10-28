@@ -18,9 +18,6 @@ margin_right = 37.5
 margin_bottom = 37.5
 rect_min_size = Vector2( 75, 75 )
 script = ExtResource( 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="DefaultBackgroundColorRect" type="ColorRect" parent="."]
 anchor_right = 1.0

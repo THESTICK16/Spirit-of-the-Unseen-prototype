@@ -22,7 +22,7 @@ scroll_horizontal_enabled = false
 
 [node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
 margin_right = 1088.0
-margin_bottom = 1202.0
+margin_bottom = 1232.0
 custom_constants/separation = 16
 __meta__ = {
 "_edit_use_anchors_": false
@@ -38,18 +38,26 @@ text = "Credits"
 align = 1
 valign = 1
 
-[node name="EngineCredits" type="Label" parent="ScrollContainer/VBoxContainer"]
+[node name="StudioCredits" type="Label" parent="ScrollContainer/VBoxContainer"]
 margin_top = 82.0
 margin_right = 1088.0
-margin_bottom = 113.0
+margin_bottom = 96.0
+text = "Developed by Kingdom Down Studios"
+align = 1
+valign = 1
+
+[node name="EngineCredits" type="Label" parent="ScrollContainer/VBoxContainer"]
+margin_top = 112.0
+margin_right = 1088.0
+margin_bottom = 143.0
 text = "ENGINE:
 Godot Engine : https://godotengine.org/license"
 align = 1
 
 [node name="ArtCredits" type="Label" parent="ScrollContainer/VBoxContainer"]
-margin_top = 129.0
+margin_top = 159.0
 margin_right = 1088.0
-margin_bottom = 525.0
+margin_bottom = 555.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_fonts/font = SubResource( 1 )
@@ -75,9 +83,9 @@ text = "ART:
 align = 1
 
 [node name="SoundCredits" type="Label" parent="ScrollContainer/VBoxContainer"]
-margin_top = 541.0
+margin_top = 571.0
 margin_right = 1088.0
-margin_bottom = 1021.0
+margin_bottom = 1051.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_fonts/font = SubResource( 1 )
@@ -110,9 +118,9 @@ __meta__ = {
 }
 
 [node name="LicenseCredits" type="Label" parent="ScrollContainer/VBoxContainer"]
-margin_top = 1037.0
+margin_top = 1067.0
 margin_right = 1088.0
-margin_bottom = 1202.0
+margin_bottom = 1232.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_fonts/font = SubResource( 4 )

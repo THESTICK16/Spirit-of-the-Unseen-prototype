@@ -106,7 +106,7 @@ position = Vector2( 0, -5 )
 scale = Vector2( 1.5, 1.5 )
 frames = SubResource( 4 )
 animation = "Idle"
-frame = 1
+frame = 3
 playing = true
 
 [node name="CollisionShape2D" parent="." index="1"]
@@ -140,6 +140,11 @@ shape = SubResource( 18 )
 
 [node name="SpriteCenterPosition2D" parent="." index="8"]
 position = Vector2( 0, 4 )
+
+[node name="VisibilityEnabler2D" parent="." index="9"]
+position = Vector2( 5.96046e-08, 3 )
+scale = Vector2( 0.8, 0.5 )
+rect = Rect2( -1, 0, 2, 2 )
 
 [node name="VisibilityNotifier2D" parent="." index="10"]
 rect = Rect2( -10, -10, 20, 20 )

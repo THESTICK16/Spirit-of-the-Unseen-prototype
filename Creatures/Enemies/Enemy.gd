@@ -33,6 +33,7 @@ onready var start_position = global_position
 onready var Death_Effect = preload("res://SpecialEffects/DeathEffect.tscn")
 onready var visibility_notifier : VisibilityNotifier2D = $VisibilityNotifier2D
 onready var player_in_sight_raycast : RayCast2D = $PlayerInSightRayCast2D
+onready var hit_particles : Particles2D = $HitParticles2D
 
 ## The maximum health the enemy can have
 export var max_health := 5
@@ -219,30 +220,63 @@ func spawn_death_effect(_death_effect : AnimatedSprite = Death_Effect):
 # Called when the enemy enters/exits the camera's view
 # Does things like turn on/off player detection to avoid enemies waiting for player as soon as they enter the area
 func visibility_changed():
-	if visibility_notifier.is_on_screen():
-		detection_area.set_deferred("monitoring", false)
-		detection_area.set_deferred("monitoring", true)
-	
-	if not visibility_notifier.is_on_screen():
-		set_physics_process(false)
-	else:
-		set_physics_process(true)
+	pass
+#	if visibility_notifier.is_on_screen():
+#		detection_area.set_deferred("monitoring", false)
+#		detection_area.set_deferred("monitoring", true)
+
+#	if not visibility_notifier.is_on_screen():
+#		set_physics_process(false)
+#	else:
+#		set_physics_process(true)
 #
 #	yield() #FIXME
 #	print(str(name) + ": " + str(detection_area.monitoring) + ", " + str(player)) #FIXME
 
 func play_hit_effect(area, duration := 0.1, hit_color: Color = Color(2, 0, 0, 1)):
+	# Separate this code into several different functions when refactoring!!!
+	
+#	push_warning("This is a horrible place for this engine code and has a huge chance to break or permanently freeze the engine. fix this and put it in a singleton or something")
+#	var freeze_scale := 0.07 #The percentage of full speed to slow the engine by
+#	var freeze_length := 0.3 # Them amount of time to slow the engine
+#	Engine.time_scale = freeze_scale
+#	yield(get_tree().create_timer(freeze_length * freeze_scale), "timeout")
+#	Engine.time_scale = 1
+	
 	if is_instance_valid(animated_sprite) and animated_sprite != null and (animated_sprite is Sprite or animated_sprite is AnimatedSprite):
 		var start_modulate: Color = animated_sprite.get("modulate")
 		var new_modulate: Color = hit_color
 #		if start_modulate != null:
 #			new_modulate = start_modulate.blend(hit_color)
-		
 		var tween := create_tween()
 		tween.set_ease(Tween.EASE_OUT)
 		var property_tweener = tween.tween_property(animated_sprite, "modulate", new_modulate, duration)
-		yield(tween, "finished")
+		tween.tween_property(animated_sprite, "modulate", start_modulate, duration / 2)
 		
-		if is_instance_valid(animated_sprite) and animated_sprite != null and (animated_sprite is Sprite or animated_sprite is AnimatedSprite):
-			tween = create_tween()
-			tween.tween_property(animated_sprite, "modulate", start_modulate, duration / 2)
+		
+	hit_particles.rotation = get_angle_to(area.global_position)
+	hit_particles.emitting = true
+	
+	
+	var start_rotation := global_rotation
+	var hit_shake_factor := deg2rad(20) # the number of degrees by which the sprite will rotate to produce a shake effect after a hit
+	var shake_reduction_factor := deg2rad(5) # the amount by which the rotation factor is reduced each rotation
+	var shake_duration := 1.5 * (duration / (hit_shake_factor / shake_reduction_factor))
+	var shake_tween = create_tween()
+	while not is_zero_approx(abs(hit_shake_factor)):
+		shake_tween.tween_property(self, "global_rotation", start_rotation + hit_shake_factor, shake_duration)
+		hit_shake_factor -= sign(hit_shake_factor) * shake_reduction_factor
+		hit_shake_factor *= -1
+#		if global_rotation != start_rotation:
+	shake_tween.tween_property(self, "global_rotation", start_rotation, shake_duration)
+		
+		
+
+
+
+
+#		yield(tween, "finished")
+		
+#		if is_instance_valid(animated_sprite) and animated_sprite != null and (animated_sprite is Sprite or animated_sprite is AnimatedSprite):
+#			tween = create_tween()
+#			tween.tween_property(animated_sprite, "modulate", start_modulate, duration / 2)

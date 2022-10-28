@@ -32,7 +32,7 @@ func _ready():
 			set_currently_selected_item(item) #self.currently_selected_item = item
 			break
 	
-func _input(_event):
+func  _input(_event):
 #func _unhandled_input(_event):
 #	var current_index = items.find(currently_selected_item) 
 	var input = Vector2.ZERO

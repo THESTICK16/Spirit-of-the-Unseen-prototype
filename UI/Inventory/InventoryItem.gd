@@ -72,6 +72,11 @@ func _ready():
 		
 	connect("item_equipped", equipped_items, "equip_item")
 	
+#	if not player_has_item:
+#		hide()
+	if item_name == "":
+		hide()
+	
 func load_inventory_item_data():
 	item = equipment.get_item_field(item_name, Item.SCENE)
 	item_icon = equipment.get_item_field(item_name, Item.TEXTURE)
@@ -103,7 +108,7 @@ func unselected():
 ## @param button a single character containing 'a', 'b', 'x', or 'y' representing the button to which this item should be assigned
 func equipped(button : String):
 #	if button != 'a' and button != 'b' and button != 'x' and button != 'y':
-	if not equipped_items.equippable_buttons.has(button) or not player_has_item: #or not visibility_notifier.is_on_screen():
+	if not equipped_items.equippable_buttons.has(button) or not player_has_item: # or not visibility_notifier.is_on_screen():
 		return
 #	if not player_has_item:
 #		return

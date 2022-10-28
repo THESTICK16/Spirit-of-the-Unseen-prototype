@@ -1294,7 +1294,7 @@ stream = ExtResource( 30 )
 volume_db = -5.0
 
 [node name="SingletonPlayer" parent="YSort" index="0" instance=ExtResource( 4 )]
-position = Vector2( 864, 222 )
+position = Vector2( 865, 225 )
 
 [node name="SpawnRoomYSort" type="YSort" parent="YSort" index="1"]
 
@@ -1455,7 +1455,7 @@ tile_data = PoolIntArray( -65467, 2, 65536, -65464, 3, 65536, 69, 2, 65536, 72, 
 
 [node name="WorldObjectsTileMap" parent="YSort/SpiritBombSecretTileMapLayersSet" index="3"]
 tile_set = ExtResource( 3 )
-tile_data = PoolIntArray( 524393, 24, 1, 524394, 24, 1, 524395, 24, 1, 589928, 24, 1, 589929, 24, 1, 589930, 24, 1, 589931, 24, 1, 655464, 24, 0, 655465, 24, 0, 655466, 24, 1, 655467, 24, 1, 721000, 24, 65536, 721001, 24, 65536, 786536, 24, 65536, 786537, 24, 65536, 852072, 24, 65536, 852073, 24, 65536, 917608, 24, 65536, 917609, 24, 131072, 983144, 24, 65536 )
+tile_data = PoolIntArray( 655464, 24, 0, 655465, 24, 1, 655466, 24, 1, 655467, 24, 1, 721000, 24, 65536, 786536, 24, 65536, 852072, 24, 65536, 917608, 24, 65536, 983144, 24, 65536 )
 
 [node name="Chest" parent="YSort/SpiritBombSecretTileMapLayersSet/WorldObjectsTileMap" index="1" instance=ExtResource( 11 )]
 position = Vector2( 2947, 124 )

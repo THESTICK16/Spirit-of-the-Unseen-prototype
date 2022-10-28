@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Levels/BaseLevel.tscn" type="PackedScene" id=1]
 [ext_resource path="res://LevelCreation/TileMapLayersSet.tscn" type="PackedScene" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://Refills/ArrowItemRefill.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Refills/SpiritEnergyRefill.tscn" type="PackedScene" id=10]
 [ext_resource path="res://WorldObjects/ChangeSceneArea.tscn" type="PackedScene" id=11]
+[ext_resource path="res://ItemContainers/Chest.tscn" type="PackedScene" id=12]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 20, 8 )
@@ -29,6 +30,10 @@ tile_set = ExtResource( 5 )
 [node name="WorldObjectsTileMap" parent="YSort/TileMapLayersSet" index="3"]
 tile_set = ExtResource( 6 )
 tile_data = PoolIntArray( 0, 19, 0, 1, 19, 0, 2, 19, 0, 3, 19, 0, 4, 19, 0, 5, 19, 0, 6, 19, 0, 7, 19, 0, 8, 19, 0, 9, 19, 0, 10, 19, 0, 65536, 19, 0, 65537, 16, 0, 65546, 19, 0, 131072, 19, 0, 131079, 10, 0, 131082, 19, 0, 196608, 19, 0, 196618, 19, 0, 262144, 19, 0, 262151, 15, 0, 262152, 15, 0, 262154, 19, 0, 327680, 19, 0, 327690, 19, 0, 393216, 19, 0, 393226, 19, 0, 458752, 19, 0, 458762, 19, 0, 524288, 19, 0, 524289, 17, 0, 524298, 19, 0, 589824, 19, 0, 589825, 19, 0, 589826, 19, 0, 589827, 19, 0, 589828, 19, 0, 589830, 19, 0, 589831, 19, 0, 589832, 19, 0, 589833, 19, 0, 589834, 19, 0 )
+
+[node name="Chest" parent="YSort/TileMapLayersSet/WorldObjectsTileMap" index="1" instance=ExtResource( 12 )]
+position = Vector2( 171, 38 )
+contained_item_name = "SpiritGravity"
 
 [node name="SingletonPlayer" parent="YSort" index="1" instance=ExtResource( 3 )]
 position = Vector2( 178, 289 )

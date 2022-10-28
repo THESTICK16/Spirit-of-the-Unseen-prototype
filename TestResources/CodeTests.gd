@@ -36,7 +36,8 @@ func _ready():
 #	Calculations.make_vector_directional(Vector2(-1, 0))
 #	Calculations.make_vector_directional(Vector2(0, 1))
 #	Calculations.make_vector_directional(Vector2(0, -1))
-	print(ProjectSettings.get_setting("application/short_version"))
+	var varbl = null
+	print(is_instance_valid(varbl))
 	
 #func _unhandled_input(event):
 ##	if event.device != 0:

@@ -1,0 +1,15 @@
+[gd_resource type="Resource" load_steps=4 format=2]
+
+[ext_resource path="res://Items/SpiritItem.gd" type="Script" id=1]
+[ext_resource path="res://Weapons/SpiritGravity.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Assets/SpiritGravityIcon.png" type="Texture" id=3]
+
+[resource]
+script = ExtResource( 1 )
+name = "SpiritGravity"
+filepath = "res://Weapons/SpiritGravity.tscn"
+scene = ExtResource( 2 )
+texture = ExtResource( 3 )
+player_has_item = false
+acquisition_message = ""
+spirit_cost = 15

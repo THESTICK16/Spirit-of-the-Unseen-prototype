@@ -2,7 +2,10 @@ extends Node
 
 var exempt_items := [
 	"Boomerang", 
-	"SpiritBomb"
+	"SpiritBomb",
+	"SpiritGravity",
+#	"Sword",
+#	"Arrow"
 ]
 
 func _ready():
